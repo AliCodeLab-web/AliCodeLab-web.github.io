@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ali.co | Software Developer</title>
+
+    <meta name="description"
+          content="Ali.co - Business Software Developer specializing in Restaurant POS, Inventory Management, Sales, Purchase, Profit & Loss and Ledger Software.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        :root {
+            --gold: #FFD700;
+            --gold-dark: #c9a900;
+            --black: #080808;
+            --card: #111111;
+            --border: rgba(255, 215, 0, 0.18);
+            --muted: #aaaaaa;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 72px;
+            background: rgba(8, 8, 8, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 215, 0, 0.08);
+            border-radius: 50%;
+            filter: blur(100px);
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 7px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 85px);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 3vw, 30px);
+            color: #ddd;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 650px;
+            margin: auto;
+            font-size: 17px;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #000;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .btn-outline {
+            border: 1px solid #555;
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title span {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #0c0c0c;
+        }
+
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .about-box p {
+            color: #bbb;
+            font-size: 17px;
+        }
+
+        /* SERVICES */
+
+        .services-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px 25px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--gold);
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(255, 215, 0, 0.08);
+            color: var(--gold);
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* PROJECT */
+
+        .projects {
+            background: #0c0c0c;
+        }
+
+        .project-card {
+            max-width: 1100px;
+            margin: auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .project-top {
+            padding: 45px;
+        }
+
+        .project-label {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .project-card h3 {
+            font-size: 32px;
+            margin: 10px 0 15px;
+        }
+
+        .project-card > .project-top > p {
+            color: var(--muted);
+            max-width: 750px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            border: 1px solid #252525;
+            padding: 13px 15px;
+            border-radius: 8px;
+            color: #ddd;
+        }
+
+        .feature::before {
+            content: "✓";
+            color: var(--gold);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            background: linear-gradient(
+                145deg,
+                #151515,
+                #0c0c0c
+            );
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 55px 30px;
+        }
+
+        .contact-box h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: #fff;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #1e1e1e;
+            padding: 30px 20px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+
+        footer strong {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                height: 65px;
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .project-top {
+                padding: 30px 22px;
+            }
+
+            .project-card h3 {
+                font-size: 27px;
+            }
+
+            .contact-box h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">Ali.co</div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            BUSINESS SOFTWARE DEVELOPER
+        </div>
+
+        <h1>
+            Hi, I'm <span>Ali.co</span>
+        </h1>
+
+        <h2>
+            POS & Business Management Software Developer
+        </h2>
+
+        <p>
+            I build powerful and easy-to-use business software
+            that helps shops, restaurants and businesses manage
+            sales, purchases, inventory, profit and customer accounts.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projects" class="btn btn-gold">
+                View My Work
+            </a>
+
+            <a href="https://wa.me/923227424734"
+               target="_blank"
+               class="btn btn-outline">
+                Contact Me
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="section-title">
+
+        <span>About Me</span>
+
+        <h2>Building Software For Real Businesses</h2>
+
+        <p>
+            Simple solutions. Powerful management.
+        </p>
+
+    </div>
+
+    <div class="about-box">
+
+        <p>
+            I specialize in developing business management systems
+            designed for real-world shops and businesses. My software
+            focuses on making daily business operations easier,
+            faster and more organized.
+        </p>
+
+        <br>
+
+        <p>
+            From sales and purchases to inventory, profit & loss,
+            customer ledgers and business reports, I create systems
+            that bring everything together in one place.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="section-title">
+
+        <span>What I Build</span>
+
+        <h2>My Services</h2>
+
+        <p>
+            Business software designed around your needs.
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+        <div class="service-card">
+
+            <div class="icon">🧾</div>
+
+            <h3>Restaurant POS</h3>
+
+            <p>
+                Complete restaurant POS system for orders,
+                invoices, sales, payments and daily management.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="icon">📦</div>
+
+            <h3>Inventory Management</h3>
+
+            <p>
+                Track stock, purchases, sales and inventory
+                movements with easy-to-use management tools.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="icon">💰</div>
+
+            <h3>Sales & Purchase</h3>
+
+            <p>
+                Manage sales and purchase transactions with
+                detailed records and professional reports.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="icon">📊</div>
+
+            <h3>Profit & Loss</h3>
+
+            <p>
+                Get clear business performance reports and
+                understand your profit and loss easily.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="icon">📒</div>
+
+            <h3>Customer Ledger</h3>
+
+            <p>
+                Manage customer balances, payments, receivables
+                and complete account statements.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="icon">⚙️</div>
+
+            <h3>Custom Software</h3>
+
+            <p>
+                Need something different? I can build custom
+                business software according to your requirements.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECT -->
+
+<section class="projects" id="projects">
+
+    <div class="section-title">
+
+        <span>Featured Project</span>
+
+        <h2>My Software</h2>
+
+        <p>
+            A complete business management solution.
+        </p>
+
+    </div>
+
+
+    <div class="project-card">
+
+        <div class="project-top">
+
+            <div class="project-label">
+                Restaurant & Business Management
+            </div>
+
+            <h3>
+                Restaurant POS & Management System
+            </h3>
+
+            <p>
+                A complete POS and business management system
+                designed to manage daily restaurant and business
+                operations from one professional dashboard.
+            </p>
+
+
+            <div class="features">
+
+                <div class="feature">
+                    Restaurant POS
+                </div>
+
+                <div class="feature">
+                    Sales Management
+                </div>
+
+                <div class="feature">
+                    Purchase Management
+                </div>
+
+                <div class="feature">
+                    Inventory Management
+                </div>
+
+                <div class="feature">
+                    Profit & Loss Reports
+                </div>
+
+                <div class="feature">
+                    Customer Ledger
+                </div>
+
+                <div class="feature">
+                    Supplier Management
+                </div>
+
+                <div class="feature">
+                    Business Reports
+                </div>
+
+            </div>
+
+
+            <div class="buttons">
+
+                <a href="https://wa.me/923227424734?text=Hello%20Ali.co%2C%20I%20want%20a%20demo%20of%20your%20Restaurant%20POS%20software."
+                   target="_blank"
+                   class="btn btn-gold">
+                    Request Demo
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="contact-box">
+
+        <h2>
+            Let's Build Your Software
+        </h2>
+
+        <p>
+            Need a POS, inventory system or custom business software?
+            Contact me and let's discuss your requirements.
+        </p>
+
+        <a href="https://wa.me/923227424734"
+           target="_blank"
+           class="whatsapp">
+
+            WhatsApp Me
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 <strong>Ali.co</strong>.
+    All Rights Reserved.
+
+</footer>
+
+
+</body>
+</html>
