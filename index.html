@@ -1,787 +1,1372 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Ali.co | Software Developer</title>
-
-    <meta name="description"
-          content="Ali.co - Business Software Developer specializing in Restaurant POS, Inventory Management, Sales, Purchase, Profit & Loss and Ledger Software.">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080808;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        :root {
-            --gold: #FFD700;
-            --gold-dark: #c9a900;
-            --black: #080808;
-            --card: #111111;
-            --border: rgba(255, 215, 0, 0.18);
-            --muted: #aaaaaa;
-        }
-
-        /* NAVBAR */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 72px;
-            background: rgba(8, 8, 8, 0.94);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 7%;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: 800;
-            color: var(--gold);
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #ddd;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 20px 70px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 215, 0, 0.08);
-            border-radius: 50%;
-            filter: blur(100px);
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .hero-content {
-            position: relative;
-            max-width: 850px;
-        }
-
-        .badge {
-            display: inline-block;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 7px 16px;
-            border-radius: 30px;
-            font-size: 13px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 8vw, 85px);
-            line-height: 1;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: var(--gold);
-        }
-
-        .hero h2 {
-            font-size: clamp(20px, 3vw, 30px);
-            color: #ddd;
-            margin-bottom: 18px;
-        }
-
-        .hero p {
-            color: var(--muted);
-            max-width: 650px;
-            margin: auto;
-            font-size: 17px;
-        }
-
-        .buttons {
-            margin-top: 35px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 13px 25px;
-            border-radius: 8px;
-            font-weight: 700;
-            transition: 0.3s;
-            display: inline-block;
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: #000;
-        }
-
-        .btn-gold:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
-        }
-
-        .btn-outline {
-            border: 1px solid #555;
-            color: #fff;
-        }
-
-        .btn-outline:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        /* GENERAL */
-
-        section {
-            padding: 100px 7%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .section-title span {
-            color: var(--gold);
-            font-size: 13px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .section-title h2 {
-            font-size: 40px;
-            margin-top: 8px;
-        }
-
-        .section-title p {
-            color: var(--muted);
-            margin-top: 10px;
-        }
-
-        /* ABOUT */
-
-        .about {
-            background: #0c0c0c;
-        }
-
-        .about-box {
-            max-width: 900px;
-            margin: auto;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .about-box p {
-            color: #bbb;
-            font-size: 17px;
-        }
-
-        /* SERVICES */
-
-        .services-grid {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .service-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px 25px;
-            transition: 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-7px);
-            border-color: var(--gold);
-        }
-
-        .icon {
-            width: 55px;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: rgba(255, 215, 0, 0.08);
-            color: var(--gold);
-            font-size: 25px;
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .service-card p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* PROJECT */
-
-        .projects {
-            background: #0c0c0c;
-        }
-
-        .project-card {
-            max-width: 1100px;
-            margin: auto;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .project-top {
-            padding: 45px;
-        }
-
-        .project-label {
-            color: var(--gold);
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .project-card h3 {
-            font-size: 32px;
-            margin: 10px 0 15px;
-        }
-
-        .project-card > .project-top > p {
-            color: var(--muted);
-            max-width: 750px;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 30px;
-        }
-
-        .feature {
-            border: 1px solid #252525;
-            padding: 13px 15px;
-            border-radius: 8px;
-            color: #ddd;
-        }
-
-        .feature::before {
-            content: "✓";
-            color: var(--gold);
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        /* CONTACT */
-
-        .contact-box {
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
-            background: linear-gradient(
-                145deg,
-                #151515,
-                #0c0c0c
-            );
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 55px 30px;
-        }
-
-        .contact-box h2 {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
-            color: var(--muted);
-            margin-bottom: 30px;
-        }
-
-        .whatsapp {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #25D366;
-            color: #fff;
-            padding: 14px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .whatsapp:hover {
-            transform: translateY(-3px);
-        }
-
-        /* FOOTER */
-
-        footer {
-            border-top: 1px solid #1e1e1e;
-            padding: 30px 20px;
-            text-align: center;
-            color: #777;
-            font-size: 14px;
-        }
-
-        footer strong {
-            color: var(--gold);
-        }
-
-        /* RESPONSIVE */
-
-        @media (max-width: 850px) {
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .nav-links {
-                gap: 15px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            nav {
-                height: 65px;
-                padding: 0 20px;
-            }
-
-            .logo {
-                font-size: 20px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            section {
-                padding: 75px 20px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .project-top {
-                padding: 30px 22px;
-            }
-
-            .project-card h3 {
-                font-size: 27px;
-            }
-
-            .contact-box h2 {
-                font-size: 30px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ali.co — Business Software Developer | POS, Inventory & Accounting Systems</title>
+<meta name="description" content="Ali.co builds practical business management software — Restaurant POS, inventory management, sales &amp; purchase systems, and accounting solutions for real businesses.">
+<meta name="theme-color" content="#0a0a0a">
+
+<style>
+  /* ============================================================
+     0. CONFIG — BRAND NAME
+     To rename the brand everywhere on the page, change ONLY the
+     value below (used as a fallback for no-JS, JS overrides it
+     from the same CONFIG object further down in <script>).
+  ============================================================ */
+  :root{
+    --gold:#FFD700;
+    --gold-soft:#e6c200;
+    --gold-dim:#c9a227;
+    --bg:#0a0a0a;
+    --bg-alt:#0e0e0e;
+    --bg-elev:#131313;
+    --white:#f5f5f2;
+    --muted:#9a9994;
+    --muted-dim:#6f6e6a;
+    --card-bg:rgba(255,255,255,0.035);
+    --card-bg-hover:rgba(255,255,255,0.06);
+    --card-border:rgba(255,215,0,0.14);
+    --card-border-hover:rgba(255,215,0,0.4);
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --max-w:1180px;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--white);
+    font-family:var(--font-sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    width:100%;
+  }
+  html, body{ max-width:100%; }
+
+  img,svg{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;margin:0;padding:0;}
+  h1,h2,h3,h4,p{margin:0;}
+  button{font-family:inherit;cursor:pointer;}
+
+  ::selection{background:var(--gold);color:#0a0a0a;}
+
+  /* Focus visibility for accessibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  .wrap{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .eyebrow{
+    color:var(--gold);
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.04em;
+  }
+
+  section{padding:120px 0;position:relative;}
+  @media (max-width:768px){ section{padding:80px 0;} }
+
+  h2.section-title{
+    font-size:clamp(28px,4vw,42px);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    color:var(--white);
+    max-width:600px;
+  }
+  .section-sub{
+    color:var(--muted);
+    font-size:16px;
+    max-width:560px;
+    margin-top:14px;
+  }
+  .section-head{margin-bottom:56px;}
+
+  /* ============================================================
+     Background texture — subtle, slow, restrained
+  ============================================================ */
+  .bg-glow{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:
+      radial-gradient(600px circle at 15% 8%, rgba(255,215,0,0.07), transparent 60%),
+      radial-gradient(700px circle at 90% 30%, rgba(255,215,0,0.05), transparent 60%),
+      radial-gradient(900px circle at 50% 100%, rgba(255,215,0,0.04), transparent 60%),
+      var(--bg);
+  }
+  .bg-grid{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    opacity:0.35;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  /* ============================================================
+     Navigation
+  ============================================================ */
+  header.nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(10,10,10,0.72);
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    transition:border-color .3s ease, background .3s ease;
+  }
+  .nav-inner{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 24px;
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    color:var(--white);
+  }
+  .brand span{color:var(--gold);}
+
+  nav.links{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  nav.links a{
+    position:relative;
+    padding:10px 16px;
+    font-size:14.5px;
+    font-weight:500;
+    color:var(--muted);
+    border-radius:8px;
+    transition:color .25s ease, background .25s ease;
+  }
+  nav.links a:hover{ color:var(--white); background:rgba(255,255,255,0.04); }
+  nav.links a.active{ color:var(--gold); }
+  nav.links a.active::after{
+    content:"";
+    position:absolute;
+    left:16px; right:16px; bottom:4px;
+    height:2px;
+    background:var(--gold);
+    border-radius:2px;
+    box-shadow:0 0 8px rgba(255,215,0,0.7);
+  }
+
+  .nav-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 20px;
+    border-radius:999px;
+    background:var(--gold);
+    color:#141200;
+    font-weight:700;
+    font-size:14px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .nav-cta:hover{ transform:translateY(-1px); box-shadow:0 6px 24px rgba(255,215,0,0.3); }
+
+  .hamburger{
+    display:none;
+    width:40px;height:40px;
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:8px;
+    background:transparent;
+    position:relative;
+  }
+  .hamburger span{
+    position:absolute; left:9px; right:9px; height:2px; background:var(--white);
+    transition:transform .25s ease, opacity .25s ease, top .25s ease;
+  }
+  .hamburger span:nth-child(1){top:14px;}
+  .hamburger span:nth-child(2){top:19px;}
+  .hamburger span:nth-child(3){top:24px;}
+  .hamburger.open span:nth-child(1){ top:19px; transform:rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ top:19px; transform:rotate(-45deg); }
+
+  .mobile-menu{
+    display:none;
+    position:fixed;
+    top:76px; left:0; right:0; bottom:0;
+    background:rgba(8,8,8,0.98);
+    backdrop-filter:blur(10px);
+    z-index:999;
+    padding:32px 24px;
+    flex-direction:column;
+    gap:6px;
+    transform:translateY(-8px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .mobile-menu.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+  .mobile-menu a{
+    font-size:19px;
+    font-weight:600;
+    padding:16px 4px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    color:var(--white);
+  }
+  .mobile-menu a.active{ color:var(--gold); }
+  .mobile-menu .nav-cta{ margin-top:20px; justify-content:center; }
+
+  @media (max-width:860px){
+    nav.links, .nav-cta.desktop-only{ display:none; }
+    .hamburger{ display:block; }
+    .mobile-menu{ display:flex; }
+  }
+
+  /* ============================================================
+     Hero
+  ============================================================ */
+  .hero{
+    padding:110px 0 100px;
+    min-height:88vh;
+    display:flex;
+    align-items:center;
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:64px;
+    align-items:center;
+  }
+  @media (max-width:960px){
+    .hero-inner{ grid-template-columns:1fr; gap:56px; }
+    .hero{ padding-top:64px; min-height:auto; }
+  }
+
+  .hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:7px 14px;
+    border-radius:999px;
+    border:1px solid var(--card-border);
+    background:var(--card-bg);
+    font-size:13px;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:24px;
+  }
+  .hero-badge .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 8px 2px rgba(255,215,0,0.7);
+  }
+
+  .hero h1{
+    font-size:clamp(36px,5.4vw,60px);
+    font-weight:800;
+    line-height:1.06;
+    letter-spacing:-0.03em;
+    color:var(--white);
+  }
+  .hero h1 .accent{
+    background:linear-gradient(100deg, var(--gold) 10%, #fff4b8 45%, var(--gold) 80%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .hero-lead{
+    margin-top:22px;
+    font-size:17.5px;
+    color:var(--muted);
+    max-width:520px;
+    line-height:1.7;
+  }
+  .hero-lead strong{ color:var(--white); font-weight:600; }
+
+  .hero-actions{
+    display:flex;
+    gap:16px;
+    margin-top:36px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 28px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:15px;
+    border:1px solid transparent;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--gold), var(--gold-soft));
+    color:#141200;
+    box-shadow:0 8px 30px rgba(255,215,0,0.18);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 34px rgba(255,215,0,0.32); }
+  .btn-outline{
+    background:transparent;
+    color:var(--white);
+    border-color:rgba(255,255,255,0.18);
+  }
+  .btn-outline:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+    transform:translateY(-2px);
+  }
+
+  .hero-stats{
+    display:flex;
+    gap:36px;
+    margin-top:56px;
+    flex-wrap:wrap;
+  }
+  .hero-stats .stat b{
+    display:block;
+    font-family:var(--font-mono);
+    font-size:24px;
+    color:var(--gold);
+    font-weight:700;
+  }
+  .hero-stats .stat span{
+    font-size:12.5px;
+    color:var(--muted-dim);
+  }
+
+  /* Hero visual — a mock business dashboard, built from HTML/CSS only */
+  .hero-visual{
+    position:relative;
+    display:flex;
+    justify-content:center;
+  }
+  .dash-card{
+    width:100%;
+    max-width:440px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
+    border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    padding:22px;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,215,0,0.03);
+    animation:float 7s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%,100%{ transform:translateY(0px); }
+    50%{ transform:translateY(-12px); }
+  }
+  .dash-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+  }
+  .dash-dots{ display:flex; gap:6px; }
+  .dash-dots span{ width:9px;height:9px;border-radius:50%; background:rgba(255,255,255,0.15); }
+  .dash-title{ font-size:12.5px; color:var(--muted); font-family:var(--font-mono); }
+
+  .dash-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-bottom:16px;
+  }
+  .dash-tile{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:var(--radius-sm);
+    padding:14px;
+  }
+  .dash-tile .lbl{ font-size:11.5px; color:var(--muted-dim); margin-bottom:6px; }
+  .dash-tile .val{ font-family:var(--font-mono); font-size:19px; font-weight:700; color:var(--white); }
+  .dash-tile .val.up{ color:var(--gold); }
+  .dash-tile .delta{ font-size:11px; color:#7fbf7f; margin-top:4px; }
+
+  .dash-chart{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:var(--radius-sm);
+    padding:16px 14px 12px;
+    display:flex;
+    align-items:flex-end;
+    gap:8px;
+    height:96px;
+  }
+  .dash-chart i{
+    flex:1;
+    display:block;
+    background:linear-gradient(180deg, var(--gold), rgba(255,215,0,0.15));
+    border-radius:4px 4px 0 0;
+    opacity:0.85;
+  }
+  .dash-chart i:nth-child(6){ opacity:1; box-shadow:0 0 16px rgba(255,215,0,0.5); }
+
+  .dash-footline{
+    display:flex;
+    justify-content:space-between;
+    margin-top:14px;
+    font-size:11px;
+    color:var(--muted-dim);
+    font-family:var(--font-mono);
+  }
+
+  .dash-float-badge{
+    position:absolute;
+    top:-18px;
+    right:8px;
+    background:var(--bg-elev);
+    border:1px solid var(--card-border-hover);
+    padding:10px 14px;
+    border-radius:12px;
+    font-size:12px;
+    font-weight:600;
+    color:var(--gold);
+    box-shadow:0 12px 30px rgba(0,0,0,0.5);
+    animation:float 7s ease-in-out infinite;
+    animation-delay:-2s;
+  }
+  @media (max-width:520px){ .dash-float-badge{ display:none; } }
+
+  /* ============================================================
+     Reveal on scroll
+  ============================================================ */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible{ opacity:1; transform:translateY(0); }
+
+  /* ============================================================
+     About
+  ============================================================ */
+  .about-inner{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:64px;
+    align-items:start;
+  }
+  @media (max-width:860px){ .about-inner{ grid-template-columns:1fr; } }
+  .about-text p{
+    color:var(--muted);
+    font-size:16.5px;
+    max-width:640px;
+    margin-bottom:18px;
+  }
+  .about-text p strong{ color:var(--white); font-weight:600; }
+
+  .about-panel{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);
+    padding:28px;
+    backdrop-filter:blur(10px);
+  }
+  .about-panel h4{
+    font-size:13px;
+    color:var(--muted-dim);
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .about-panel ul{ display:flex; flex-direction:column; gap:14px; }
+  .about-panel li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:14.5px;
+    color:var(--white);
+    padding-bottom:14px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .about-panel li:last-child{ border-bottom:none; padding-bottom:0; }
+  .about-panel .ic{
+    width:34px;height:34px;
+    flex-shrink:0;
+    border-radius:9px;
+    background:rgba(255,215,0,0.08);
+    border:1px solid rgba(255,215,0,0.25);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold);
+    font-size:16px;
+    font-weight:700;
+  }
+
+  /* ============================================================
+     Cards grid — shared
+  ============================================================ */
+  .grid{
+    display:grid;
+    gap:22px;
+  }
+  .grid-3{ grid-template-columns:repeat(3,1fr); }
+  .grid-2{ grid-template-columns:repeat(2,1fr); }
+  @media (max-width:900px){ .grid-3{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:640px){ .grid-3, .grid-2{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);
+    padding:30px 26px;
+    transition:transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    border-color:var(--card-border-hover);
+    background:var(--card-bg-hover);
+    box-shadow:0 20px 50px -20px rgba(255,215,0,0.15);
+  }
+
+  /* Services */
+  .service-ic{
+    width:52px;height:52px;
+    border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;
+    background:linear-gradient(135deg, rgba(255,215,0,0.14), rgba(255,215,0,0.02));
+    border:1px solid rgba(255,215,0,0.22);
+    margin-bottom:20px;
+  }
+  .card h3{ font-size:19px; font-weight:700; margin-bottom:10px; color:var(--white); }
+  .card p.desc{ font-size:14.5px; color:var(--muted); line-height:1.65; }
+
+  /* Projects */
+  .proj-card{
+    display:flex;
+    flex-direction:column;
+  }
+  .proj-tag{
+    display:inline-block;
+    font-size:11.5px;
+    color:var(--gold);
+    font-family:var(--font-mono);
+    background:rgba(255,215,0,0.08);
+    border:1px solid rgba(255,215,0,0.2);
+    padding:4px 10px;
+    border-radius:999px;
+    margin-bottom:16px;
+    width:fit-content;
+  }
+  .tech-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:18px 0 20px;
+  }
+  .tech-pill{
+    font-size:12px;
+    color:var(--muted);
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:5px 11px;
+    border-radius:999px;
+  }
+  .view-btn{
+    margin-top:auto;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    font-weight:700;
+    color:var(--gold);
+    background:transparent;
+    border:1px solid rgba(255,215,0,0.3);
+    padding:11px 18px;
+    border-radius:10px;
+    transition:background .2s ease, color .2s ease, transform .2s ease;
+    width:fit-content;
+  }
+  .view-btn:hover{ background:var(--gold); color:#141200; transform:translateY(-1px); }
+  .view-btn .chev{ transition:transform .25s ease; }
+  .view-btn[aria-expanded="true"] .chev{ transform:rotate(180deg); }
+
+  .proj-detail{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease, opacity .3s ease, margin-top .35s ease;
+    opacity:0;
+  }
+  .proj-detail.open{
+    max-height:220px;
+    opacity:1;
+    margin-top:18px;
+  }
+  .proj-detail ul{ display:flex; flex-direction:column; gap:9px; }
+  .proj-detail li{
+    font-size:13.5px;
+    color:var(--muted);
+    display:flex;
+    gap:9px;
+  }
+  .proj-detail li::before{
+    content:"—";
+    color:var(--gold);
+    flex-shrink:0;
+  }
+
+  /* ============================================================
+     Skills
+  ============================================================ */
+  .skills-inner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px 48px;
+  }
+  @media (max-width:720px){ .skills-inner{ grid-template-columns:1fr; } }
+  .skill-row{ padding:14px 0; }
+  .skill-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:9px;
+  }
+  .skill-name{ font-size:15px; font-weight:600; color:var(--white); }
+  .skill-pct{ font-family:var(--font-mono); font-size:13px; color:var(--gold); }
+  .bar-track{
+    height:7px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.06);
+    overflow:hidden;
+  }
+  .bar-fill{
+    height:100%;
+    width:0%;
+    border-radius:999px;
+    background:linear-gradient(90deg, var(--gold-dim), var(--gold));
+    box-shadow:0 0 10px rgba(255,215,0,0.4);
+    transition:width 1.1s cubic-bezier(.2,.8,.2,1);
+  }
+
+  /* ============================================================
+     Features "What I Build"
+  ============================================================ */
+  .feat-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  @media (max-width:960px){ .feat-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .feat-grid{ grid-template-columns:1fr; } }
+  .feat-item{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:var(--radius-md);
+    padding:20px;
+    transition:border-color .25s ease, background .25s ease;
+  }
+  .feat-item:hover{ border-color:var(--card-border-hover); background:var(--card-bg-hover); }
+  .feat-check{
+    width:26px;height:26px;
+    flex-shrink:0;
+    border-radius:8px;
+    background:rgba(255,215,0,0.1);
+    border:1px solid rgba(255,215,0,0.3);
+    color:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;
+    font-weight:700;
+  }
+  .feat-item p{ font-size:14.5px; color:var(--white); font-weight:500; line-height:1.5; }
+
+  /* ============================================================
+     Contact
+  ============================================================ */
+  .contact-panel{
+    background:linear-gradient(160deg, rgba(255,215,0,0.06), rgba(255,255,255,0.02));
+    border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);
+    padding:56px;
+    text-align:center;
+  }
+  @media (max-width:640px){ .contact-panel{ padding:36px 22px; } }
+  .contact-panel h2{
+    font-size:clamp(26px,4vw,38px);
+    font-weight:800;
+    letter-spacing:-0.02em;
+  }
+  .contact-panel .section-sub{ margin:16px auto 0; text-align:center; }
+  .contact-phone{
+    font-family:var(--font-mono);
+    font-size:clamp(24px,4vw,34px);
+    color:var(--gold);
+    font-weight:700;
+    margin:30px 0 8px;
+    letter-spacing:0.02em;
+  }
+  .contact-phone-lbl{ font-size:13px; color:var(--muted-dim); margin-bottom:6px; }
+  .contact-actions{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:34px;
+  }
+  .cbtn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 24px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:14.5px;
+    transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.03);
+    color:var(--white);
+  }
+  .cbtn:hover{ transform:translateY(-2px); border-color:var(--card-border-hover); }
+  .cbtn.call{ background:var(--gold); color:#141200; border-color:transparent; }
+  .cbtn.whatsapp{ background:#25D366; color:#08210f; border-color:transparent; }
+  .cbtn.email.disabled{ opacity:0.45; cursor:not-allowed; }
+  .cbtn .glyph{ font-size:16px; }
+  .contact-note{
+    margin-top:16px;
+    font-size:12.5px;
+    color:var(--muted-dim);
+    min-height:16px;
+  }
+
+  /* ============================================================
+     Footer
+  ============================================================ */
+  footer{
+    border-top:1px solid rgba(255,255,255,0.07);
+    padding:52px 0 36px;
+  }
+  .foot-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+  .foot-brand{ font-size:19px; font-weight:800; }
+  .foot-brand span{ color:var(--gold); }
+  .foot-tag{ font-size:13px; color:var(--muted-dim); margin-top:6px; }
+  .foot-social{ display:flex; gap:10px; }
+  .foot-social a{
+    width:40px;height:40px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.12);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;
+    font-weight:700;
+    color:var(--muted);
+    font-family:var(--font-mono);
+    transition:color .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .foot-social a:hover{ color:var(--gold); border-color:var(--gold); transform:translateY(-2px); }
+  .foot-bottom{
+    margin-top:36px;
+    padding-top:24px;
+    border-top:1px solid rgba(255,255,255,0.06);
+    text-align:center;
+    font-size:13px;
+    color:var(--muted-dim);
+  }
+
+  /* ============================================================
+     Scroll to top
+  ============================================================ */
+  #toTop{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:46px;height:46px;
+    border-radius:50%;
+    background:var(--gold);
+    color:#141200;
+    border:none;
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+    font-weight:700;
+    box-shadow:0 10px 26px rgba(255,215,0,0.28);
+    opacity:0;
+    transform:translateY(12px);
+    pointer-events:none;
+    transition:opacity .3s ease, transform .3s ease;
+    z-index:900;
+  }
+  #toTop.show{ opacity:1; transform:translateY(0); pointer-events:auto; }
+</style>
 </head>
-
 <body>
 
-<!-- NAVIGATION -->
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
 
-<nav>
-    <div class="logo">Ali.co</div>
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">Ali<span>.co</span></a>
 
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+    <nav class="links" id="navLinks">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#services" data-nav="services">Services</a>
+      <a href="#projects" data-nav="projects">Projects</a>
+      <a href="#skills" data-nav="skills">Skills</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </nav>
 
+    <a href="#contact" class="nav-cta desktop-only">Let's Talk</a>
 
-<!-- HERO -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
-<section class="hero" id="home">
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" data-nav="home">Home</a>
+    <a href="#about" data-nav="about">About</a>
+    <a href="#services" data-nav="services">Services</a>
+    <a href="#projects" data-nav="projects">Projects</a>
+    <a href="#skills" data-nav="skills">Skills</a>
+    <a href="#contact" data-nav="contact">Contact</a>
+    <a href="#contact" class="nav-cta">Let's Talk</a>
+  </div>
+</header>
 
-    <div class="hero-content">
-
-        <div class="badge">
-            BUSINESS SOFTWARE DEVELOPER
-        </div>
-
-        <h1>
-            Hi, I'm <span>Ali.co</span>
-        </h1>
-
-        <h2>
-            POS & Business Management Software Developer
-        </h2>
-
-        <p>
-            I build powerful and easy-to-use business software
-            that helps shops, restaurants and businesses manage
-            sales, purchases, inventory, profit and customer accounts.
-        </p>
-
-        <div class="buttons">
-
-            <a href="#projects" class="btn btn-gold">
-                View My Work
-            </a>
-
-            <a href="https://wa.me/923227424734"
-               target="_blank"
-               class="btn btn-outline">
-                Contact Me
-            </a>
-
-        </div>
-
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="home" class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="hero-badge"><span class="dot"></span> Available for new projects</div>
+      <h1>Business Software<br>Developer <span class="accent">for growing companies</span></h1>
+      <p class="hero-lead">
+        I'm <strong>Ali</strong>, and I design and build <strong>business management and POS software</strong>
+        that helps companies run their sales, purchases, inventory, and accounts without the daily chaos —
+        practical systems, built for how businesses actually operate.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>4+</b><span>Systems Delivered</span></div>
+        <div class="stat"><b>8</b><span>Core Technologies</span></div>
+        <div class="stat"><b>100%</b><span>Custom-Built</span></div>
+      </div>
     </div>
 
+    <div class="hero-visual">
+      <div style="position:relative;width:100%;max-width:440px;">
+        <div class="dash-float-badge">✓ Sync complete</div>
+        <div class="dash-card">
+          <div class="dash-top">
+            <div class="dash-dots"><span></span><span></span><span></span></div>
+            <div class="dash-title">business-dashboard.exe</div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-tile">
+              <div class="lbl">Today's Sales</div>
+              <div class="val up">Rs 84,250</div>
+              <div class="delta">▲ 12.4% vs yesterday</div>
+            </div>
+            <div class="dash-tile">
+              <div class="lbl">Stock Items</div>
+              <div class="val">1,284</div>
+              <div class="delta" style="color:var(--muted-dim);">32 low-stock alerts</div>
+            </div>
+          </div>
+          <div class="dash-chart" aria-hidden="true">
+            <i style="height:35%"></i>
+            <i style="height:55%"></i>
+            <i style="height:40%"></i>
+            <i style="height:70%"></i>
+            <i style="height:50%"></i>
+            <i style="height:88%"></i>
+          </div>
+          <div class="dash-footline">
+            <span>Weekly Revenue</span>
+            <span>Profit +18.2%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<!-- ABOUT -->
-
-<section class="about" id="about">
-
-    <div class="section-title">
-
-        <span>About Me</span>
-
-        <h2>Building Software For Real Businesses</h2>
-
-        <p>
-            Simple solutions. Powerful management.
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-inner">
+      <div class="reveal about-text">
+        <div class="eyebrow">About Me</div>
+        <h2 class="section-title" style="margin-top:12px;">Software that runs the business, not just the screen</h2>
+        <p style="margin-top:26px;">
+          I'm a business software developer focused on one thing: building tools that <strong>real businesses use every single day</strong> —
+          not demo software, not concept apps. My work centers on the systems that keep a business
+          running smoothly behind the scenes: sales counters, stockrooms, supplier ledgers, and the numbers
+          that tell an owner whether they made money this month.
         </p>
+        <p>
+          I develop practical <strong>business management and POS software</strong> that helps companies
+          manage sales, purchases, inventory, and accounts efficiently — replacing spreadsheets and paper
+          registers with fast, reliable, database-driven systems that owners and staff can actually trust.
+        </p>
+        <p>
+          Every project starts with how the business already works, then builds the software around it —
+          not the other way around.
+        </p>
+      </div>
 
+      <div class="reveal about-panel">
+        <h4>What I focus on</h4>
+        <ul>
+          <li><span class="ic">₱</span> Sales &amp; POS operations</li>
+          <li><span class="ic">▤</span> Inventory &amp; stock control</li>
+          <li><span class="ic">§</span> Ledger &amp; accounts</li>
+          <li><span class="ic">%</span> Profit &amp; loss visibility</li>
+          <li><span class="ic">⚙</span> Daily business automation</li>
+        </ul>
+      </div>
     </div>
-
-    <div class="about-box">
-
-        <p>
-            I specialize in developing business management systems
-            designed for real-world shops and businesses. My software
-            focuses on making daily business operations easier,
-            faster and more organized.
-        </p>
-
-        <br>
-
-        <p>
-            From sales and purchases to inventory, profit & loss,
-            customer ledgers and business reports, I create systems
-            that bring everything together in one place.
-        </p>
-
-    </div>
-
+  </div>
 </section>
 
-
-<!-- SERVICES -->
-
+<!-- ============================================================
+     SERVICES
+============================================================ -->
 <section id="services">
-
-    <div class="section-title">
-
-        <span>What I Build</span>
-
-        <h2>My Services</h2>
-
-        <p>
-            Business software designed around your needs.
-        </p>
-
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Services</div>
+      <h2 class="section-title" style="margin-top:12px;">Software built around how your business runs</h2>
+      <p class="section-sub">From the checkout counter to the balance sheet — end-to-end systems, built to fit your operations.</p>
     </div>
 
-
-    <div class="services-grid">
-
-        <div class="service-card">
-
-            <div class="icon">🧾</div>
-
-            <h3>Restaurant POS</h3>
-
-            <p>
-                Complete restaurant POS system for orders,
-                invoices, sales, payments and daily management.
-            </p>
-
-        </div>
-
-
-        <div class="service-card">
-
-            <div class="icon">📦</div>
-
-            <h3>Inventory Management</h3>
-
-            <p>
-                Track stock, purchases, sales and inventory
-                movements with easy-to-use management tools.
-            </p>
-
-        </div>
-
-
-        <div class="service-card">
-
-            <div class="icon">💰</div>
-
-            <h3>Sales & Purchase</h3>
-
-            <p>
-                Manage sales and purchase transactions with
-                detailed records and professional reports.
-            </p>
-
-        </div>
-
-
-        <div class="service-card">
-
-            <div class="icon">📊</div>
-
-            <h3>Profit & Loss</h3>
-
-            <p>
-                Get clear business performance reports and
-                understand your profit and loss easily.
-            </p>
-
-        </div>
-
-
-        <div class="service-card">
-
-            <div class="icon">📒</div>
-
-            <h3>Customer Ledger</h3>
-
-            <p>
-                Manage customer balances, payments, receivables
-                and complete account statements.
-            </p>
-
-        </div>
-
-
-        <div class="service-card">
-
-            <div class="icon">⚙️</div>
-
-            <h3>Custom Software</h3>
-
-            <p>
-                Need something different? I can build custom
-                business software according to your requirements.
-            </p>
-
-        </div>
-
+    <div class="grid grid-3">
+      <div class="card reveal">
+        <div class="service-ic">🧾</div>
+        <h3>Restaurant POS</h3>
+        <p class="desc">Fast, reliable point-of-sale systems for restaurants and cafés — order taking, table management, kitchen tickets, and billing in one clean interface.</p>
+      </div>
+      <div class="card reveal">
+        <div class="service-ic">📦</div>
+        <h3>Inventory Management</h3>
+        <p class="desc">Real-time stock tracking with low-stock alerts, supplier records, and stock movement history so you always know what's on the shelf.</p>
+      </div>
+      <div class="card reveal">
+        <div class="service-ic">🔁</div>
+        <h3>Sales &amp; Purchase Management</h3>
+        <p class="desc">Complete sales and purchase workflows — invoices, purchase orders, returns, and customer &amp; supplier records, all connected.</p>
+      </div>
+      <div class="card reveal">
+        <div class="service-ic">📊</div>
+        <h3>Profit &amp; Loss Reports</h3>
+        <p class="desc">Automated, up-to-date profit and loss reporting so you can see exactly how the business is performing, without manual number-crunching.</p>
+      </div>
+      <div class="card reveal">
+        <div class="service-ic">📒</div>
+        <h3>Ledger &amp; Accounts</h3>
+        <p class="desc">Digital ledgers for accounts receivable, payable, and general bookkeeping — accurate records without the paper trail.</p>
+      </div>
+      <div class="card reveal">
+        <div class="service-ic">🛠️</div>
+        <h3>Custom Business Software</h3>
+        <p class="desc">Not covered above? I build custom systems tailored to your specific workflow, from the ground up.</p>
+      </div>
     </div>
-
+  </div>
 </section>
 
-
-<!-- PROJECT -->
-
-<section class="projects" id="projects">
-
-    <div class="section-title">
-
-        <span>Featured Project</span>
-
-        <h2>My Software</h2>
-
-        <p>
-            A complete business management solution.
-        </p>
-
+<!-- ============================================================
+     PROJECTS
+============================================================ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Projects</div>
+      <h2 class="section-title" style="margin-top:12px;">Systems built for real business use</h2>
+      <p class="section-sub">A look at the kind of software I build — click "View Project" for a closer look at each one.</p>
     </div>
 
+    <div class="grid grid-2">
 
-    <div class="project-card">
-
-        <div class="project-top">
-
-            <div class="project-label">
-                Restaurant & Business Management
-            </div>
-
-            <h3>
-                Restaurant POS & Management System
-            </h3>
-
-            <p>
-                A complete POS and business management system
-                designed to manage daily restaurant and business
-                operations from one professional dashboard.
-            </p>
-
-
-            <div class="features">
-
-                <div class="feature">
-                    Restaurant POS
-                </div>
-
-                <div class="feature">
-                    Sales Management
-                </div>
-
-                <div class="feature">
-                    Purchase Management
-                </div>
-
-                <div class="feature">
-                    Inventory Management
-                </div>
-
-                <div class="feature">
-                    Profit & Loss Reports
-                </div>
-
-                <div class="feature">
-                    Customer Ledger
-                </div>
-
-                <div class="feature">
-                    Supplier Management
-                </div>
-
-                <div class="feature">
-                    Business Reports
-                </div>
-
-            </div>
-
-
-            <div class="buttons">
-
-                <a href="https://wa.me/923227424734?text=Hello%20Ali.co%2C%20I%20want%20a%20demo%20of%20your%20Restaurant%20POS%20software."
-                   target="_blank"
-                   class="btn btn-gold">
-                    Request Demo
-                </a>
-
-            </div>
-
+      <div class="card proj-card reveal">
+        <span class="proj-tag">POS SYSTEM</span>
+        <h3>Restaurant POS &amp; Management System</h3>
+        <p class="desc">A complete point-of-sale and back-office system for restaurants — covering order taking, kitchen tickets, table tracking, and daily sales reporting.</p>
+        <div class="tech-row">
+          <span class="tech-pill">PHP</span><span class="tech-pill">MySQL</span>
+          <span class="tech-pill">Bootstrap</span><span class="tech-pill">JavaScript</span>
         </div>
+        <button class="view-btn" data-target="detail-1" aria-expanded="false">View Project <span class="chev">▾</span></button>
+        <div class="proj-detail" id="detail-1">
+          <ul>
+            <li>Order taking &amp; live table status</li>
+            <li>Kitchen ticket printing workflow</li>
+            <li>Daily, weekly &amp; monthly sales summaries</li>
+            <li>Role-based staff access (cashier, manager)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card proj-card reveal">
+        <span class="proj-tag">INVENTORY</span>
+        <h3>Inventory Management System</h3>
+        <p class="desc">A stock control system with real-time inventory levels, low-stock alerts, and complete stock movement history across multiple locations.</p>
+        <div class="tech-row">
+          <span class="tech-pill">PHP</span><span class="tech-pill">MySQL</span>
+          <span class="tech-pill">Chart.js</span><span class="tech-pill">Bootstrap</span>
+        </div>
+        <button class="view-btn" data-target="detail-2" aria-expanded="false">View Project <span class="chev">▾</span></button>
+        <div class="proj-detail" id="detail-2">
+          <ul>
+            <li>Real-time stock level tracking</li>
+            <li>Automated low-stock alerts</li>
+            <li>Supplier &amp; purchase history per item</li>
+            <li>Visual stock reports with Chart.js</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card proj-card reveal">
+        <span class="proj-tag">SALES &amp; PURCHASE</span>
+        <h3>Sales &amp; Purchase System</h3>
+        <p class="desc">An end-to-end sales and purchase workflow — invoicing, purchase orders, returns handling, and customer and supplier management in one place.</p>
+        <div class="tech-row">
+          <span class="tech-pill">PHP</span><span class="tech-pill">MySQL</span>
+          <span class="tech-pill">JavaScript</span><span class="tech-pill">HTML/CSS</span>
+        </div>
+        <button class="view-btn" data-target="detail-3" aria-expanded="false">View Project <span class="chev">▾</span></button>
+        <div class="proj-detail" id="detail-3">
+          <ul>
+            <li>Invoice &amp; purchase order generation</li>
+            <li>Customer and supplier ledgers</li>
+            <li>Returns &amp; refund handling</li>
+            <li>Searchable transaction history</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card proj-card reveal">
+        <span class="proj-tag">ACCOUNTING</span>
+        <h3>Business Accounting &amp; Ledger System</h3>
+        <p class="desc">A digital ledger and accounting system that automates profit &amp; loss reporting and keeps accounts receivable and payable organized.</p>
+        <div class="tech-row">
+          <span class="tech-pill">PHP</span><span class="tech-pill">MySQL</span>
+          <span class="tech-pill">Chart.js</span><span class="tech-pill">GitHub</span>
+        </div>
+        <button class="view-btn" data-target="detail-4" aria-expanded="false">View Project <span class="chev">▾</span></button>
+        <div class="proj-detail" id="detail-4">
+          <ul>
+            <li>Automated profit &amp; loss statements</li>
+            <li>Accounts receivable &amp; payable tracking</li>
+            <li>General ledger entries &amp; balances</li>
+            <li>Exportable financial summaries</li>
+          </ul>
+        </div>
+      </div>
 
     </div>
-
+  </div>
 </section>
 
+<!-- ============================================================
+     SKILLS
+============================================================ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Skills</div>
+      <h2 class="section-title" style="margin-top:12px;">Tools I build with</h2>
+      <p class="section-sub">The core stack behind every system I ship.</p>
+    </div>
 
-<!-- CONTACT -->
+    <div class="skills-inner">
+      <div class="skill-row reveal" data-pct="92">
+        <div class="skill-top"><span class="skill-name">PHP</span><span class="skill-pct">92%</span></div>
+        <div class="bar-track"><div class="bar-fill"></div></div>
+      </div>
+      <div class="skill-row reveal" data-pct="90">
+        <div class="skill-top"><span class="skill-name">MySQL</span><span class="skill-pct">90%</span></div>
+        <div class="bar-track"><div class="bar-fill"></div></div>
+      </div>
+      <div class="skill-row reveal" data-pct="95">
+        <div class="skill-top"><span class="skill-name">HTML</span><span class="skill-pct">95%</span></div>
+        <div class="bar-track"><div class="bar-fill"></div></div>
+      </div>
+      <div class="skill-row reveal" data-pct="90">
+        <div class="skill-top"><span class="skill-name">CSS</span><span class="skill-pct">90%</span></div>
+        <div class="bar-track"><div class="bar-fill"></div></div>
+      </div>
+      <div class="skill-row reveal" data-pct="85">
+        <div class="skill-top"><span class="skill-name">JavaScript</span><span class="skill-pct">85%</span></div>
+        <div class="bar-track"><div class="bar-fill"></div></div>
+      </div>
+      <div class="skill-row reveal" data-pct="88">
+        <div class="skill-top"><span class="skill-name">Bootstrap</span><span class="skill-pct">88%</span></div>
+        <div class="bar-track"><div class="bar-fill"></div></div>
+      </div>
+      <div class="skill-row reveal" data-pct="80">
+        <div class="skill-top"><span class="skill-name">Chart.js</span><span class="skill-pct">80%</span></div>
+        <div class="bar-track"><div class="bar-fill"></div></div>
+      </div>
+      <div class="skill-row reveal" data-pct="85">
+        <div class="skill-top"><span class="skill-name">GitHub</span><span class="skill-pct">85%</span></div>
+        <div class="bar-track"><div class="bar-fill"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ============================================================
+     FEATURES — What I Build
+============================================================ -->
+<section id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Capabilities</div>
+      <h2 class="section-title" style="margin-top:12px;">What I Build</h2>
+      <p class="section-sub">Every system I ship is built around these core principles.</p>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat-item reveal"><span class="feat-check">✓</span><p>Fast and user-friendly interfaces</p></div>
+      <div class="feat-item reveal"><span class="feat-check">✓</span><p>Business automation</p></div>
+      <div class="feat-item reveal"><span class="feat-check">✓</span><p>Real-time sales and inventory tracking</p></div>
+      <div class="feat-item reveal"><span class="feat-check">✓</span><p>Profit &amp; loss reporting</p></div>
+      <div class="feat-item reveal"><span class="feat-check">✓</span><p>Customer and supplier management</p></div>
+      <div class="feat-item reveal"><span class="feat-check">✓</span><p>Ledger management</p></div>
+      <div class="feat-item reveal"><span class="feat-check">✓</span><p>Responsive dashboards</p></div>
+      <div class="feat-item reveal"><span class="feat-check">✓</span><p>Secure, database-driven systems</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
 <section id="contact">
+  <div class="wrap">
+    <div class="contact-panel reveal">
+      <div class="eyebrow">Contact</div>
+      <h2 style="margin-top:12px;">Let's build your next business system</h2>
+      <p class="section-sub">Have a project in mind, or just want to talk about your business workflow? Reach out — I usually reply the same day.</p>
 
-    <div class="contact-box">
+      <div class="contact-phone-lbl">Call or WhatsApp directly</div>
+      <div class="contact-phone" id="phoneDisplay">0322 7424734</div>
 
-        <h2>
-            Let's Build Your Software
-        </h2>
-
-        <p>
-            Need a POS, inventory system or custom business software?
-            Contact me and let's discuss your requirements.
-        </p>
-
-        <a href="https://wa.me/923227424734"
-           target="_blank"
-           class="whatsapp">
-
-            WhatsApp Me
-
-        </a>
-
+      <div class="contact-actions">
+        <a href="#" id="callBtn" class="cbtn call"><span class="glyph">☎</span> Call Now</a>
+        <a href="#" id="whatsappBtn" class="cbtn whatsapp" target="_blank" rel="noopener"><span class="glyph">🟢</span> WhatsApp</a>
+        <a href="#" id="emailBtn" class="cbtn email"><span class="glyph">✉</span> Email Me</a>
+      </div>
+      <div class="contact-note" id="contactNote"></div>
     </div>
-
+  </div>
 </section>
 
-
-<!-- FOOTER -->
-
+<!-- ============================================================
+     FOOTER
+============================================================ -->
 <footer>
-
-    © 2026 <strong>Ali.co</strong>.
-    All Rights Reserved.
-
+  <div class="wrap">
+    <div class="foot-inner">
+      <div>
+        <div class="foot-brand">Ali<span>.co</span></div>
+        <div class="foot-tag">Business Software Developer</div>
+      </div>
+      <div class="foot-social">
+        <a href="#contact" title="Call">☎</a>
+        <a href="#contact" title="WhatsApp">WA</a>
+        <a href="https://github.com/" target="_blank" rel="noopener" title="GitHub">GH</a>
+        <a href="#contact" title="Email">@</a>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Ali.co — Business Software Developer</div>
+  </div>
 </footer>
 
+<button id="toTop" aria-label="Scroll to top">↑</button>
 
+<script>
+(function(){
+  "use strict";
+
+  /* ============================================================
+     CONFIG — edit these values to update the site
+     brandName : change the brand name EVERYWHERE from here
+     phone     : digits used for the tel: link
+     phoneDisplay : how the number is shown on screen
+     whatsapp  : digits only, international format, no + or spaces
+     email     : leave empty ("") until you have a real address —
+                 the Email button will stay disabled until set
+  ============================================================ */
+  const CONFIG = {
+    brandName: "Ali.co",
+    phone: "03227424734",
+    phoneDisplay: "0322 7424734",
+    whatsapp: "923227424734",
+    email: ""
+  };
+
+  // Apply brand name across the page
+  document.querySelectorAll(".brand, .foot-brand").forEach(function(el){
+    var name = CONFIG.brandName;
+    var splitIndex = name.length > 2 ? name.length - 3 : Math.ceil(name.length/2);
+    var main = name.slice(0, splitIndex);
+    var rest = name.slice(splitIndex);
+    el.innerHTML = main + "<span>" + rest + "</span>";
+  });
+  document.title = document.title.replace("Ali.co", CONFIG.brandName);
+
+  // Apply phone / whatsapp / email
+  document.getElementById("phoneDisplay").textContent = CONFIG.phoneDisplay;
+  document.getElementById("callBtn").setAttribute("href", "tel:" + CONFIG.phone);
+  document.getElementById("whatsappBtn").setAttribute("href", "https://wa.me/" + CONFIG.whatsapp);
+
+  var emailBtn = document.getElementById("emailBtn");
+  var note = document.getElementById("contactNote");
+  if (CONFIG.email && CONFIG.email.indexOf("@") > -1){
+    emailBtn.setAttribute("href", "mailto:" + CONFIG.email);
+  } else {
+    emailBtn.classList.add("disabled");
+    emailBtn.setAttribute("href", "#");
+    emailBtn.setAttribute("aria-disabled", "true");
+    emailBtn.addEventListener("click", function(e){
+      e.preventDefault();
+      note.textContent = "Email not set up yet — please call or message on WhatsApp.";
+    });
+  }
+
+  /* ---------------- Mobile menu ---------------- */
+  var hamburger = document.getElementById("hamburger");
+  var mobileMenu = document.getElementById("mobileMenu");
+  hamburger.addEventListener("click", function(){
+    var open = mobileMenu.classList.toggle("open");
+    hamburger.classList.toggle("open", open);
+    hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  });
+  mobileMenu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      mobileMenu.classList.remove("open");
+      hamburger.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    });
+  });
+
+  /* ---------------- Smooth scroll with sticky-nav offset ---------------- */
+  var navHeight = document.querySelector("header.nav").offsetHeight;
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener("click", function(e){
+      var id = this.getAttribute("href");
+      if (id.length < 2) return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.pageYOffset - (navHeight - 1);
+      window.scrollTo({ top: top, behavior: "smooth" });
+    });
+  });
+
+  /* ---------------- Active nav link on scroll ---------------- */
+  var sections = ["home","about","services","projects","skills","contact"]
+    .map(function(id){ return document.getElementById(id); })
+    .filter(Boolean);
+  var navAnchors = document.querySelectorAll('[data-nav]');
+
+  function setActive(id){
+    navAnchors.forEach(function(a){
+      a.classList.toggle("active", a.getAttribute("data-nav") === id);
+    });
+  }
+
+  var sectionObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        setActive(entry.target.id);
+      }
+    });
+  }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+  sections.forEach(function(s){ sectionObserver.observe(s); });
+
+  /* ---------------- Reveal on scroll ---------------- */
+  var revealObserver = new IntersectionObserver(function(entries, obs){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        entry.target.classList.add("visible");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(function(el){ revealObserver.observe(el); });
+
+  /* ---------------- Skill bars ---------------- */
+  var skillObserver = new IntersectionObserver(function(entries, obs){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        var pct = entry.target.getAttribute("data-pct") || "0";
+        var fill = entry.target.querySelector(".bar-fill");
+        requestAnimationFrame(function(){ fill.style.width = pct + "%"; });
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll(".skill-row").forEach(function(el){ skillObserver.observe(el); });
+
+  /* ---------------- Project card toggles ---------------- */
+  document.querySelectorAll(".view-btn").forEach(function(btn){
+    btn.addEventListener("click", function(e){
+      e.preventDefault();
+      var panel = document.getElementById(btn.getAttribute("data-target"));
+      var isOpen = panel.classList.toggle("open");
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      btn.innerHTML = (isOpen ? "Hide Details " : "View Project ") + '<span class="chev">▾</span>';
+    });
+  });
+
+  /* ---------------- Scroll to top ---------------- */
+  var toTop = document.getElementById("toTop");
+  window.addEventListener("scroll", function(){
+    toTop.classList.toggle("show", window.pageYOffset > 500);
+  }, { passive: true });
+  toTop.addEventListener("click", function(){
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+})();
+</script>
 </body>
 </html>
