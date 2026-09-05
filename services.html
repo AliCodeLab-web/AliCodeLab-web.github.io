@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | AliCodeLab</title>
+<meta name="description" content="Restaurant POS, inventory management, sales & purchase, profit & loss, ledger & accounts, and custom business software.">
+<meta name="theme-color" content="#050505">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.service-number{ color:#444; font-size:11px; font-weight:800; letter-spacing:2px; margin-bottom:22px; }
+.feat-list{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:50px; }
+.feat-item{ display:flex; gap:13px; align-items:flex-start; padding:18px 20px; border-radius:14px; border:1px solid rgba(255,255,255,.07); background:rgba(255,255,255,.03); }
+.feat-item .tick{ color:var(--gold); font-weight:800; }
+.feat-item span{ font-size:14px; color:#ddd; }
+@media(max-width:700px){ .feat-list{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><div class="logo-mark" data-brand-initials>AC</div><div><span data-brand-short>Ali</span><span data-brand-accent>CodeLab</span></div></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="about.html" data-page="about.html">About</a>
+      <a href="services.html" data-page="services.html">Services</a>
+      <a href="projects.html" data-page="projects.html">Projects</a>
+      <a href="contact.html" data-page="contact.html" class="nav-cta">Let's Talk</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="page-header">
+  <div class="particle-field"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="header-cube-wrap"><div class="header-cube">
+    <div class="cube-face front"></div><div class="cube-face back"></div>
+    <div class="cube-face right"></div><div class="cube-face left"></div>
+    <div class="cube-face top"></div><div class="cube-face bottom"></div>
+  </div></div>
+  <div class="container">
+    <div class="eyebrow reveal active">What I Build</div>
+    <h1 class="title reveal active">Software that <span>works.</span></h1>
+    <p class="crumb reveal active">Home <span>/</span> Services</p>
+  </div>
+</section>
+
+<section id="services-grid">
+  <div class="container">
+    <p class="desc reveal">Powerful business tools designed to simplify operations, improve visibility and give you better control — end to end.</p>
+    <div class="grid-3">
+
+      <div class="card reveal" data-tilt>
+        <div class="service-number">01</div>
+        <div class="card-icon">▣</div>
+        <h3>Restaurant POS</h3>
+        <p>Complete point-of-sale solutions for orders, invoices, payments, kitchen tickets and end-of-day sales summaries.</p>
+      </div>
+
+      <div class="card reveal" data-tilt>
+        <div class="service-number">02</div>
+        <div class="card-icon">▤</div>
+        <h3>Inventory Management</h3>
+        <p>Track products, stock movement, purchases, suppliers and inventory levels in real time.</p>
+      </div>
+
+      <div class="card reveal" data-tilt>
+        <div class="service-number">03</div>
+        <div class="card-icon">↗</div>
+        <h3>Sales &amp; Purchase</h3>
+        <p>Manage complete sales and purchase workflows with invoices, customer/supplier records and reporting.</p>
+      </div>
+
+      <div class="card reveal" data-tilt>
+        <div class="service-number">04</div>
+        <div class="card-icon">◈</div>
+        <h3>Profit &amp; Loss</h3>
+        <p>Understand business performance with clear, automatically generated profit, cost and revenue reports.</p>
+      </div>
+
+      <div class="card reveal" data-tilt>
+        <div class="service-number">05</div>
+        <div class="card-icon">◎</div>
+        <h3>Ledger &amp; Accounts</h3>
+        <p>Organize customer and supplier ledgers, balances, dues and payment history automatically.</p>
+      </div>
+
+      <div class="card reveal" data-tilt>
+        <div class="service-number">06</div>
+        <div class="card-icon">⌘</div>
+        <h3>Custom Software</h3>
+        <p>Need something unique? I design and build systems around your exact business requirements.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="what-i-build">
+  <div class="container">
+    <div class="eyebrow reveal">Every Build Includes</div>
+    <h2 class="title reveal">Details that make software <span>usable.</span></h2>
+    <div class="feat-list">
+      <div class="feat-item reveal"><span class="tick">✓</span><span>Fast, user-friendly interfaces staff can learn quickly</span></div>
+      <div class="feat-item reveal"><span class="tick">✓</span><span>Business process automation that removes repetitive work</span></div>
+      <div class="feat-item reveal"><span class="tick">✓</span><span>Real-time sales and inventory tracking</span></div>
+      <div class="feat-item reveal"><span class="tick">✓</span><span>Automated Profit &amp; Loss reporting</span></div>
+      <div class="feat-item reveal"><span class="tick">✓</span><span>Customer and supplier management built in</span></div>
+      <div class="feat-item reveal"><span class="tick">✓</span><span>Accurate, always up-to-date ledger management</span></div>
+      <div class="feat-item reveal"><span class="tick">✓</span><span>Responsive dashboards that work on any device</span></div>
+      <div class="feat-item reveal"><span class="tick">✓</span><span>Secure, database-driven systems built to last</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div class="eyebrow" style="justify-content:center;">Let's Connect</div>
+      <h2>Not sure which service <span style="color:var(--gold)">fits your business?</span></h2>
+      <p>Send a message describing your current process — I'll suggest the right approach.</p>
+      <div class="cta-row">
+        <a href="#" class="btn btn-gold" data-whatsapp>WhatsApp Me →</a>
+        <a href="contact.html" class="btn btn-dark">Contact Page</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-copy">© <span id="year"></span> <span data-brand-short>Ali</span><span data-brand-accent style="color:var(--gold)">CodeLab</span>. Built with precision.</div>
+    <div class="footer-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop">↑</button>
+<script src="assets/main.js"></script>
+</body>
+</html>
