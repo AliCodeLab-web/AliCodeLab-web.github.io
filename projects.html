@@ -3,7 +3,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='bg' cx='50%25' cy='35%25'%3E%3Cstop offset='0' stop-color='%23201b0f'/%3E%3Cstop offset='0.65' stop-color='%230d0d0d'/%3E%3Cstop offset='1' stop-color='%23030303'/%3E%3C/radialGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2.2' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect x='3' y='3' width='58' height='58' rx='14' fill='url(%23bg)' stroke='%23d6b35a' stroke-width='2'/%3E%3Crect x='7' y='7' width='50' height='50' rx='11' fill='none' stroke='%23d6b35a' stroke-opacity='.18'/%3E%3Cpath d='M25 20 L14 32 L25 44' fill='none' stroke='%23d6b35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' filter='url(%23glow)'/%3E%3Cpath d='M39 20 L50 32 L39 44' fill='none' stroke='%23d6b35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' filter='url(%23glow)'/%3E%3Cpath d='M36 17 L28 47' fill='none' stroke='%23fff1c4' stroke-width='3.5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='10' r='1.5' fill='%23ffe6a0'/%3E%3C/svg%3E">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-:root{--bg:#050505;--panel:#0d0d0d;--panel2:#111;--gold:#d6b35a;--gold2:#ffe6a0;--text:#f6f3eb;--muted:#92908a;--line:rgba(255,255,255,.10);--max:1240px}
+:root{--bg:#050505;--panel:#0d0d0d;--panel2:#111;--gold:#d6b35a;--gold2:#ffe6a0;--text:#f6f3eb;--muted:#92908a;--line:rgba(255,255,255,.10);--max:1240px;--green:#7fbf7f;--red:#d97a6c}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:5px 5px;z-index:10}.cursor-glow{position:fixed;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(214,179,90,.10),transparent 65%);pointer-events:none;transform:translate(-50%,-50%);z-index:0}
 .site-header{height:82px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(5,5,5,.82);backdrop-filter:blur(18px);z-index:20}
 .logo{display:flex;align-items:center;gap:11px;font:700 18px "Space Grotesk",sans-serif;letter-spacing:2px;color:#fff;text-decoration:none;white-space:nowrap}
@@ -15,19 +15,131 @@
 .dev-icon i{font-style:normal;color:#fff;font-size:15px;opacity:.9}
 .logo:hover .dev-icon{border-color:var(--gold);transform:translateY(-2px) rotate(-2deg);box-shadow:0 0 25px rgba(214,179,90,.20),inset 0 0 18px rgba(214,179,90,.08)}
 .nav{display:flex;gap:34px}.nav a,.footer-links a{color:var(--muted);text-decoration:none;font-size:14px;transition:.3s}.nav a:hover,.nav a.active,.footer-links a:hover{color:#fff}.nav a.active:after{content:"";display:block;height:1px;background:var(--gold);margin-top:7px}.menu-toggle{display:none;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
-.section{width:min(var(--max),90vw);margin:auto;padding:120px 0;position:relative;z-index:1}.eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:700}.eyebrow span{display:inline-block;width:8px;height:8px;background:var(--gold);border-radius:50%;margin-right:10px;box-shadow:0 0 18px var(--gold)}h1,h2,h3{font-family:"Space Grotesk",sans-serif;margin:0}h1{font-size:clamp(55px,7vw,105px);line-height:.94;letter-spacing:-5px;margin:25px 0}h1 em,h2 span{color:var(--gold);font-style:normal}.hero-text,.page-hero p{max-width:660px;color:var(--muted);font-size:17px;line-height:1.8}.btn{display:inline-flex;align-items:center;gap:18px;padding:15px 22px;border:1px solid var(--line);border-radius:2px;text-decoration:none;font-weight:700;font-size:13px;transition:.3s}.btn-gold{background:var(--gold);color:#090909;border-color:var(--gold)}.btn-gold:hover{background:var(--gold2);transform:translateY(-3px);box-shadow:0 12px 35px rgba(214,179,90,.18)}
-.page-hero{padding-top:150px;padding-bottom:100px}.page-hero h1{max-width:900px}
-.text-link{color:#fff;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:5px;display:inline-block;margin-top:18px}.text-link span{color:var(--gold);margin-left:10px}
-.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.project-card{border:1px solid var(--line);background:#0a0a0a;overflow:hidden;transition:.4s}.project-card:hover{border-color:rgba(214,179,90,.4);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4)}.project-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr}.mock-screen{height:350px;background:radial-gradient(circle at 50% 20%,#252015,#090909);border-bottom:1px solid var(--line);padding:35px;position:relative;overflow:hidden}.featured .mock-screen{height:440px;border:0}.mock-top{display:flex;justify-content:space-between;color:var(--gold);font:700 12px "Space Grotesk"}.mock-top small{color:#888}.mock-chart{position:absolute;left:45px;right:45px;bottom:70px;height:150px;display:flex;align-items:end;gap:10px}.mock-chart i{flex:1;background:linear-gradient(#d6b35a,#4e3f1c);border-radius:4px 4px 0 0;height:30%;animation:bars 3s ease-in-out infinite alternate}.mock-chart i:nth-child(2){height:55%}.mock-chart i:nth-child(3){height:42%}.mock-chart i:nth-child(4){height:75%}.mock-chart i:nth-child(5){height:62%}.mock-chart i:nth-child(6){height:90%}.mock-cards{position:absolute;bottom:25px;left:45px;right:45px;display:flex;gap:10px}.mock-cards b{flex:1;border:1px solid var(--line);padding:10px;font-size:10px;color:#999}.project-info{padding:28px}.project-info>span{font-size:10px;color:var(--gold);letter-spacing:2px}.project-info h2{font-size:27px;margin:13px 0}.project-info p{color:var(--muted);line-height:1.7}
-.pos{display:grid;grid-template-columns:1fr 1fr;gap:15px}.pos-menu,.pos-cart{background:#111;border:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:15px;font-size:12px}.pos-menu>b,.pos-cart>b{color:var(--gold)}.pos-cart strong{color:var(--gold);font-size:22px;margin-top:auto}
-.stock-bars{position:absolute;bottom:45px;left:45px;right:45px;height:220px;display:flex;gap:22px;align-items:end}.stock-bars i{flex:1;background:linear-gradient(#d6b35a,#2e2614);border-radius:5px 5px 0 0}
-.report-number{font:700 48px "Space Grotesk";color:var(--gold);margin-top:20px}.report-lines{margin-top:45px;display:grid;gap:20px}.report-lines i{height:10px;background:#28251d;width:90%}.report-lines i:nth-child(2){width:70%}.report-lines i:nth-child(3){width:82%}.report-lines i:nth-child(4){width:52%}
-.cta{text-align:center}.cta h2{font-size:clamp(45px,7vw,90px);line-height:.95;letter-spacing:-4px;margin:20px 0 40px}.cta.compact h2{font-size:clamp(38px,5vw,64px)}
+.section{width:min(var(--max),90vw);margin:auto;padding:110px 0;position:relative;z-index:1}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif;margin:0}
+h1{font-size:clamp(50px,6.5vw,92px);line-height:.96;letter-spacing:-3px;margin:22px 0}
+.page-hero{padding-top:150px;padding-bottom:60px}.page-hero p{max-width:640px;color:var(--muted);font-size:17px;line-height:1.8;margin:0}
+.page-hero .kicker{color:var(--gold);font-size:14px;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:16px;padding:15px 22px;border:1px solid var(--line);border-radius:2px;text-decoration:none;font-weight:700;font-size:13px;transition:.3s}
+.btn-gold{background:var(--gold);color:#090909;border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-3px);box-shadow:0 12px 35px rgba(214,179,90,.18)}
+.text-link{color:#fff;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:5px;display:inline-block;margin-top:16px;font-size:14px}
+.section-head{max-width:600px;margin-bottom:44px}
+.section-head h2{font-size:clamp(26px,3.2vw,38px);letter-spacing:-1px;line-height:1.2}
+.section-head p{color:var(--muted);font-size:15px;line-height:1.7;margin-top:12px}
+
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.project-card{border:1px solid var(--line);background:#0a0a0a;overflow:hidden;transition:.35s;display:flex;flex-direction:column}
+.project-card:hover{border-color:rgba(214,179,90,.35)}
+.project-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr}
+.mock-screen{height:320px;background:#0e0e0e;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.featured .mock-screen{height:420px;border-bottom:0;border-right:1px solid var(--line)}
+.project-info{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
+.project-info .kicker{font-size:12px;color:var(--gold);font-weight:600}
+.project-info h3{font-size:23px;margin:10px 0 10px;letter-spacing:-.3px}
+.project-info p{color:var(--muted);line-height:1.7;font-size:14.5px;flex:1;margin:0}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag-row em{font-style:normal;font-size:11px;color:#c9c6bc;border:1px solid var(--line);padding:5px 10px;border-radius:3px;background:#0f0f0f}
+
+/* --- Mockup 1: POS dashboard --- */
+.m-pos{display:grid;grid-template-columns:120px 1fr;height:100%;font-size:11px}
+.m-pos .side{background:#0a0a0a;border-right:1px solid var(--line);padding:16px 12px;display:flex;flex-direction:column;gap:14px}
+.m-pos .side b{color:var(--gold);font-size:12px;letter-spacing:.3px}
+.m-pos .side span{color:#777;padding:6px 8px;border-radius:4px}
+.m-pos .side span.on{background:#1a1710;color:var(--gold2)}
+.m-pos .main{padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.m-pos .head{display:flex;justify-content:space-between;align-items:center}
+.m-pos .head b{font-size:13px;color:#eee}
+.m-pos .head span{color:#666}
+.kpi-row{display:flex;gap:10px}
+.kpi{flex:1;border:1px solid var(--line);border-radius:6px;padding:10px;background:#111}
+.kpi small{color:#888;display:block;font-size:10px}
+.kpi b{font-size:15px;color:var(--gold2);display:block;margin-top:4px}
+.order-list{border:1px solid var(--line);border-radius:6px;overflow:hidden;flex:1}
+.order-row{display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid var(--line);color:#ccc}
+.order-row:last-child{border-bottom:0}
+.order-row span.tag{font-size:9px;padding:2px 6px;border-radius:10px}
+.tag.ready{background:#1c2b1c;color:var(--green)}
+.tag.wait{background:#2b241c;color:var(--gold2)}
+
+/* --- Mockup 2: checkout / cart --- */
+.m-cart{display:grid;grid-template-columns:1fr 1fr;height:100%;font-size:11px}
+.m-cart .menu{padding:16px;display:flex;flex-direction:column;gap:8px}
+.m-cart .menu b{color:var(--gold);font-size:11px;margin-bottom:4px}
+.menu-item{display:flex;justify-content:space-between;padding:8px 10px;border:1px solid var(--line);border-radius:6px;color:#ddd;background:#111}
+.menu-item span.p{color:#888}
+.m-cart .cart{background:#0a0a0a;border-left:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:8px}
+.m-cart .cart b{color:var(--gold);font-size:11px}
+.cart-line{display:flex;justify-content:space-between;color:#ccc;padding:4px 0}
+.cart-total{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.cart-total b{color:var(--gold2);font-size:16px}
+.pay-btn{background:var(--gold);color:#090909;text-align:center;padding:9px;border-radius:6px;font-weight:700;font-size:11px;margin-top:6px}
+
+/* --- Mockup 3: inventory table --- */
+.m-inv{padding:18px;font-size:11px}
+.inv-head{display:flex;justify-content:space-between;margin-bottom:12px}
+.inv-head b{color:#eee;font-size:13px}
+.inv-head span{color:var(--gold2);font-size:10px}
+.inv-table{border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.inv-row{display:grid;grid-template-columns:1.6fr 1fr 1fr;padding:8px 12px;border-bottom:1px solid var(--line);align-items:center}
+.inv-row:last-child{border-bottom:0}
+.inv-row.head-row{background:#141414;color:#888;font-size:10px}
+.inv-row span.item{color:#ddd}
+.bar-bg{background:#1c1c1c;border-radius:3px;height:6px;overflow:hidden}
+.bar-fill{height:100%;background:var(--gold)}
+.bar-fill.low{background:var(--red)}
+.stock-note{color:#777;font-size:10px}
+.stock-note.low{color:var(--red)}
+
+/* --- Mockup 4: P&L report --- */
+.m-report{padding:20px;font-size:11px;display:flex;flex-direction:column;gap:16px;height:100%}
+.report-top{display:flex;justify-content:space-between;align-items:flex-start}
+.report-top .fig{font:700 30px "Space Grotesk";color:var(--gold2)}
+.report-top .lbl{color:#888;font-size:11px;margin-top:4px}
+.report-top .delta{color:var(--green);font-size:11px;font-weight:600}
+.report-rows{display:flex;flex-direction:column;gap:9px}
+.report-item{display:flex;justify-content:space-between;color:#ccc}
+.report-item span.v{color:#eee;font-weight:600}
+.divider{border-top:1px solid var(--line)}
+
+/* --- Mockup 5: landing page browser --- */
+.m-browser{height:100%;display:flex;flex-direction:column}
+.m-browser .bar{height:28px;background:#141414;display:flex;align-items:center;gap:8px;padding:0 12px;border-bottom:1px solid var(--line)}
+.m-browser .bar i{width:8px;height:8px;border-radius:50%;background:#333}
+.m-browser .bar .url{margin-left:10px;background:#0a0a0a;border-radius:4px;font-size:10px;color:#777;padding:3px 10px;flex:1}
+.m-browser .page{flex:1;padding:26px 24px;background:radial-gradient(circle at 30% 0%,#1a160c,#0a0a0a 60%)}
+.m-browser .page .nav-fake{display:flex;gap:16px;font-size:10px;color:#888;margin-bottom:24px}
+.m-browser .page h4{font:700 22px "Space Grotesk";color:#f6f3eb;margin:0 0 8px;letter-spacing:-.5px}
+.m-browser .page p{font-size:10.5px;color:#888;max-width:220px;line-height:1.6;margin:0 0 16px}
+.m-browser .page .cta2{display:inline-block;background:var(--gold);color:#0a0a0a;font-size:10px;font-weight:700;padding:8px 14px;border-radius:4px}
+
+/* --- Mockup 6: chat assistant --- */
+.m-chat{padding:18px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:8px}
+.chat-bub{max-width:75%;padding:9px 13px;border-radius:12px 12px 12px 3px;font-size:11px;color:#ccc;background:#141414;border:1px solid var(--line)}
+.chat-bub.me{align-self:flex-end;background:var(--gold);color:#0a0a0a;border:0;border-radius:12px 12px 3px 12px}
+.chat-time{font-size:9px;color:#666;text-align:center;margin:6px 0}
+
+/* --- Mockup 7: calendar --- */
+.m-cal{padding:18px;font-size:10px;height:100%;display:flex;flex-direction:column}
+.cal-head{display:flex;justify-content:space-between;margin-bottom:10px;color:#ccc;font-weight:600}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;flex:1}
+.cal-day{background:#111;border:1px solid var(--line);border-radius:4px;display:flex;align-items:flex-start;justify-content:flex-end;padding:4px;color:#555;font-size:9px}
+.cal-day.booked{background:#1e1a10;border-color:rgba(214,179,90,.4);color:var(--gold2)}
+.cal-day.full{background:#241d10;border-color:var(--gold);color:var(--gold2)}
+
+/* --- Mockup 8: delivery tracking --- */
+.m-track{padding:18px;height:100%;position:relative;background:linear-gradient(160deg,#161208,#0a0a0a 65%)}
+.route-line{position:absolute;stroke:var(--gold);stroke-width:2;stroke-dasharray:5 5;fill:none;opacity:.6}
+.track-pin{position:absolute;width:10px;height:10px;background:var(--gold2);border-radius:50%;box-shadow:0 0 10px rgba(255,230,160,.6)}
+.track-card{position:absolute;bottom:18px;left:18px;right:18px;background:#111;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:10.5px;color:#ccc;display:flex;justify-content:space-between}
+.track-card b{color:var(--gold2)}
+
+.cta{text-align:center}.cta h2{font-size:clamp(42px,6.5vw,80px);line-height:.97;letter-spacing:-3px;margin:20px 0 36px;font-family:"Space Grotesk",sans-serif}
+.cta p{color:var(--muted);max-width:480px;margin:0 auto 34px;font-size:15px;line-height:1.7}
 footer{border-top:1px solid var(--line);padding:30px 5vw;display:flex;justify-content:space-between;align-items:center;gap:20px;color:#666;font-size:12px}.footer-links{display:flex;gap:22px}
-.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s,transform .8s}.reveal.show{opacity:1;transform:none}
-@keyframes bars{to{opacity:.65;transform:scaleY(.88);transform-origin:bottom}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}.reveal.show{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-@media(max-width:800px){.site-header{height:70px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:70px;left:0;right:0;background:#080808;border-bottom:1px solid var(--line);padding:20px 5vw;flex-direction:column;gap:18px}.nav.open{display:flex}.nav a.active:after{display:none}.section{padding:80px 0}.project-grid{grid-template-columns:1fr}.project-card.featured{grid-column:auto;display:block}.featured .mock-screen{height:330px}.cta h2{letter-spacing:-2px}footer{flex-direction:column;align-items:flex-start}.page-hero h1{font-size:58px;letter-spacing:-3px}.logo{gap:9px;font-size:16px}.dev-icon{width:31px;height:31px;font-size:15px}}
+@media(max-width:800px){.site-header{height:70px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:70px;left:0;right:0;background:#080808;border-bottom:1px solid var(--line);padding:20px 5vw;flex-direction:column;gap:18px}.nav.open{display:flex}.nav a.active:after{display:none}.section{padding:70px 0}.project-grid{grid-template-columns:1fr}.project-card.featured{grid-column:auto;display:block}.featured .mock-screen{height:300px;border-right:0;border-bottom:1px solid var(--line)}.page-hero h1{font-size:50px;letter-spacing:-2px}.logo{gap:9px;font-size:16px}.dev-icon{width:31px;height:31px;font-size:15px}}
 </style></head>
 <body>
 <div class="cursor-glow"></div>
@@ -48,33 +160,216 @@ footer{border-top:1px solid var(--line);padding:30px 5vw;display:flex;justify-co
 
 <main>
 <section class="page-hero section">
-  <div class="eyebrow reveal"><span></span>04 / PROJECTS</div>
-  <h1 class="reveal">Selected work.<br><em>Built for impact.</em></h1>
-  <p class="reveal">A showcase of the kind of products and systems AliCodeLab is built to create.</p>
+  <div class="kicker reveal">Projects</div>
+  <h1 class="reveal">What I've been<br>building lately.</h1>
+  <p class="reveal">A mix of business systems and product interfaces — some built for real clients, some as concept work to explore an idea properly. Each one below is a working prototype, not a static picture.</p>
 </section>
 
-<section class="section project-grid">
-  <article class="project-card featured reveal">
-    <div class="mock-screen"><div class="mock-top"><span>ALI</span><small>Dashboard</small></div><div class="mock-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="mock-cards"><b>Sales</b><b>Stock</b><b>Profit</b></div></div>
-    <div class="project-info"><span>01 / BUSINESS SOFTWARE</span><h2>Restaurant POS & Management</h2><p>A complete concept covering sales, orders, inventory, purchasing, ledger and business reporting.</p><a href="contact.html" class="text-link">Build something similar <span>→</span></a></div>
-  </article>
-  <article class="project-card reveal">
-    <div class="mock-screen pos"><div class="pos-menu"><b>MENU</b><span>🍔 Burger</span><span>🍕 Pizza</span><span>🥤 Drinks</span></div><div class="pos-cart"><b>CART</b><hr><span>2 × Burger</span><span>1 × Drink</span><strong>Rs. 2,450</strong></div></div>
-    <div class="project-info"><span>02 / POS</span><h2>Fast Checkout Interface</h2><p>Clean ordering and checkout flow designed for speed.</p></div>
-  </article>
-  <article class="project-card reveal">
-    <div class="mock-screen stock"><div class="stock-bars"><i style="height:55%"></i><i style="height:80%"></i><i style="height:42%"></i><i style="height:92%"></i><i style="height:65%"></i></div></div>
-    <div class="project-info"><span>03 / INVENTORY</span><h2>Stock & Purchase Control</h2><p>Business-friendly stock visibility with purchasing and supplier workflows.</p></div>
-  </article>
-  <article class="project-card reveal">
-    <div class="mock-screen report"><div class="report-number">Rs. 8.4M</div><div class="report-lines"><i></i><i></i><i></i><i></i></div></div>
-    <div class="project-info"><span>04 / REPORTING</span><h2>Profit & Loss Dashboard</h2><p>Clear reporting for sales, purchases, expenses and profitability.</p></div>
-  </article>
+<section class="section">
+  <div class="section-head reveal">
+    <h2>Running a business, in one screen</h2>
+    <p>Restaurants and small retailers usually juggle three or four disconnected tools for sales, stock and accounts. This concept puts all of it behind one login.</p>
+  </div>
+  <div class="project-grid">
+    <article class="project-card featured reveal">
+      <div class="mock-screen">
+        <div class="m-pos">
+          <div class="side">
+            <b>Zaiqa POS</b>
+            <span class="on">Dashboard</span>
+            <span>Orders</span>
+            <span>Inventory</span>
+            <span>Staff</span>
+            <span>Reports</span>
+          </div>
+          <div class="main">
+            <div class="head"><b>Today, Tue 12 Aug</b><span>Lahore Branch</span></div>
+            <div class="kpi-row">
+              <div class="kpi"><small>Net Sales</small><b>Rs. 84,320</b></div>
+              <div class="kpi"><small>Orders</small><b>146</b></div>
+              <div class="kpi"><small>Avg. Ticket</small><b>Rs. 577</b></div>
+            </div>
+            <div class="order-list">
+              <div class="order-row"><span>#1042 — Table 6</span><span class="tag ready">Ready</span></div>
+              <div class="order-row"><span>#1043 — Takeaway</span><span class="tag wait">Preparing</span></div>
+              <div class="order-row"><span>#1044 — Table 2</span><span class="tag ready">Ready</span></div>
+              <div class="order-row"><span>#1045 — Delivery</span><span class="tag wait">Preparing</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info">
+        <span class="kicker">Business software</span>
+        <h3>Zaiqa POS & Management</h3>
+        <p>A restaurant management concept covering live orders, table status, inventory draw-down and staff performance — built so an owner can check the whole business from their phone between rushes.</p>
+        <div class="tag-row"><em>Point of sale</em><em>Multi-branch</em><em>Live orders</em></div>
+        <a href="contact.html" class="text-link">Build something similar →</a>
+      </div>
+    </article>
+
+    <article class="project-card reveal">
+      <div class="mock-screen">
+        <div class="m-cart">
+          <div class="menu">
+            <b>Menu</b>
+            <div class="menu-item"><span>Chicken Biryani</span><span class="p">Rs. 450</span></div>
+            <div class="menu-item"><span>Zinger Burger</span><span class="p">Rs. 620</span></div>
+            <div class="menu-item"><span>Cold Drink 500ml</span><span class="p">Rs. 120</span></div>
+          </div>
+          <div class="cart">
+            <b>Order #1046</b>
+            <div class="cart-line"><span>2× Chicken Biryani</span><span>900</span></div>
+            <div class="cart-line"><span>1× Cold Drink</span><span>120</span></div>
+            <div class="cart-total"><span>Total</span><b>Rs. 1,020</b></div>
+            <div class="pay-btn">Charge Rs. 1,020</div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info">
+        <span class="kicker">Checkout</span>
+        <h3>Counter Checkout Flow</h3>
+        <p>A stripped-down ordering screen built for speed — big tap targets, running total always visible, and a payment step that takes one tap during a lunch rush.</p>
+        <div class="tag-row"><em>Retail</em><em>Touch UI</em></div>
+      </div>
+    </article>
+
+    <article class="project-card reveal">
+      <div class="mock-screen">
+        <div class="m-inv">
+          <div class="inv-head"><b>Inventory — Kitchen Store</b><span>3 items low</span></div>
+          <div class="inv-table">
+            <div class="inv-row head-row"><span>Item</span><span>Stock left</span><span>Status</span></div>
+            <div class="inv-row"><span class="item">Basmati Rice (kg)</span><div class="bar-bg"><div class="bar-fill" style="width:72%"></div></div><span class="stock-note">72 kg</span></div>
+            <div class="inv-row"><span class="item">Chicken (kg)</span><div class="bar-bg"><div class="bar-fill low" style="width:14%"></div></div><span class="stock-note low">14 kg — reorder</span></div>
+            <div class="inv-row"><span class="item">Cooking Oil (L)</span><div class="bar-bg"><div class="bar-fill" style="width:58%"></div></div><span class="stock-note">58 L</span></div>
+            <div class="inv-row"><span class="item">Naan Flour (kg)</span><div class="bar-bg"><div class="bar-fill low" style="width:9%"></div></div><span class="stock-note low">9 kg — reorder</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info">
+        <span class="kicker">Inventory</span>
+        <h3>Stock & Purchase Control</h3>
+        <p>Tracks stock as orders go out and flags anything close to running out, so purchasing decisions happen before a shortage — not after.</p>
+        <div class="tag-row"><em>Auto stock deduction</em><em>Reorder alerts</em></div>
+      </div>
+    </article>
+
+    <article class="project-card reveal">
+      <div class="mock-screen">
+        <div class="m-report">
+          <div class="report-top">
+            <div>
+              <div class="lbl">Net profit — August</div>
+              <div class="fig">Rs. 8.4M</div>
+            </div>
+            <div class="delta">↑ 12% vs July</div>
+          </div>
+          <div class="divider"></div>
+          <div class="report-rows">
+            <div class="report-item"><span>Sales revenue</span><span class="v">Rs. 41.2M</span></div>
+            <div class="report-item"><span>Cost of goods sold</span><span class="v">Rs. 22.6M</span></div>
+            <div class="report-item"><span>Operating expenses</span><span class="v">Rs. 10.2M</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info">
+        <span class="kicker">Reporting</span>
+        <h3>Profit & Loss Dashboard</h3>
+        <p>Pulls sales, purchasing and expense data into one statement that updates daily, so an owner isn't waiting on an accountant to know how the month is going.</p>
+        <div class="tag-row"><em>Finance</em><em>Automated reports</em></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head reveal">
+    <h2>Interfaces people actually use</h2>
+    <p>Smaller, focused builds — each one solving a single, specific interaction well rather than trying to do everything.</p>
+  </div>
+  <div class="project-grid">
+    <article class="project-card reveal">
+      <div class="mock-screen">
+        <div class="m-browser">
+          <div class="bar"><i></i><i></i><i></i><div class="url">novahaus.studio</div></div>
+          <div class="page">
+            <div class="nav-fake"><span>Work</span><span>Studio</span><span>Journal</span><span>Contact</span></div>
+            <h4>Interiors that feel<br>like they were always there.</h4>
+            <p>A small residential design studio based in Lahore, taking on 6 projects a year.</p>
+            <div class="cta2">View the portfolio</div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info">
+        <span class="kicker">Web design</span>
+        <h3>Studio Site for Novahaus</h3>
+        <p>A one-page site built for an interior design studio — fast-loading, photo-first, and structured so the studio can swap in new project photos themselves without touching code.</p>
+        <div class="tag-row"><em>Marketing site</em><em>CMS-free</em></div>
+      </div>
+    </article>
+
+    <article class="project-card reveal">
+      <div class="mock-screen">
+        <div class="m-chat">
+          <div class="chat-bub">Assalam o Alaikum, table for 4 available tonight around 8?</div>
+          <div class="chat-bub me">Yes — 8 PM works. Should I hold it under your number?</div>
+          <div class="chat-bub">Yes please, and can you note it's a birthday?</div>
+          <div class="chat-bub me">Booked. We'll have a candle ready 🎂</div>
+          <div class="chat-time">Handled automatically — no staff involved</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <span class="kicker">Support automation</span>
+        <h3>Booking Assistant for a Bistro</h3>
+        <p>Handles reservation requests that come in over WhatsApp during service hours, when nobody's free to answer the phone — checks the table calendar and confirms in seconds.</p>
+        <div class="tag-row"><em>WhatsApp</em><em>Reservations</em></div>
+      </div>
+    </article>
+
+    <article class="project-card reveal">
+      <div class="mock-screen">
+        <div class="m-cal">
+          <div class="cal-head"><span>August 2026</span><span>Dr. Farah — Dermatology</span></div>
+          <div class="cal-grid">
+            <div class="cal-day">3</div><div class="cal-day booked">4</div><div class="cal-day">5</div><div class="cal-day full">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div>
+            <div class="cal-day booked">10</div><div class="cal-day">11</div><div class="cal-day full">12</div><div class="cal-day">13</div><div class="cal-day booked">14</div><div class="cal-day">15</div><div class="cal-day">16</div>
+            <div class="cal-day">17</div><div class="cal-day booked">18</div><div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day full">21</div><div class="cal-day">22</div><div class="cal-day">23</div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info">
+        <span class="kicker">Scheduling</span>
+        <h3>Clinic Appointment Booking</h3>
+        <p>Patients pick an open slot themselves and get an SMS reminder the day before — cut down no-shows for a dermatology clinic that used to book everything over the phone.</p>
+        <div class="tag-row"><em>Healthcare</em><em>SMS reminders</em></div>
+      </div>
+    </article>
+
+    <article class="project-card reveal">
+      <div class="mock-screen">
+        <div class="m-track">
+          <svg width="100%" height="100%" style="position:absolute;inset:0">
+            <path class="route-line" d="M 40 220 Q 120 120 200 140 T 300 60"></path>
+          </svg>
+          <div class="track-pin" style="top:78%;left:12%"></div>
+          <div class="track-pin" style="top:40%;left:55%"></div>
+          <div class="track-pin" style="top:15%;left:82%"></div>
+          <div class="track-card"><span>Rider: Bilal · Order #2291</span><b>8 min away</b></div>
+        </div>
+      </div>
+      <div class="project-info">
+        <span class="kicker">Logistics</span>
+        <h3>Delivery Tracking for a Grocer</h3>
+        <p>Live rider location and ETA shared with the customer by link, so a local grocery delivery service stopped fielding "where's my order" calls.</p>
+        <div class="tag-row"><em>Live maps</em><em>Order status</em></div>
+      </div>
+    </article>
+  </div>
 </section>
 
 <section class="section cta compact reveal">
-  <div class="eyebrow"><span></span>HAVE A PROJECT IN MIND?</div>
-  <h2>Let's build your<br>next <span>system.</span></h2>
+  <h2>Got something<br>like this in mind?</h2>
+  <p>Tell me what you're trying to fix or build, and I'll tell you honestly whether it's a weekend build or a real project.</p>
   <a class="btn btn-gold" href="contact.html">Start a Conversation ↗</a>
 </section>
 </main>
@@ -95,6 +390,5 @@ document.querySelectorAll('.nav a').forEach(link=>{link.addEventListener('click'
 const glow=document.querySelector('.cursor-glow');window.addEventListener('pointermove',e=>{if(glow){glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'}});
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-document.querySelectorAll('a[href]').forEach(a=>{if(a.hostname===location.hostname&&a.pathname===location.pathname&&a.hash){a.addEventListener('click',e=>{const t=document.querySelector(a.hash);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})}});
 </script>
 </body></html>
