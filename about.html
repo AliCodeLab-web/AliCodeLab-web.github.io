@@ -434,32 +434,38 @@
     }
 
     /* ================================
-       REVEAL ANIMATION
+       FOOTER
+    ================================= */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: #666;
+      font-size: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 22px;
+    }
+
+    /* ================================
+       REVEAL ANIMATION (matches index.html)
     ================================= */
 
     .reveal {
       opacity: 0;
-      transform: translateY(45px);
-      transition:
-        opacity .85s cubic-bezier(.22, 1, .36, 1),
-        transform .85s cubic-bezier(.22, 1, .36, 1)
+      transform: translateY(25px);
+      transition: opacity .8s, transform .8s;
     }
 
     .reveal.show {
       opacity: 1;
-      transform: translateY(0)
-    }
-
-    .reveal-delay-1 {
-      transition-delay: .10s
-    }
-
-    .reveal-delay-2 {
-      transition-delay: .20s
-    }
-
-    .reveal-delay-3 {
-      transition-delay: .30s
+      transform: none;
     }
 
     /* ================================
@@ -623,12 +629,12 @@
 
       <div class="eyebrow reveal">02 / ABOUT</div>
 
-      <h1 class="reveal reveal-delay-1">
+      <h1 class="reveal">
         Building software<br>
         with <em>purpose.</em>
       </h1>
 
-      <p class="reveal reveal-delay-2">
+      <p class="reveal">
         I focus on practical software that makes everyday business operations simpler, faster and easier to understand.
       </p>
 
@@ -642,7 +648,7 @@
         THE APPROACH
       </div>
 
-      <div class="prose reveal reveal-delay-1">
+      <div class="prose reveal">
 
         <h2>
           Not just code.<br>
@@ -679,7 +685,7 @@
 
       </article>
 
-      <article class="reveal reveal-delay-1">
+      <article class="reveal">
 
         <b>02</b>
 
@@ -691,7 +697,7 @@
 
       </article>
 
-      <article class="reveal reveal-delay-2">
+      <article class="reveal">
 
         <b>03</b>
 
@@ -711,7 +717,7 @@
 
       <span class="reveal">“</span>
 
-      <h2 class="reveal reveal-delay-1">
+      <h2 class="reveal">
         Good software should make business feel <em>easier.</em>
       </h2>
 
@@ -823,35 +829,34 @@
     });
 
     /* ================================
-       SCROLL + PAGE REVEAL
+       SCROLL REVEAL (matches index.html: re-triggers, no unobserve)
     ================================= */
 
-    const revealElements = document.querySelectorAll('.reveal');
-
     const obs = new IntersectionObserver(
+
       entries => {
 
-        entries.forEach(entry => {
+        entries.forEach(e => {
 
-          if (entry.isIntersecting) {
+          if (e.isIntersecting) {
 
-            entry.target.classList.add('show');
-
-            /* Run the reveal only once */
-            obs.unobserve(entry.target);
+            e.target.classList.add('show');
 
           }
 
         });
 
       },
+
       {
-        threshold: .12,
-        rootMargin: "0px 0px -40px 0px"
+        threshold: .12
       }
+
     );
 
-    revealElements.forEach(el => obs.observe(el));
+    document
+      .querySelectorAll('.reveal')
+      .forEach(el => obs.observe(el));
 
     /* ================================
        SAME PAGE SMOOTH LINKS
