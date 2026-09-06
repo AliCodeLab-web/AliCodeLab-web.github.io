@@ -17,7 +17,7 @@
 .nav{display:flex;gap:34px}.nav a,.footer-links a{color:var(--muted);text-decoration:none;font-size:14px;transition:.3s}.nav a:hover,.nav a.active,.footer-links a:hover{color:#fff}.nav a.active:after{content:"";display:block;height:1px;background:var(--gold);margin-top:7px}.menu-toggle{display:none;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
 .section{width:min(var(--max),90vw);margin:auto;padding:120px 0;position:relative;z-index:1}.eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:700}.eyebrow span{display:inline-block;width:8px;height:8px;background:var(--gold);border-radius:50%;margin-right:10px;box-shadow:0 0 18px var(--gold)}h1,h2,h3{font-family:"Space Grotesk",sans-serif;margin:0}h1{font-size:clamp(55px,7vw,105px);line-height:.94;letter-spacing:-5px;margin:25px 0}h1 em,h2 span{color:var(--gold);font-style:normal}.hero-text,.page-hero p{max-width:660px;color:var(--muted);font-size:17px;line-height:1.8}.btn{display:inline-flex;align-items:center;gap:18px;padding:15px 22px;border:1px solid var(--line);border-radius:2px;text-decoration:none;font-weight:700;font-size:13px;transition:.3s}.btn-gold{background:var(--gold);color:#090909;border-color:var(--gold)}.btn-gold:hover{background:var(--gold2);transform:translateY(-3px);box-shadow:0 12px 35px rgba(214,179,90,.18)}
 .page-hero{padding-top:150px;padding-bottom:100px}.page-hero h1{max-width:900px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px}.contact-copy h2{font-size:clamp(45px,5vw,70px);letter-spacing:-3px;margin:22px 0}.contact-copy>p{color:var(--muted);line-height:1.8;max-width:500px}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:0;max-width:640px}.contact-copy h2{font-size:clamp(45px,5vw,70px);letter-spacing:-3px;margin:22px 0}.contact-copy>p{color:var(--muted);line-height:1.8;max-width:500px}
 .contact-cards{margin-top:50px;display:grid;gap:18px}
 .contact-card{display:flex;align-items:center;gap:18px;border:1px solid var(--line);background:#0b0b0b;padding:22px;text-decoration:none;color:#fff;transition:.3s}
 .contact-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,.35)}
@@ -71,21 +71,10 @@ footer{border-top:1px solid var(--line);padding:30px 5vw;display:flex;justify-co
         <span class="c-icon wa-icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.24.616 4.335 1.687 6.13L4 29l8.05-1.657A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.75c-1.94 0-3.75-.55-5.29-1.503l-.38-.226-4.775.983.99-4.66-.248-.393A9.72 9.72 0 0 1 4.25 15c0-5.376 4.377-9.75 9.754-9.75 5.377 0 9.746 4.374 9.746 9.75s-4.369 9.75-9.746 9.75zm5.4-7.312c-.296-.148-1.75-.864-2.022-.963-.271-.099-.469-.148-.667.148-.198.297-.767.963-.94 1.16-.173.199-.346.223-.642.075-.297-.148-1.253-.462-2.386-1.472-.882-.786-1.478-1.756-1.65-2.053-.173-.297-.019-.457.13-.605.133-.132.297-.346.445-.52.148-.173.198-.297.297-.495.099-.198.05-.372-.025-.52-.075-.148-.667-1.607-.914-2.202-.24-.578-.485-.5-.667-.51l-.568-.01c-.198 0-.52.075-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.148.198 2.096 3.2 5.078 4.487.71.306 1.263.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.75-.716 1.997-1.408.247-.692.247-1.284.173-1.408-.074-.124-.271-.198-.568-.346z"/></svg></span>
         <span><small>WHATSAPP</small><strong>Chat on WhatsApp</strong></span>
       </a>
-      <a class="contact-card" href="mailto:aliraza19216855@gmail.com">
-        <span class="c-icon">✉️</span>
-        <span><small>EMAIL</small><strong>aliraza19216855@gmail.com</strong></span>
-      </a>
     </div>
   </div>
 
-  <form class="contact-form reveal" action="mailto:aliraza19216855@gmail.com" method="post" enctype="text/plain">
-    <label>Your Name<input name="name" required placeholder="Your name"></label>
-    <label>Email<input type="email" name="email" required placeholder="you@example.com"></label>
-    <label>What do you need?<textarea name="message" rows="6" required placeholder="Tell me about your project..."></textarea></label>
-    <button class="btn btn-gold" type="submit">Send Message ↗</button>
-    <p class="form-note">Tip: replace the email above with your preferred email address before publishing.</p>
-  </form>
-</section>
+    </section>
 
 <section class="section dark-panel contact-panel reveal">
   <div><div class="eyebrow"><span></span>SERVICES</div><h2>POS · INVENTORY<br><span>WEB · SOFTWARE</span></h2></div>
