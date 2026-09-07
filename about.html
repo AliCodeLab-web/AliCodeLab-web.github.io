@@ -8,7 +8,6 @@
   <meta name="theme-color" content="#050505">
   <title>About | AliCodeLab</title>
 
-  <!-- PREMIUM BLACK + GOLD DEVELOPER FAVICON -->
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='bg' cx='50%25' cy='35%25'%3E%3Cstop offset='0' stop-color='%23201b0f'/%3E%3Cstop offset='0.65' stop-color='%230d0d0d'/%3E%3Cstop offset='1' stop-color='%23030303'/%3E%3C/radialGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2.2' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect x='3' y='3' width='58' height='58' rx='14' fill='url(%23bg)' stroke='%23d6b35a' stroke-width='2'/%3E%3Crect x='7' y='7' width='50' height='50' rx='11' fill='none' stroke='%23d6b35a' stroke-opacity='.18'/%3E%3Cpath d='M25 20 L14 32 L25 44' fill='none' stroke='%23d6b35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' filter='url(%23glow)'/%3E%3Cpath d='M39 20 L50 32 L39 44' fill='none' stroke='%23d6b35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' filter='url(%23glow)'/%3E%3Cpath d='M36 17 L28 47' fill='none' stroke='%23fff1c4' stroke-width='3.5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='10' r='1.5' fill='%23ffe6a0'/%3E%3C/svg%3E">
 
@@ -27,556 +26,206 @@
       --max: 1240px
     }
 
-    * {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
+    * { box-sizing: border-box }
+    html { scroll-behavior: smooth; max-width: 100%; overflow-x: hidden; }
     body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "DM Sans", sans-serif;
-      overflow-x: hidden
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: "DM Sans", sans-serif; overflow-x: hidden;
+      max-width: 100vw; position: relative;
     }
-
     body:before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .04;
+      content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .04;
       background-image: radial-gradient(#fff 1px, transparent 1px);
-      background-size: 5px 5px;
-      z-index: 10
+      background-size: 5px 5px; z-index: 10
     }
-
     .cursor-glow {
-      position: fixed;
-      width: 380px;
-      height: 380px;
-      border-radius: 50%;
+      position: fixed; width: 380px; height: 380px; border-radius: 50%;
       background: radial-gradient(circle, rgba(214, 179, 90, .10), transparent 65%);
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 0
+      pointer-events: none; transform: translate(-50%, -50%); z-index: 0
     }
-
-    /* ================================
-       HEADER
-    ================================= */
 
     .site-header {
-      height: 82px;
-      padding: 0 5vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      background: rgba(5, 5, 5, .82);
-      backdrop-filter: blur(18px);
-      z-index: 20
+      height: 82px; padding: 0 5vw; display: flex; align-items: center;
+      justify-content: space-between; border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; background: rgba(5, 5, 5, .82);
+      backdrop-filter: blur(18px); z-index: 20
     }
-
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      font: 700 18px "Space Grotesk", sans-serif;
-      letter-spacing: 2px;
-      color: #fff;
-      text-decoration: none;
-      white-space: nowrap;
+      display: flex; align-items: center; gap: 11px;
+      font: 700 18px "Space Grotesk", sans-serif; letter-spacing: 2px;
+      color: #fff; text-decoration: none; white-space: nowrap;
     }
-
-    .logo-text b {
-      color: var(--gold);
-    }
-
-    /* DEVELOPER ICON */
+    .logo-text b { color: var(--gold); }
     .dev-icon {
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1px;
-      border: 1px solid rgba(214, 179, 90, .55);
-      background:
-        radial-gradient(circle at 50% 40%,
-          rgba(214, 179, 90, .18),
-          rgba(214, 179, 90, .03) 65%,
-          transparent 100%);
-      color: var(--gold);
-      border-radius: 8px;
-      font: 700 17px "Space Grotesk", sans-serif;
+      width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+      gap: 1px; border: 1px solid rgba(214, 179, 90, .55);
+      background: radial-gradient(circle at 50% 40%, rgba(214, 179, 90, .18), rgba(214, 179, 90, .03) 65%, transparent 100%);
+      color: var(--gold); border-radius: 8px; font: 700 17px "Space Grotesk", sans-serif;
       position: relative;
-      box-shadow:
-        0 0 18px rgba(214, 179, 90, .08),
-        inset 0 0 15px rgba(214, 179, 90, .05);
+      box-shadow: 0 0 18px rgba(214, 179, 90, .08), inset 0 0 15px rgba(214, 179, 90, .05);
       transition: .35s ease;
     }
-
     .dev-icon::before {
-      content: "";
-      position: absolute;
-      inset: 3px;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, .035);
-      pointer-events: none;
+      content: ""; position: absolute; inset: 3px; border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, .035); pointer-events: none;
     }
-
-    .dev-icon span:first-child {
-      transform: translateX(1px);
-    }
-
-    .dev-icon span:last-child {
-      transform: translateX(-1px);
-    }
-
-    .dev-icon i {
-      font-style: normal;
-      color: #fff;
-      font-size: 15px;
-      opacity: .9;
-    }
-
-    /* HOVER ANIMATION */
+    .dev-icon span:first-child { transform: translateX(1px); }
+    .dev-icon span:last-child { transform: translateX(-1px); }
+    .dev-icon i { font-style: normal; color: #fff; font-size: 15px; opacity: .9; }
     .logo:hover .dev-icon {
-      border-color: var(--gold);
-      transform: translateY(-2px) rotate(-2deg);
-      box-shadow:
-        0 0 25px rgba(214, 179, 90, .20),
-        inset 0 0 18px rgba(214, 179, 90, .08);
+      border-color: var(--gold); transform: translateY(-2px) rotate(-2deg);
+      box-shadow: 0 0 25px rgba(214, 179, 90, .20), inset 0 0 18px rgba(214, 179, 90, .08);
     }
+    .nav { display: flex; gap: 34px }
+    .nav a, .footer-links a { color: var(--muted); text-decoration: none; font-size: 14px; transition: .3s }
+    .nav a:hover, .nav a.active, .footer-links a:hover { color: #fff }
+    .nav a.active:after { content: ""; display: block; height: 1px; background: var(--gold); margin-top: 7px }
+    .menu-toggle { display: none; background: none; border: 0; color: #fff; font-size: 25px; cursor: pointer }
 
-    .nav {
-      display: flex;
-      gap: 34px
-    }
-
-    .nav a,
-    .footer-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-      transition: .3s
-    }
-
-    .nav a:hover,
-    .nav a.active,
-    .footer-links a:hover {
-      color: #fff
-    }
-
-    .nav a.active:after {
-      content: "";
-      display: block;
-      height: 1px;
-      background: var(--gold);
-      margin-top: 7px
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: 0;
-      color: #fff;
-      font-size: 25px;
-      cursor: pointer
-    }
-
-    /* ================================
-       GENERAL
-    ================================= */
-
-    .section {
-      width: min(var(--max), 90vw);
-      margin: auto;
-      padding: 120px 0;
-      position: relative;
-      z-index: 1
-    }
-
-    .hero {
-      min-height: calc(100vh - 82px);
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      align-items: center;
-      gap: 40px
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      letter-spacing: 3px;
-      color: var(--gold);
-      font-weight: 700
-    }
-
+    .section { width: min(var(--max), 90vw); margin: auto; padding: 120px 0; position: relative; z-index: 1 }
+    .eyebrow { font-size: 11px; letter-spacing: 3px; color: var(--gold); font-weight: 700 }
     .eyebrow span {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background: var(--gold);
-      border-radius: 50%;
-      margin-right: 10px;
-      box-shadow: 0 0 18px var(--gold)
+      display: inline-block; width: 8px; height: 8px; background: var(--gold);
+      border-radius: 50%; margin-right: 10px; box-shadow: 0 0 18px var(--gold)
     }
-
-    h1,
-    h2,
-    h3 {
-      font-family: "Space Grotesk", sans-serif;
-      margin: 0
-    }
-
-    h1 {
-      font-size: clamp(55px, 7vw, 105px);
-      line-height: .94;
-      letter-spacing: -5px;
-      margin: 25px 0
-    }
-
-    h1 em,
-    h2 span {
-      color: var(--gold);
-      font-style: normal
-    }
-
-    .hero-text,
-    .page-hero p {
-      max-width: 660px;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.8
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      margin-top: 32px;
-      flex-wrap: wrap
-    }
-
+    h1, h2, h3 { font-family: "Space Grotesk", sans-serif; margin: 0 }
+    h1 { font-size: clamp(55px, 7vw, 105px); line-height: .94; letter-spacing: -5px; margin: 25px 0 }
+    h1 em, h2 span { color: var(--gold); font-style: normal }
+    .hero-text, .page-hero p { max-width: 660px; color: var(--muted); font-size: 17px; line-height: 1.8 }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 18px;
-      padding: 15px 22px;
-      border: 1px solid var(--line);
-      border-radius: 2px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 13px;
-      transition: .3s
+      display: inline-flex; align-items: center; gap: 18px; padding: 15px 22px;
+      border: 1px solid var(--line); border-radius: 2px; text-decoration: none;
+      font-weight: 700; font-size: 13px; transition: .3s
     }
+    .btn-gold { background: var(--gold); color: #090909; border-color: var(--gold) }
+    .btn-gold:hover { background: var(--gold2); transform: translateY(-3px); box-shadow: 0 12px 35px rgba(214, 179, 90, .18) }
 
-    .btn-gold {
-      background: var(--gold);
-      color: #090909;
-      border-color: var(--gold)
-    }
-
-    .btn-gold:hover {
-      background: var(--gold2);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(214, 179, 90, .18)
-    }
-
-    .btn-ghost {
-      color: #fff
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--gold);
-      transform: translateY(-3px)
-    }
-
-    .mini-stats {
-      display: flex;
-      gap: 35px;
-      margin-top: 65px
-    }
-
-    .mini-stats div {
-      border-left: 1px solid var(--gold);
-      padding-left: 14px
-    }
-
-    .mini-stats strong {
-      display: block;
-      font: 700 19px "Space Grotesk"
-    }
-
-    .mini-stats span {
-      font-size: 11px;
-      color: var(--muted);
-      display: block;
-      margin-top: 5px
-    }
-
-    /* ================================
-       ABOUT PAGE
-    ================================= */
-
+    /* ABOUT HERO with orb visual */
     .page-hero {
-      padding-top: 150px;
-      padding-bottom: 100px;
-      min-height: 62vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center
+      padding-top: 150px; padding-bottom: 60px; min-height: calc(100vh - 82px);
+      display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 40px;
+    }
+    .page-hero h1 { max-width: 620px }
+    .about-visual { min-height: 480px; display: grid; place-items: center; width: 100%; max-width: 100%; overflow: hidden; }
+    .node-wrap { width: min(460px, 88vw); height: min(460px, 88vw); position: relative; max-width: 100%; display: flex; align-items: center; justify-content: center; }
+    .node-svg { width: 100%; height: 100%; overflow: visible; }
+    .node-line {
+      fill: none;
+      stroke: rgba(214, 179, 90, .28);
+      stroke-width: 1.4;
+      stroke-dasharray: 6 7;
+      animation: dashFlow 3.5s linear infinite;
+    }
+    .node-line.alt { animation-duration: 5s; animation-direction: reverse; stroke: rgba(214, 179, 90, .18); }
+    .node-dot { fill: var(--gold); filter: drop-shadow(0 0 8px rgba(214,179,90,.55)); }
+    .node-dot.core {
+      fill: url(#nodeGlow);
+      animation: nodePulse 2.6s ease-in-out infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+    .node-dot.small { animation: nodeBlink 3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    .node-dot.small:nth-of-type(2) { animation-delay: .6s; }
+    .node-dot.small:nth-of-type(3) { animation-delay: 1.2s; }
+    .node-dot.small:nth-of-type(4) { animation-delay: 1.8s; }
+    .node-ring {
+      fill: none;
+      stroke: rgba(214, 179, 90, .18);
+      stroke-width: 1;
     }
 
-    .page-hero h1 {
-      max-width: 900px
+    .visual-card {
+      position: absolute;
+      background: rgba(12, 12, 12, .8);
+      border: 1px solid var(--line);
+      padding: 15px 18px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px #000;
+      max-width: 46%;
+    }
+    .visual-card span { color: var(--gold); font-size: 10px; }
+    .visual-card b { display: block; font: 700 16px "Space Grotesk"; margin: 4px 0; }
+    .visual-card small { color: var(--muted); }
+    .card-top { right: 0; top: 8%; }
+    .card-bottom { left: 0; bottom: 8%; }
+
+    @keyframes dashFlow { to { stroke-dashoffset: -130; } }
+    @keyframes nodePulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.18); opacity: .85; }
+    }
+    @keyframes nodeBlink {
+      0%, 100% { opacity: .4; transform: scale(.85); }
+      50% { opacity: 1; transform: scale(1.15); }
     }
 
-    .intro-grid,
-    .two-col {
-      display: grid;
-      grid-template-columns: 25% 1fr;
-      gap: 50px
-    }
+    .intro-grid, .two-col { display: grid; grid-template-columns: 25% 1fr; gap: 50px }
+    .section-label { font-size: 11px; letter-spacing: 2px; color: #666 }
+    .big-copy { max-width: 850px }
+    .big-copy h2, .prose h2 { font-size: clamp(40px, 5vw, 70px); line-height: 1.02; letter-spacing: -3px }
+    .big-copy p, .prose p { color: var(--muted); font-size: 17px; line-height: 1.8; max-width: 760px }
+    .text-link { color: #fff; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 5px; display: inline-block; margin-top: 18px }
+    .text-link span { color: var(--gold); margin-left: 10px }
 
-    .section-label {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: #666
-    }
+    .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line) }
+    .values article { background: var(--bg); padding: 40px; transition: .4s }
+    .values article:hover { background: var(--panel); transform: translateY(-5px) }
+    .values b { color: var(--gold); font-size: 12px }
+    .values h3 { font-size: 25px; margin: 40px 0 12px }
+    .values p { color: var(--muted); line-height: 1.7 }
 
-    .big-copy {
-      max-width: 850px
-    }
-
-    .big-copy h2,
-    .prose h2 {
-      font-size: clamp(40px, 5vw, 70px);
-      line-height: 1.02;
-      letter-spacing: -3px
-    }
-
-    .big-copy p,
-    .prose p {
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.8;
-      max-width: 760px
-    }
-
-    .text-link {
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold);
-      padding-bottom: 5px;
-      display: inline-block;
-      margin-top: 18px
-    }
-
-    .text-link span {
-      color: var(--gold);
-      margin-left: 10px
-    }
-
-    .values {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line)
-    }
-
-    .values article {
-      background: var(--bg);
-      padding: 40px;
-      transition: .4s
-    }
-
-    .values article:hover {
-      background: var(--panel);
-      transform: translateY(-5px)
-    }
-
-    .values b {
-      color: var(--gold);
-      font-size: 12px
-    }
-
-    .values h3 {
-      font-size: 25px;
-      margin: 40px 0 12px
-    }
-
-    .values p {
-      color: var(--muted);
-      line-height: 1.7
-    }
-
-    .quote {
-      border-top: 1px solid var(--line);
-      text-align: center
-    }
-
-    .quote span {
-      font: 100px Georgia;
-      color: var(--gold);
-      display: block;
-      height: 65px
-    }
-
-    .quote h2 {
-      font-size: clamp(38px, 5vw, 68px);
-      letter-spacing: -3px
-    }
-
-    /* ================================
-       FOOTER
-    ================================= */
+    .quote { border-top: 1px solid var(--line); text-align: center }
+    .quote span { font: 100px Georgia; color: var(--gold); display: block; height: 65px }
+    .quote h2 { font-size: clamp(38px, 5vw, 68px); letter-spacing: -3px }
 
     footer {
-      border-top: 1px solid var(--line);
-      padding: 30px 5vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      color: #666;
-      font-size: 12px;
+      border-top: 1px solid var(--line); padding: 30px 5vw; display: flex;
+      justify-content: space-between; align-items: center; gap: 20px; color: #666; font-size: 12px;
     }
+    .footer-links { display: flex; gap: 22px; }
 
-    .footer-links {
-      display: flex;
-      gap: 22px;
-    }
-
-    /* ================================
-       REVEAL ANIMATION (matches index.html)
-    ================================= */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity .8s, transform .8s;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ================================
-       ANIMATIONS
-    ================================= */
-
-    @keyframes marquee {
-      to {
-        transform: translateX(-50%)
-      }
-    }
-
-    /* ================================
-       MOBILE
-    ================================= */
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity .8s, transform .8s; }
+    .reveal.show { opacity: 1; transform: none; }
 
     @media(max-width:800px) {
-      .site-header {
-        height: 70px
-      }
-
-      .menu-toggle {
-        display: block
-      }
-
+      .site-header { height: 70px }
+      .menu-toggle { display: block }
       .nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: #080808;
-        border-bottom: 1px solid var(--line);
-        padding: 20px 5vw;
-        flex-direction: column;
-        gap: 18px
+        display: none; position: absolute; top: 70px; left: 0; right: 0;
+        background: #080808; border-bottom: 1px solid var(--line);
+        padding: 20px 5vw; flex-direction: column; gap: 18px
       }
-
-      .nav.open {
-        display: flex
-      }
-
-      .nav a.active:after {
-        display: none
-      }
-
-      .section {
-        padding: 80px 0
-      }
-
+      .nav.open { display: flex }
+      .nav a.active:after { display: none }
+      .section { padding: 80px 0 }
       .page-hero {
-        min-height: auto;
-        padding-top: 100px;
-        padding-bottom: 70px
+        grid-template-columns: 1fr; min-height: auto;
+        padding-top: 60px; padding-bottom: 30px; gap: 20px;
       }
-
-      .intro-grid,
-      .two-col {
-        grid-template-columns: 1fr;
-        gap: 25px
-      }
-
-      .values {
-        grid-template-columns: 1fr
-      }
-
-      .quote h2 {
-        letter-spacing: -2px
-      }
-
-      footer {
-        flex-direction: column;
-        align-items: flex-start
-      }
-
-      .page-hero h1 {
-        font-size: 58px;
-        letter-spacing: -3px
-      }
-
-      .logo {
-        gap: 9px;
-        font-size: 16px
-      }
-
-      .dev-icon {
-        width: 31px;
-        height: 31px;
-        font-size: 15px
-      }
+      .page-hero h1 { font-size: 46px; letter-spacing: -3px; max-width: 100%; }
+      .about-visual { min-height: 340px; order: -1; }
+      .node-wrap { width: 80vw; height: 80vw; max-width: 340px; max-height: 340px; }
+      .visual-card { padding: 10px 12px; max-width: 44%; }
+      .visual-card b { font-size: 13px; }
+      .visual-card span, .visual-card small { font-size: 9px; }
+      .intro-grid, .two-col { grid-template-columns: 1fr; gap: 25px }
+      .values { grid-template-columns: 1fr }
+      .quote h2 { letter-spacing: -2px }
+      footer { flex-direction: column; align-items: flex-start }
+      .logo { gap: 9px; font-size: 16px }
+      .dev-icon { width: 31px; height: 31px; font-size: 15px }
     }
 
-    /* ================================
-       REDUCED MOTION
-    ================================= */
+    @media(max-width:420px) {
+      .node-wrap { width: 84vw; height: 84vw; }
+      .visual-card { max-width: 48%; padding: 8px 10px; }
+    }
 
     @media(prefers-reduced-motion:reduce) {
-      html {
-        scroll-behavior: auto
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none
-      }
-
-      .logo:hover .dev-icon,
-      .values article:hover {
-        transform: none
-      }
+      html { scroll-behavior: auto }
+      .reveal { opacity: 1; transform: none; transition: none }
+      .logo:hover .dev-icon, .values article:hover { transform: none }
+      .node-line, .node-dot.core, .node-dot.small { animation: none !important; }
     }
   </style>
 </head>
@@ -585,28 +234,12 @@
 
   <div class="cursor-glow"></div>
 
-  <!-- ================================
-       HEADER
-  ================================= -->
-
   <header class="site-header">
-
     <a class="logo" href="index.html">
-
-      <span class="dev-icon" aria-hidden="true">
-        <span>&lt;</span>
-        <i>/</i>
-        <span>&gt;</span>
-      </span>
-
-      <span class="logo-text">
-        <b>ALI</b>CODELAB
-      </span>
-
+      <span class="dev-icon" aria-hidden="true"><span>&lt;</span><i>/</i><span>&gt;</span></span>
+      <span class="logo-text"><b>ALI</b>CODELAB</span>
     </a>
-
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-
     <nav class="nav">
       <a href="index.html">Home</a>
       <a class="active" href="about.html">About</a>
@@ -614,284 +247,132 @@
       <a href="projects.html">Projects</a>
       <a href="contact.html">Contact</a>
     </nav>
-
   </header>
-
-  <!-- ================================
-       MAIN
-  ================================= -->
 
   <main>
 
-    <!-- ABOUT HERO -->
-
     <section class="page-hero section">
+      <div class="hero-copy">
+        <div class="eyebrow reveal"><span></span>02 / ABOUT</div>
+        <h1 class="reveal">Building software<br>with <em>purpose.</em></h1>
+        <p class="reveal">I focus on practical software that makes everyday business operations simpler, faster and easier to understand.</p>
+      </div>
 
-      <div class="eyebrow reveal"><span></span>02 / ABOUT</div>
+      <div class="about-visual reveal">
+        <div class="node-wrap">
+          <svg class="node-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="nodeGlow" cx="35%" cy="30%">
+                <stop offset="0%" stop-color="#fff4c8"/>
+                <stop offset="45%" stop-color="#d6b35a"/>
+                <stop offset="100%" stop-color="#6b5424"/>
+              </radialGradient>
+            </defs>
 
-      <h1 class="reveal">
-        Building software<br>
-        with <em>purpose.</em>
-      </h1>
+            <circle class="node-ring" cx="200" cy="200" r="150"/>
+            <circle class="node-ring" cx="200" cy="200" r="105"/>
 
-      <p class="reveal">
-        I focus on practical software that makes everyday business operations simpler, faster and easier to understand.
-      </p>
+            <path class="node-line" d="M200,200 L90,120"/>
+            <path class="node-line" d="M200,200 L320,110"/>
+            <path class="node-line alt" d="M200,200 L70,270"/>
+            <path class="node-line alt" d="M200,200 L330,280"/>
+            <path class="node-line" d="M200,200 L200,60"/>
+            <path class="node-line alt" d="M200,200 L200,345"/>
+            <path class="node-line" d="M90,120 L200,60"/>
+            <path class="node-line alt" d="M320,110 L200,60"/>
+            <path class="node-line" d="M70,270 L200,345"/>
+            <path class="node-line alt" d="M330,280 L200,345"/>
 
+            <circle class="node-dot core" cx="200" cy="200" r="34"/>
+            <circle class="node-dot small" cx="90" cy="120" r="7"/>
+            <circle class="node-dot small" cx="320" cy="110" r="7"/>
+            <circle class="node-dot small" cx="70" cy="270" r="7"/>
+            <circle class="node-dot small" cx="330" cy="280" r="7"/>
+            <circle class="node-dot small" cx="200" cy="60" r="6"/>
+            <circle class="node-dot small" cx="200" cy="345" r="6"/>
+          </svg>
+
+          <div class="visual-card card-top">
+            <span>01</span>
+            <b>UNDERSTAND</b>
+            <small>Problem → Clarity</small>
+          </div>
+
+          <div class="visual-card card-bottom">
+            <span>02</span>
+            <b>DELIVER</b>
+            <small>Code → Purpose</small>
+          </div>
+
+        </div>
+      </div>
     </section>
-
-    <!-- APPROACH -->
 
     <section class="section two-col">
-
-      <div class="section-label reveal">
-        THE APPROACH
-      </div>
-
+      <div class="section-label reveal">THE APPROACH</div>
       <div class="prose reveal">
-
-        <h2>
-          Not just code.<br>
-          <span>Useful products.</span>
-        </h2>
-
-        <p>
-          AliCodeLab combines software development with a strong focus on business workflows.
-          The goal is simple: take complicated processes and turn them into interfaces people can actually use.
-        </p>
-
-        <p>
-          My work includes POS and sales systems, inventory management, purchasing,
-          supplier/customer ledgers, reporting dashboards and modern web interfaces.
-        </p>
-
+        <h2>Not just code.<br><span>Useful products.</span></h2>
+        <p>AliCodeLab combines software development with a strong focus on business workflows. The goal is simple: take complicated processes and turn them into interfaces people can actually use.</p>
+        <p>My work includes POS and sales systems, inventory management, purchasing, supplier/customer ledgers, reporting dashboards and modern web interfaces.</p>
       </div>
-
     </section>
-
-    <!-- VALUES -->
 
     <section class="section values">
-
-      <article class="reveal">
-
-        <b>01</b>
-
-        <h3>Problem First</h3>
-
-        <p>
-          Understand the workflow before writing the solution.
-        </p>
-
-      </article>
-
-      <article class="reveal">
-
-        <b>02</b>
-
-        <h3>Simple UX</h3>
-
-        <p>
-          Keep important actions clear, fast and easy to find.
-        </p>
-
-      </article>
-
-      <article class="reveal">
-
-        <b>03</b>
-
-        <h3>Built to Grow</h3>
-
-        <p>
-          Structure projects so new features can be added without chaos.
-        </p>
-
-      </article>
-
+      <article class="reveal"><b>01</b><h3>Problem First</h3><p>Understand the workflow before writing the solution.</p></article>
+      <article class="reveal"><b>02</b><h3>Simple UX</h3><p>Keep important actions clear, fast and easy to find.</p></article>
+      <article class="reveal"><b>03</b><h3>Built to Grow</h3><p>Structure projects so new features can be added without chaos.</p></article>
     </section>
 
-    <!-- QUOTE -->
-
     <section class="section quote">
-
-      <span class="reveal">“</span>
-
-      <h2 class="reveal">
-        Good software should make business feel <em>easier.</em>
-      </h2>
-
+      <span class="reveal">"</span>
+      <h2 class="reveal">Good software should make business feel <em>easier.</em></h2>
     </section>
 
   </main>
 
-  <!-- ================================
-       FOOTER
-  ================================= -->
-
   <footer>
-
     <a class="logo" href="index.html">
-
-      <span class="dev-icon" aria-hidden="true">
-        <span>&lt;</span>
-        <i>/</i>
-        <span>&gt;</span>
-      </span>
-
-      <span class="logo-text">
-        <b>ALI</b>CODELAB
-      </span>
-
+      <span class="dev-icon" aria-hidden="true"><span>&lt;</span><i>/</i><span>&gt;</span></span>
+      <span class="logo-text"><b>ALI</b>CODELAB</span>
     </a>
-
-    <p>
-      © 2026 AliCodeLab. Built with purpose.
-    </p>
-
-    <div class="footer-links">
-      <a href="contact.html">Contact</a>
-      <a href="projects.html">Projects</a>
-    </div>
-
+    <p>© 2026 AliCodeLab. Built with purpose.</p>
+    <div class="footer-links"><a href="contact.html">Contact</a><a href="projects.html">Projects</a></div>
   </footer>
 
-  <!-- ================================
-       JAVASCRIPT
-  ================================= -->
-
   <script>
-
-    /* ================================
-       MOBILE MENU
-    ================================= */
-
     const menu = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
-
     if (menu && nav) {
-
       menu.addEventListener('click', () => {
-
         nav.classList.toggle('open');
-
-        const isOpen = nav.classList.contains('open');
-
-        menu.setAttribute(
-          'aria-expanded',
-          isOpen ? 'true' : 'false'
-        );
-
+        menu.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
       });
-
     }
-
-    /* ================================
-       CLOSE MOBILE MENU AFTER CLICK
-    ================================= */
-
     document.querySelectorAll('.nav a').forEach(link => {
-
       link.addEventListener('click', () => {
-
         if (nav && nav.classList.contains('open')) {
-
           nav.classList.remove('open');
-
-          if (menu) {
-            menu.setAttribute(
-              'aria-expanded',
-              'false'
-            );
-          }
-
+          if (menu) menu.setAttribute('aria-expanded', 'false');
         }
-
       });
-
     });
-
-    /* ================================
-       CURSOR GLOW
-    ================================= */
-
     const glow = document.querySelector('.cursor-glow');
-
     window.addEventListener('pointermove', e => {
-
-      if (glow) {
-
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
-
-      }
-
+      if (glow) { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; }
     });
-
-    /* ================================
-       SCROLL REVEAL (matches index.html: re-triggers, no unobserve)
-    ================================= */
-
-    const obs = new IntersectionObserver(
-
-      entries => {
-
-        entries.forEach(e => {
-
-          if (e.isIntersecting) {
-
-            e.target.classList.add('show');
-
-          }
-
-        });
-
-      },
-
-      {
-        threshold: .12
-      }
-
-    );
-
-    document
-      .querySelectorAll('.reveal')
-      .forEach(el => obs.observe(el));
-
-    /* ================================
-       SAME PAGE SMOOTH LINKS
-    ================================= */
-
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     document.querySelectorAll('a[href]').forEach(a => {
-
-      if (
-        a.hostname === location.hostname &&
-        a.pathname === location.pathname &&
-        a.hash
-      ) {
-
+      if (a.hostname === location.hostname && a.pathname === location.pathname && a.hash) {
         a.addEventListener('click', e => {
-
           const t = document.querySelector(a.hash);
-
-          if (t) {
-
-            e.preventDefault();
-
-            t.scrollIntoView({
-              behavior: 'smooth'
-            });
-
-          }
-
+          if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
         });
-
       }
-
     });
-
   </script>
 
 </body>
-
 </html>
