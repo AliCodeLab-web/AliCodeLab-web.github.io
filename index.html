@@ -110,8 +110,7 @@
       justify-content: center;
       width: 130px;
       height: 130px;
-      max-width: 30vw;
-      max-height: 30vw;
+      overflow: visible;
     }
 
     .pre-ring {
@@ -178,7 +177,7 @@
     }
 
     .pre-label {
-      position: fixed;
+      position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) scale(.8);
@@ -189,7 +188,7 @@
       opacity: 0;
       transition: opacity .4s ease, transform .4s ease;
       z-index: 1000;
-      max-width: 90vw;
+      max-width: 80vw;
     }
 
     .pre-label.show {
