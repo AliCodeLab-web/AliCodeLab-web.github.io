@@ -4,7 +4,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{--bg:#050505;--panel:#0d0d0d;--panel2:#111;--gold:#d6b35a;--gold2:#ffe6a0;--text:#f6f3eb;--muted:#92908a;--line:rgba(255,255,255,.10);--max:1240px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:5px 5px;z-index:10}.cursor-glow{position:fixed;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(214,179,90,.10),transparent 65%);pointer-events:none;transform:translate(-50%,-50%);z-index:0}
+*{box-sizing:border-box}html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;overflow-x:hidden;max-width:100vw;position:relative}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:5px 5px;z-index:10}.cursor-glow{position:fixed;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(214,179,90,.10),transparent 65%);pointer-events:none;transform:translate(-50%,-50%);z-index:0}
 .site-header{height:82px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(5,5,5,.82);backdrop-filter:blur(18px);z-index:20}
 .logo{display:flex;align-items:center;gap:11px;font:700 18px "Space Grotesk",sans-serif;letter-spacing:2px;color:#fff;text-decoration:none;white-space:nowrap}
 .logo-text b{color:var(--gold)}
@@ -16,7 +16,29 @@
 .logo:hover .dev-icon{border-color:var(--gold);transform:translateY(-2px) rotate(-2deg);box-shadow:0 0 25px rgba(214,179,90,.20),inset 0 0 18px rgba(214,179,90,.08)}
 .nav{display:flex;gap:34px}.nav a,.footer-links a{color:var(--muted);text-decoration:none;font-size:14px;transition:.3s}.nav a:hover,.nav a.active,.footer-links a:hover{color:#fff}.nav a.active:after{content:"";display:block;height:1px;background:var(--gold);margin-top:7px}.menu-toggle{display:none;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
 .section{width:min(var(--max),90vw);margin:auto;padding:120px 0;position:relative;z-index:1}.hero{min-height:calc(100vh - 82px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px}.eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:700}.eyebrow span{display:inline-block;width:8px;height:8px;background:var(--gold);border-radius:50%;margin-right:10px;box-shadow:0 0 18px var(--gold)}h1,h2,h3{font-family:"Space Grotesk",sans-serif;margin:0}h1{font-size:clamp(55px,7vw,105px);line-height:.94;letter-spacing:-5px;margin:25px 0}h1 em,h2 span{color:var(--gold);font-style:normal}.hero-text,.page-hero p{max-width:660px;color:var(--muted);font-size:17px;line-height:1.8}.hero-actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:18px;padding:15px 22px;border:1px solid var(--line);border-radius:2px;text-decoration:none;font-weight:700;font-size:13px;transition:.3s}.btn-gold{background:var(--gold);color:#090909;border-color:var(--gold)}.btn-gold:hover{background:var(--gold2);transform:translateY(-3px);box-shadow:0 12px 35px rgba(214,179,90,.18)}.btn-ghost{color:#fff}.btn-ghost:hover{border-color:var(--gold);transform:translateY(-3px)}.mini-stats{display:flex;gap:35px;margin-top:65px}.mini-stats div{border-left:1px solid var(--gold);padding-left:14px}.mini-stats strong{display:block;font:700 19px "Space Grotesk"}.mini-stats span{font-size:11px;color:var(--muted);display:block;margin-top:5px}
-.page-hero{padding-top:150px;padding-bottom:100px}.page-hero h1{max-width:900px}
+.page-hero{padding-top:150px;padding-bottom:60px;min-height:calc(100vh - 82px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px}.page-hero h1{max-width:620px}
+.services-visual{min-height:480px;display:grid;place-items:center;width:100%;max-width:100%;overflow:hidden}
+.svc-wrap{width:min(460px,88vw);height:min(460px,88vw);position:relative;max-width:100%;display:flex;align-items:center;justify-content:center}
+.svc-svg{width:100%;height:100%;overflow:visible}
+.svc-spoke{fill:none;stroke:rgba(214,179,90,.30);stroke-width:1.6;stroke-linecap:round}
+.svc-track{fill:none;stroke:rgba(214,179,90,.14);stroke-width:1}
+.svc-pulse{fill:none;stroke:var(--gold2);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:14 300;filter:drop-shadow(0 0 5px rgba(214,179,90,.6));animation:pulseFlow 3.2s linear infinite}
+.svc-pulse.p2{animation-delay:.8s}
+.svc-pulse.p3{animation-delay:1.6s}
+.svc-pulse.p4{animation-delay:2.4s}
+.svc-hub{fill:url(#hubGlow);animation:hubBeat 2.4s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+.svc-node{fill:#0d0d0d;stroke:var(--gold);stroke-width:2;filter:drop-shadow(0 0 7px rgba(214,179,90,.45))}
+.svc-node-inner{fill:var(--gold)}
+@keyframes pulseFlow{0%{stroke-dashoffset:0}100%{stroke-dashoffset:-314}}
+@keyframes hubBeat{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.svc-card{position:absolute;background:rgba(12,12,12,.82);border:1px solid var(--line);padding:12px 15px;backdrop-filter:blur(10px);box-shadow:0 20px 60px #000;max-width:42%}
+.svc-card span{color:var(--gold);font-size:10px}
+.svc-card b{display:block;font:700 14px "Space Grotesk";margin:3px 0}
+.svc-card small{color:var(--muted);font-size:11px}
+.svc-card.c1{left:-4%;top:4%}
+.svc-card.c2{right:-6%;top:22%}
+.svc-card.c3{left:-6%;bottom:18%}
+.svc-card.c4{right:-4%;bottom:2%}
 .intro-grid,.two-col{display:grid;grid-template-columns:25% 1fr;gap:50px}.section-label{font-size:11px;letter-spacing:2px;color:#666}.big-copy{max-width:850px}.big-copy h2,.prose h2{font-size:clamp(40px,5vw,70px);line-height:1.02;letter-spacing:-3px}.big-copy p,.prose p{color:var(--muted);font-size:17px;line-height:1.8;max-width:760px}.text-link{color:#fff;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:5px;display:inline-block;margin-top:18px}.text-link span{color:var(--gold);margin-left:10px}
 .values{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}.values article{background:var(--bg);padding:40px}.values b{color:var(--gold);font-size:12px}.values h3{font-size:25px;margin:40px 0 12px}.values p{color:var(--muted);line-height:1.7}
 .quote{border-top:1px solid var(--line);text-align:center}.quote span{font:100px Georgia;color:var(--gold);display:block;height:65px}.quote h2{font-size:clamp(38px,5vw,68px);letter-spacing:-3px}
@@ -24,10 +46,42 @@
 .cta{text-align:center}.cta h2{font-size:clamp(45px,7vw,90px);line-height:.95;letter-spacing:-4px;margin:20px 0 40px}.cta.compact h2{font-size:clamp(38px,5vw,64px)}
 footer{border-top:1px solid var(--line);padding:30px 5vw;display:flex;justify-content:space-between;align-items:center;gap:20px;color:#666;font-size:12px}.footer-links{display:flex;gap:22px}
 .reveal{opacity:0;transform:translateY(25px);transition:opacity .8s,transform .8s}.reveal.show{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-@media(max-width:800px){.site-header{height:70px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:70px;left:0;right:0;background:#080808;border-bottom:1px solid var(--line);padding:20px 5vw;flex-direction:column;gap:18px}.nav.open{display:flex}.nav a.active:after{display:none}.section{padding:80px 0}.intro-grid,.two-col{grid-template-columns:1fr;gap:25px}.values{grid-template-columns:1fr}.service{grid-template-columns:40px 1fr}.service>b{display:none}.service h2{font-size:25px}.cta h2{letter-spacing:-2px}footer{flex-direction:column;align-items:flex-start}.page-hero h1{font-size:58px;letter-spacing:-3px}.logo{gap:9px;font-size:16px}.dev-icon{width:31px;height:31px;font-size:15px}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.svc-pulse,.svc-hub{animation:none!important}}
+@media(max-width:800px){.site-header{height:70px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:70px;left:0;right:0;background:#080808;border-bottom:1px solid var(--line);padding:20px 5vw;flex-direction:column;gap:18px}.nav.open{display:flex}.nav a.active:after{display:none}.section{padding:80px 0}.page-hero{grid-template-columns:1fr;min-height:auto;padding-top:60px;padding-bottom:30px;gap:20px}.page-hero h1{font-size:46px;letter-spacing:-3px;max-width:100%}.services-visual{min-height:340px;order:-1}.svc-wrap{width:80vw;height:80vw;max-width:340px;max-height:340px}.svc-card{padding:9px 11px;max-width:44%}.svc-card b{font-size:12px}.svc-card span,.svc-card small{font-size:9px}.intro-grid,.two-col{grid-template-columns:1fr;gap:25px}.values{grid-template-columns:1fr}.service{grid-template-columns:40px 1fr}.service>b{display:none}.service h2{font-size:25px}.cta h2{letter-spacing:-2px}footer{flex-direction:column;align-items:flex-start}.logo{gap:9px;font-size:16px}.dev-icon{width:31px;height:31px;font-size:15px}}
+@media(max-width:420px){.svc-wrap{width:84vw;height:84vw}.svc-card{max-width:48%;padding:8px 10px}}
+
+/* PRELOADER */
+body.locked{overflow:hidden;height:100vh}
+#preloader{position:fixed;inset:0;width:100vw;height:100vh;overflow:hidden;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
+#preloader.loaded{opacity:0;visibility:hidden;pointer-events:none}
+.pre-wrap{position:relative;display:flex;align-items:center;justify-content:center;width:130px;height:130px;overflow:visible}
+.pre-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(214,179,90,.22);border-top-color:var(--gold);animation:preSpin 1.1s linear infinite}
+.pre-icon{width:64px;height:64px;display:flex;align-items:center;justify-content:center;gap:1px;border:1px solid rgba(214,179,90,.55);background:radial-gradient(circle at 50% 40%,rgba(214,179,90,.18),rgba(214,179,90,.03) 65%,transparent 100%);color:var(--gold);border-radius:14px;font:700 30px "Space Grotesk",sans-serif;position:absolute;box-shadow:0 0 25px rgba(214,179,90,.12),inset 0 0 20px rgba(214,179,90,.06);animation:preFloat 1.6s ease-in-out infinite;z-index:1;transition:opacity .4s ease,transform .4s ease}
+.pre-icon.fade-out{opacity:0;transform:scale(.7)}
+.pre-icon:before{content:"";position:absolute;inset:5px;border-radius:10px;border:1px solid rgba(255,255,255,.04);pointer-events:none}
+.pre-icon span:first-child{transform:translateX(2px)}
+.pre-icon span:last-child{transform:translateX(-2px)}
+.pre-icon i{font-style:normal;color:#fff;font-size:27px;opacity:.9}
+.pre-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.8);font:700 20px "Space Grotesk",sans-serif;letter-spacing:3px;color:var(--text);white-space:nowrap;opacity:0;transition:opacity .4s ease,transform .4s ease;z-index:1000;max-width:80vw}
+.pre-label.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.pre-label b{color:var(--gold)}
+@media(max-width:420px){.pre-label{font-size:15px;letter-spacing:2px}}
+@keyframes preSpin{to{transform:rotate(360deg)}}
+@keyframes preFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){.pre-ring,.pre-icon{animation:none!important}}
 </style></head>
-<body>
+<body class="locked">
+
+<div id="preloader">
+  <div class="pre-wrap">
+    <div class="pre-ring"></div>
+    <div class="pre-icon" aria-hidden="true">
+      <span>&lt;</span><i>/</i><span>&gt;</span>
+    </div>
+    <div class="pre-label" id="preLabel"><b>ALI</b>CODELAB</div>
+  </div>
+</div>
+
 <div class="cursor-glow"></div>
 <header class="site-header">
   <a class="logo" href="index.html">
@@ -46,9 +100,53 @@ footer{border-top:1px solid var(--line);padding:30px 5vw;display:flex;justify-co
 
 <main>
 <section class="page-hero section">
-  <div class="eyebrow reveal"><span></span>03 / SERVICES</div>
-  <h1 class="reveal">Solutions designed<br>for <em>real work.</em></h1>
-  <p class="reveal">From a single business tool to a complete management platform, I build solutions around your goals.</p>
+  <div class="hero-copy">
+    <div class="eyebrow reveal"><span></span>03 / SERVICES</div>
+    <h1 class="reveal">Solutions designed<br>for <em>real work.</em></h1>
+    <p class="reveal">From a single business tool to a complete management platform, I build solutions around your goals.</p>
+  </div>
+
+  <div class="services-visual reveal">
+    <div class="svc-wrap">
+      <svg class="svc-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="hubGlow" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#fff4c8"/>
+            <stop offset="45%" stop-color="#d6b35a"/>
+            <stop offset="100%" stop-color="#6b5424"/>
+          </radialGradient>
+        </defs>
+
+        <circle class="svc-track" cx="200" cy="200" r="150"/>
+
+        <path class="svc-spoke" d="M200,200 L200,60"/>
+        <path class="svc-spoke" d="M200,200 L340,200"/>
+        <path class="svc-spoke" d="M200,200 L200,340"/>
+        <path class="svc-spoke" d="M200,200 L60,200"/>
+
+        <path class="svc-pulse p1" d="M200,200 L200,60"/>
+        <path class="svc-pulse p2" d="M200,200 L340,200"/>
+        <path class="svc-pulse p3" d="M200,200 L200,340"/>
+        <path class="svc-pulse p4" d="M200,200 L60,200"/>
+
+        <circle class="svc-hub" cx="200" cy="200" r="30"/>
+
+        <circle class="svc-node" cx="200" cy="60" r="16"/>
+        <circle class="svc-node-inner" cx="200" cy="60" r="5"/>
+        <circle class="svc-node" cx="340" cy="200" r="16"/>
+        <circle class="svc-node-inner" cx="340" cy="200" r="5"/>
+        <circle class="svc-node" cx="200" cy="340" r="16"/>
+        <circle class="svc-node-inner" cx="200" cy="340" r="5"/>
+        <circle class="svc-node" cx="60" cy="200" r="16"/>
+        <circle class="svc-node-inner" cx="60" cy="200" r="5"/>
+      </svg>
+
+      <div class="svc-card c1"><span>01</span><b>POS & SALES</b><small>Checkout → Invoice</small></div>
+      <div class="svc-card c2"><span>02</span><b>INVENTORY</b><small>Stock → Purchase</small></div>
+      <div class="svc-card c3"><span>03</span><b>ACCOUNTS</b><small>Ledger → Reports</small></div>
+      <div class="svc-card c4"><span>04</span><b>WEB DEV</b><small>UI → Deploy</small></div>
+    </div>
+  </div>
 </section>
 
 <section class="section service-list">
@@ -75,6 +173,22 @@ footer{border-top:1px solid var(--line);padding:30px 5vw;display:flex;justify-co
 </footer>
 
 <script>
+window.addEventListener('load', () => {
+  const pre = document.getElementById('preloader');
+  const icon = document.querySelector('.pre-icon');
+  const label = document.getElementById('preLabel');
+  const body = document.body;
+  setTimeout(() => {
+    icon.classList.add('fade-out');
+    label.classList.add('show');
+    setTimeout(() => {
+      pre.classList.add('loaded');
+      body.classList.remove('locked');
+      pre.addEventListener('transitionend', () => { pre.remove(); }, { once: true });
+    }, 700);
+  }, 900);
+});
+
 const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('.nav');
 if(menu){menu.addEventListener('click',()=>{nav.classList.toggle('open');menu.setAttribute('aria-expanded',nav.classList.contains('open')?'true':'false')});}
 document.querySelectorAll('.nav a').forEach(link=>{link.addEventListener('click',()=>{if(nav.classList.contains('open')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}})});
