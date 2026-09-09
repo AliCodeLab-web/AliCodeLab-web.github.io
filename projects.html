@@ -1530,10 +1530,56 @@
         animation: none !important
       }
     }
+
+
+    .custom-cursor {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #d6b35a;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px rgba(214, 179, 90, 0.3);
+      opacity: 0;
+      visibility: hidden
+    }
+
+    .cursor-dot {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: #d6b35a;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 12px #d6b35a;
+      opacity: 0;
+      visibility: hidden
+    }
+
+    body.cursor-active .custom-cursor,
+    body.cursor-active .cursor-dot {
+      opacity: 1;
+      visibility: visible
+    }
+
+    @media (hover: none) {
+
+      .custom-cursor,
+      .cursor-dot {
+        display: none
+      }
+    }
   </style>
 </head>
 
 <body class="locked">
+
+  <div class="custom-cursor"></div>
+  <div class="cursor-dot"></div>
 
   <div id="preloader">
     <div class="pre-wrap">
@@ -1901,7 +1947,16 @@
     const menu = document.querySelector('.menu-toggle'), nav = document.querySelector('.nav');
     if (menu) { menu.addEventListener('click', () => { nav.classList.toggle('open'); menu.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false') }); }
     document.querySelectorAll('.nav a').forEach(link => { link.addEventListener('click', () => { if (nav.classList.contains('open')) { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false') } }) });
-    const glow = document.querySelector('.cursor-glow'); window.addEventListener('pointermove', e => { if (glow) { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px' } });
+    const glow = document.querySelector('.cursor-glow');
+    const customCursor = document.querySelector('.custom-cursor');
+    const cursorDot = document.querySelector('.cursor-dot');
+    let cursorStarted = false;
+    window.addEventListener('pointermove', e => {
+      if (glow) { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; }
+      if (customCursor) { customCursor.style.left = e.clientX + 'px'; customCursor.style.top = e.clientY + 'px'; }
+      if (cursorDot) { cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px'; }
+      if (!cursorStarted) { cursorStarted = true; document.body.classList.add('cursor-active'); }
+    });
     const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show') }), { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     document.querySelectorAll('a[href]').forEach(a => { if (a.hostname === location.hostname && a.pathname === location.pathname && a.hash) { a.addEventListener('click', e => { const t = document.querySelector(a.hash); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }) } }) } });
