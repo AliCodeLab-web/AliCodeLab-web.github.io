@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <!-- AliCodeLab favicon: inline SVG, no separate file required -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090909'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-size='29' font-weight='700' fill='%23d4af37'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
-    <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090909'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-size='29' font-weight='700' fill='%23d4af37'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
-<meta name="description" content="AliCodeLab services — POS, inventory, business software and web development.">
+  <!-- AliCodeLab favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+
+
+  <!-- AliCodeLab favicon: inline SVG, no separate file required -->
+  <meta name="description" content="AliCodeLab services — POS, inventory, business software and web development.">
   <meta name="theme-color" content="#050505">
   <title>Services | AliCodeLab</title>
   <style>
@@ -1266,27 +1268,27 @@
         setTimeout(() => {
           pre.classList.add('loaded');
           body.classList.remove('locked');
-          pre.addEventListener('transitionend', () => { pre.remove(); }, { once: true });
+          pre.addEventListener('transitionend', () => {pre.remove();}, {once: true});
         }, 700);
       }, 900);
     });
 
     const menu = document.querySelector('.menu-toggle'), nav = document.querySelector('.nav');
-    if (menu) { menu.addEventListener('click', () => { nav.classList.toggle('open'); menu.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false') }); }
-    document.querySelectorAll('.nav a').forEach(link => { link.addEventListener('click', () => { if (nav.classList.contains('open')) { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false') } }) });
+    if (menu) {menu.addEventListener('click', () => {nav.classList.toggle('open'); menu.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false')});}
+    document.querySelectorAll('.nav a').forEach(link => {link.addEventListener('click', () => {if (nav.classList.contains('open')) {nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false')} })});
     const glow = document.querySelector('.cursor-glow');
     const customCursor = document.querySelector('.custom-cursor');
     const cursorDot = document.querySelector('.cursor-dot');
     let cursorStarted = false;
     window.addEventListener('pointermove', e => {
-      if (glow) { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; }
-      if (customCursor) { customCursor.style.left = e.clientX + 'px'; customCursor.style.top = e.clientY + 'px'; }
-      if (cursorDot) { cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px'; }
-      if (!cursorStarted) { cursorStarted = true; document.body.classList.add('cursor-active'); }
+      if (glow) {glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px';}
+      if (customCursor) {customCursor.style.left = e.clientX + 'px'; customCursor.style.top = e.clientY + 'px';}
+      if (cursorDot) {cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px';}
+      if (!cursorStarted) {cursorStarted = true; document.body.classList.add('cursor-active');}
     });
-    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show') }), { threshold: .12 });
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {if (e.isIntersecting) e.target.classList.add('show')}), {threshold: .12});
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    document.querySelectorAll('a[href]').forEach(a => { if (a.hostname === location.hostname && a.pathname === location.pathname && a.hash) { a.addEventListener('click', e => { const t = document.querySelector(a.hash); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }) } }) } });
+    document.querySelectorAll('a[href]').forEach(a => {if (a.hostname === location.hostname && a.pathname === location.pathname && a.hash) {a.addEventListener('click', e => {const t = document.querySelector(a.hash); if (t) {e.preventDefault(); t.scrollIntoView({behavior: 'smooth'})} })} });
   </script>
 </body>
 
