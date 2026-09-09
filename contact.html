@@ -9,6 +9,7 @@
   <title>Contact | AliCodeLab</title>
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='bg' cx='50%25' cy='35%25'%3E%3Cstop offset='0' stop-color='%23201b0f'/%3E%3Cstop offset='0.65' stop-color='%230d0d0d'/%3E%3Cstop offset='1' stop-color='%23030303'/%3E%3C/radialGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2.2' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect x='3' y='3' width='58' height='58' rx='14' fill='url(%23bg)' stroke='%23d6b35a' stroke-width='2'/%3E%3Crect x='7' y='7' width='50' height='50' rx='11' fill='none' stroke='%23d6b35a' stroke-opacity='.18'/%3E%3Cpath d='M25 20 L14 32 L25 44' fill='none' stroke='%23d6b35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' filter='url(%23glow)'/%3E%3Cpath d='M39 20 L50 32 L39 44' fill='none' stroke='%23d6b35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' filter='url(%23glow)'/%3E%3Cpath d='M36 17 L28 47' fill='none' stroke='%23fff1c4' stroke-width='3.5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='10' r='1.5' fill='%23ffe6a0'/%3E%3C/svg%3E">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
@@ -254,11 +255,48 @@
 
     .page-hero {
       padding-top: 150px;
-      padding-bottom: 90px
+      padding-bottom: 60px;
+      min-height: calc(100vh - 82px);
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 40px;
+      overflow: visible
     }
 
     .page-hero h1 {
       max-width: 900px
+    }
+
+    /* Contact page uses the same hero-diagram placement as Services */
+    .tools-visual {
+      min-height: 480px;
+      display: grid;
+      place-items: center;
+      width: 100%;
+      max-width: 100%;
+      overflow: visible
+    }
+
+    .tools-stage {
+      width: min(460px, 88vw);
+      height: min(460px, 88vw);
+      min-height: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1200px;
+      overflow: visible;
+      border: 0;
+      background: transparent
+    }
+
+    .tools-section {
+      width: min(var(--max), 90vw);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1
     }
 
     .contact-grid {
@@ -465,6 +503,275 @@
       color: #e08a7a
     }
 
+    /* ===== DEVELOPMENT TOOLS FLIP DIAGRAM ===== */
+    .tools-heading {
+      display: none
+    }
+
+    .tools-stage:focus {
+      outline: none
+    }
+
+    .tools-stage {
+      background: radial-gradient(circle at center, rgba(214, 179, 90, .075), transparent 38%);
+    }
+
+    .tools-stage:before,
+    .tools-stage:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border: 1px solid rgba(214, 179, 90, .09);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none
+    }
+
+    .tools-stage:before {
+      width: 280px;
+      height: 280px;
+      animation: orbitRing 12s linear infinite
+    }
+
+    .tools-stage:after {
+      width: 430px;
+      height: 430px;
+      border-style: dashed;
+      opacity: .45;
+      animation: orbitRingReverse 18s linear infinite
+    }
+
+    .tool-orbit-dot {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 14px var(--gold);
+      z-index: 1
+    }
+
+    .dot-a {
+      top: 20%;
+      left: 30%;
+      animation: dotFloat 4s ease-in-out infinite
+    }
+
+    .dot-b {
+      top: 70%;
+      right: 27%;
+      animation: dotFloat 5s ease-in-out .8s infinite
+    }
+
+    .dot-c {
+      bottom: 18%;
+      left: 38%;
+      animation: dotFloat 4.5s ease-in-out 1.2s infinite
+    }
+
+    .tool-card {
+      width: 250px;
+      height: 250px;
+      position: relative;
+      z-index: 5;
+      transform-style: preserve-3d;
+      transition: transform .7s cubic-bezier(.22, .61, .36, 1), opacity .45s ease;
+    }
+
+    .tool-card.flip-out {
+      transform: rotateY(90deg) scale(.82);
+      opacity: 0
+    }
+
+    .tool-card.flip-in {
+      animation: toolFlipIn .8s cubic-bezier(.22, .61, .36, 1) both
+    }
+
+    .tool-face {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid rgba(214, 179, 90, .45);
+      background:
+        radial-gradient(circle at 50% 35%, rgba(214, 179, 90, .16), rgba(214, 179, 90, .035) 48%, rgba(5, 5, 5, .96) 78%);
+      box-shadow:
+        0 0 45px rgba(214, 179, 90, .09),
+        inset 0 0 40px rgba(214, 179, 90, .035);
+      transform: translateZ(1px);
+      overflow: hidden
+    }
+
+    .tool-face:before {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border: 1px solid rgba(255, 255, 255, .045);
+      pointer-events: none
+    }
+
+    .tool-face:after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 1px solid rgba(214, 179, 90, .07);
+      box-shadow: 0 0 45px rgba(214, 179, 90, .04);
+      pointer-events: none
+    }
+
+    .tool-mark {
+      position: relative;
+      z-index: 2;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(214, 179, 90, .55);
+      background: rgba(5, 5, 5, .68);
+      color: var(--gold2);
+      font: 700 30px "Space Grotesk", sans-serif;
+      letter-spacing: -2px;
+      box-shadow: 0 0 28px rgba(214, 179, 90, .10);
+    }
+
+    .tool-mark.small-mark {
+      font-size: 23px;
+      letter-spacing: -1px
+    }
+
+    .tool-mark.react-mark {
+      border-radius: 50%;
+      font-size: 25px
+    }
+
+    .tool-mark.git-mark {
+      border-radius: 16px;
+      transform: rotate(45deg);
+    }
+
+    .tool-mark.git-mark span {
+      transform: rotate(-45deg);
+    }
+
+    .tool-name {
+      position: relative;
+      z-index: 2;
+      margin-top: 23px;
+      font: 700 20px "Space Grotesk", sans-serif;
+      letter-spacing: 1px
+    }
+
+    .tool-type {
+      position: relative;
+      z-index: 2;
+      margin-top: 7px;
+      color: var(--gold);
+      font-size: 9px;
+      letter-spacing: 3px
+    }
+
+    .tool-counter {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #555;
+      font-size: 9px;
+      letter-spacing: 2px;
+      z-index: 2;
+      white-space: nowrap
+    }
+
+    .tools-progress {
+      width: 250px;
+      height: 1px;
+      position: absolute;
+      left: 50%;
+      bottom: 25px;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, .08);
+      overflow: hidden;
+      z-index: 6
+    }
+
+    .tools-progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--gold);
+      box-shadow: 0 0 12px var(--gold);
+      animation: progressLine 3.1s linear infinite
+    }
+
+    @keyframes toolFlipIn {
+      0% {
+        opacity: 0;
+        transform: rotateY(-90deg) scale(.82)
+      }
+
+      100% {
+        opacity: 1;
+        transform: rotateY(0) scale(1)
+      }
+    }
+
+    @keyframes orbitRing {
+      to {
+        transform: translate(-50%, -50%) rotate(360deg)
+      }
+    }
+
+    @keyframes orbitRingReverse {
+      to {
+        transform: translate(-50%, -50%) rotate(-360deg)
+      }
+    }
+
+    @keyframes dotFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: .45
+      }
+
+      50% {
+        transform: translateY(-13px) scale(1.5);
+        opacity: 1
+      }
+    }
+
+    @keyframes progressLine {
+      0% {
+        width: 0
+      }
+
+      100% {
+        width: 100%
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      .tools-stage:before,
+      .tools-stage:after,
+      .tool-orbit-dot,
+      .tools-progress span {
+        animation: none !important
+      }
+
+      .tool-card.flip-in {
+        animation: none !important
+      }
+    }
+
     .dark-panel {
       width: 100%;
       padding-left: 10%;
@@ -582,6 +889,26 @@
         align-items: flex-start
       }
 
+      .page-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 60px;
+        padding-bottom: 30px;
+        gap: 20px
+      }
+
+      .tools-visual {
+        min-height: 340px;
+        order: -1
+      }
+
+      .tools-stage {
+        width: 80vw;
+        height: 80vw;
+        max-width: 340px;
+        max-height: 340px
+      }
+
       .page-hero h1 {
         font-size: 58px;
         letter-spacing: -3px
@@ -600,6 +927,116 @@
 
       .contact-form {
         padding: 26px
+      }
+
+      .tool-card {
+        width: 210px;
+        height: 210px
+      }
+
+      .tool-mark {
+        width: 78px;
+        height: 78px;
+        font-size: 24px
+      }
+
+      .tool-mark.small-mark {
+        font-size: 19px
+      }
+
+      .tool-mark.react-mark {
+        font-size: 21px
+      }
+
+      .tool-name {
+        margin-top: 17px;
+        font-size: 17px
+      }
+
+      .tool-type {
+        font-size: 8px;
+        letter-spacing: 2.5px
+      }
+
+      .tools-progress {
+        width: 210px;
+        bottom: 18px
+      }
+
+      .tools-stage:before {
+        width: 230px;
+        height: 230px
+      }
+
+      .tools-stage:after {
+        width: 310px;
+        height: 310px
+      }
+
+      .dot-a {
+        left: 18%
+      }
+
+      .dot-b {
+        right: 17%
+      }
+    }
+
+    @media(max-width:480px) {
+      .page-hero {
+        padding-top: 60px;
+        padding-bottom: 30px
+      }
+
+      .page-hero h1 {
+        font-size: 50px;
+        letter-spacing: -2.5px
+      }
+
+      .tools-visual {
+        min-height: 310px
+      }
+
+      .tools-stage {
+        width: 84vw;
+        height: 84vw;
+        max-width: 340px;
+        max-height: 340px
+      }
+
+      .tool-card {
+        width: 185px;
+        height: 185px
+      }
+
+      .tool-mark {
+        width: 66px;
+        height: 66px;
+        font-size: 21px
+      }
+
+      .tool-name {
+        margin-top: 14px;
+        font-size: 15px
+      }
+
+      .tool-type {
+        margin-top: 5px;
+        font-size: 7px
+      }
+
+      .tools-progress {
+        width: 185px
+      }
+
+      .tools-stage:before {
+        width: 205px;
+        height: 205px
+      }
+
+      .tools-stage:after {
+        width: 270px;
+        height: 270px
       }
     }
 
@@ -785,48 +1222,6 @@
         display: none
       }
     }
-
-    .custom-cursor {
-      position: fixed;
-      width: 40px;
-      height: 40px;
-      border: 1px solid #d6b35a;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 20px rgba(214, 179, 90, 0.3);
-      opacity: 0;
-      visibility: hidden
-    }
-
-    .cursor-dot {
-      position: fixed;
-      width: 6px;
-      height: 6px;
-      background: #d6b35a;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 10000;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 12px #d6b35a;
-      opacity: 0;
-      visibility: hidden
-    }
-
-    body.cursor-active .custom-cursor,
-    body.cursor-active .cursor-dot {
-      opacity: 1;
-      visibility: visible
-    }
-
-    @media (hover: none) {
-
-      .custom-cursor,
-      .cursor-dot {
-        display: none
-      }
-    }
   </style>
 </head>
 
@@ -846,12 +1241,15 @@
   </div>
 
   <div class="cursor-glow"></div>
+
   <header class="site-header">
     <a class="logo" href="index.html">
       <span class="dev-icon" aria-hidden="true"><span>&lt;</span><i>/</i><span>&gt;</span></span>
       <span class="logo-text"><b>ALI</b>CODELAB</span>
     </a>
+
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -862,14 +1260,40 @@
   </header>
 
   <main>
+
     <section class="page-hero section">
-      <div class="eyebrow reveal"><span></span>05 / CONTACT</div>
-      <h1 class="reveal">Let's build<br>something <em>great.</em></h1>
-      <p class="reveal">Tell me what you want to build, improve or automate. I'll help turn the idea into a practical
-        plan.</p>
+      <div class="hero-copy">
+        <div class="eyebrow reveal"><span></span>05 / CONTACT</div>
+        <h1 class="reveal">Let's build<br>something <em>great.</em></h1>
+        <p class="reveal">Tell me what you want to build, improve or automate. I'll help turn the idea into a practical
+          plan.</p>
+      </div>
+
+      <!-- Same diagram position/layout as the Services page -->
+      <div class="tools-visual reveal">
+        <div class="tools-stage" aria-label="Development technologies animation">
+          <span class="tool-orbit-dot dot-a"></span>
+          <span class="tool-orbit-dot dot-b"></span>
+          <span class="tool-orbit-dot dot-c"></span>
+
+          <div class="tool-card" id="toolCard">
+            <div class="tool-face">
+              <div class="tool-mark" id="toolMark">&lt;/&gt;</div>
+              <div class="tool-name" id="toolName">HTML5</div>
+              <div class="tool-type" id="toolType">STRUCTURE</div>
+              <div class="tool-counter" id="toolCounter">01 / 09</div>
+            </div>
+          </div>
+
+          <div class="tools-progress" aria-hidden="true">
+            <span id="toolProgress"></span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section contact-grid">
+
       <div class="contact-copy reveal">
         <div class="eyebrow"><span></span>GET IN TOUCH</div>
         <h2>Start with a<br><span>simple message.</span></h2>
@@ -882,12 +1306,14 @@
             <span><small>PHONE</small><strong>Call Now</strong></span>
             <span class="arrow">→</span>
           </a>
+
           <a class="contact-card" href="https://wa.me/923227424734" target="_blank" rel="noopener">
-            <span class="c-icon wa-icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg">
+            <span class="c-icon wa-icon">
+              <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M16.004 3C9.376 3 4 8.373 4 15c0 2.24.616 4.335 1.687 6.13L4 29l8.05-1.657A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.75c-1.94 0-3.75-.55-5.29-1.503l-.38-.226-4.775.983.99-4.66-.248-.393A9.72 9.72 0 0 1 4.25 15c0-5.376 4.377-9.75 9.754-9.75 5.377 0 9.746 4.374 9.746 9.75s-4.369 9.75-9.746 9.75zm5.4-7.312c-.296-.148-1.75-.864-2.022-.963-.271-.099-.469-.148-.667.148-.198.297-.767.963-.94 1.16-.173.199-.346.223-.642.075-.297-.148-1.253-.462-2.386-1.472-.882-.786-1.478-1.756-1.65-2.053-.173-.297-.019-.457.13-.605.133-.132.297-.346.445-.52.148-.173.198-.297.297-.495.099-.198.05-.372-.025-.52-.075-.148-.667-1.607-.914-2.202-.24-.578-.485-.5-.667-.51l-.568-.01c-.198 0-.52.075-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.148.198 2.096 3.2 5.078 4.487.71.306 1.263.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.75-.716 1.997-1.408.247-.692.247-1.284.173-1.408-.074-.124-.271-.198-.568-.346z" />
-              </svg></span>
+              </svg>
+            </span>
             <span><small>WHATSAPP</small><strong>Chat on WhatsApp</strong></span>
             <span class="arrow">→</span>
           </a>
@@ -897,23 +1323,29 @@
       <div class="contact-form reveal">
         <h3>Send a message</h3>
         <p class="sub">Fill this in and it opens WhatsApp with your message ready to send.</p>
+
         <label>Your Name
           <input id="f-name" type="text" placeholder="e.g. Ahmed Raza">
         </label>
+
         <label>Email or Phone
           <input id="f-contact" type="text" placeholder="e.g. ahmed@business.com">
         </label>
+
         <label>Project Details
           <textarea id="f-msg"
             placeholder="A POS system for a retail shop, with inventory tracking and daily sales reports..."></textarea>
         </label>
+
         <div class="send-row">
           <a href="#" class="btn btn-gold send-btn" id="sendBtn">Send Message →</a>
           <span class="send-status" id="sendStatus"></span>
         </div>
+
         <p class="form-note">Sending opens WhatsApp on your device with the message pre-filled — nothing is stored on
           this site.</p>
       </div>
+
     </section>
 
     <section class="section dark-panel contact-panel reveal">
@@ -923,6 +1355,7 @@
       </div>
       <p>Available for custom builds and improvements to existing business systems.</p>
     </section>
+
   </main>
 
   <footer>
@@ -930,54 +1363,188 @@
       <span class="dev-icon" aria-hidden="true"><span>&lt;</span><i>/</i><span>&gt;</span></span>
       <span class="logo-text"><b>ALI</b>CODELAB</span>
     </a>
+
     <p>© 2026 AliCodeLab. Built with purpose.</p>
-    <div class="footer-links"><a href="index.html">Home</a><a href="projects.html">Projects</a></div>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+    </div>
   </footer>
 
   <script>
-    const menu = document.querySelector('.menu-toggle'), nav = document.querySelector('.nav');
-    if (menu) { menu.addEventListener('click', () => { nav.classList.toggle('open'); menu.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false') }); }
-    document.querySelectorAll('.nav a').forEach(link => { link.addEventListener('click', () => { if (nav.classList.contains('open')) { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false') } }) });
+    const menu = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    if (menu) {
+      menu.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        menu.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
+      });
+    }
+
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          menu.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
     const glow = document.querySelector('.cursor-glow');
     const customCursor = document.querySelector('.custom-cursor');
     const cursorDot = document.querySelector('.cursor-dot');
     let cursorStarted = false;
-    window.addEventListener('pointermove', e => {
-      if (glow) { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; }
-      if (customCursor) { customCursor.style.left = e.clientX + 'px'; customCursor.style.top = e.clientY + 'px'; }
-      if (cursorDot) { cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px'; }
-      if (!cursorStarted) { cursorStarted = true; document.body.classList.add('cursor-active'); }
-    });
-    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show') }), { threshold: .12 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    document.querySelectorAll('a[href]').forEach(a => { if (a.hostname === location.hostname && a.pathname === location.pathname && a.hash) { a.addEventListener('click', e => { const t = document.querySelector(a.hash); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }) } }) } });
 
-    const sendBtn = document.getElementById('sendBtn'), sendStatus = document.getElementById('sendStatus');
+    window.addEventListener('pointermove', e => {
+      if (glow) {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+      }
+
+      if (customCursor) {
+        customCursor.style.left = e.clientX + 'px';
+        customCursor.style.top = e.clientY + 'px';
+      }
+
+      if (cursorDot) {
+        cursorDot.style.left = e.clientX + 'px';
+        cursorDot.style.top = e.clientY + 'px';
+      }
+
+      if (!cursorStarted) {
+        cursorStarted = true;
+        document.body.classList.add('cursor-active');
+      }
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('show');
+      });
+    }, { threshold: .12 });
+
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    document.querySelectorAll('a[href]').forEach(a => {
+      if (a.hostname === location.hostname && a.pathname === location.pathname && a.hash) {
+        a.addEventListener('click', e => {
+          const t = document.querySelector(a.hash);
+          if (t) {
+            e.preventDefault();
+            t.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+    });
+
+    /* WhatsApp form */
+    const sendBtn = document.getElementById('sendBtn');
+    const sendStatus = document.getElementById('sendStatus');
+
     sendBtn.addEventListener('click', e => {
       e.preventDefault();
+
       const name = document.getElementById('f-name').value.trim();
       const contact = document.getElementById('f-contact').value.trim();
       const msg = document.getElementById('f-msg').value.trim();
-      if (!name || !msg) { sendStatus.textContent = 'Please add your name and project details.'; sendStatus.className = 'send-status err'; return; }
-      sendStatus.textContent = 'Opening WhatsApp...'; sendStatus.className = 'send-status ok';
+
+      if (!name || !msg) {
+        sendStatus.textContent = 'Please add your name and project details.';
+        sendStatus.className = 'send-status err';
+        return;
+      }
+
+      sendStatus.textContent = 'Opening WhatsApp...';
+      sendStatus.className = 'send-status ok';
+
       const text = `Hi, I'm ${name}.${contact ? ` Reply to: ${contact}.` : ''}\n\n${msg}`;
-      window.open(`https://wa.me/923227424734?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+
+      window.open(
+        `https://wa.me/923227424734?text=${encodeURIComponent(text)}`,
+        '_blank',
+        'noopener'
+      );
     });
+
+    /* Preloader */
     window.addEventListener('load', () => {
       const pre = document.getElementById('preloader');
       const icon = document.querySelector('.pre-icon');
       const label = document.getElementById('preLabel');
       const body = document.body;
+
       setTimeout(() => {
         icon.classList.add('fade-out');
         label.classList.add('show');
+
         setTimeout(() => {
           pre.classList.add('loaded');
           body.classList.remove('locked');
-          pre.addEventListener('transitionend', () => { pre.remove(); }, { once: true });
+
+          pre.addEventListener('transitionend', () => {
+            pre.remove();
+          }, { once: true });
         }, 700);
       }, 900);
     });
+
+    /* Development tools flip animation */
+    const tools = [
+      { name: 'HTML5', type: 'STRUCTURE', mark: '&lt;/&gt;', cls: '' },
+      { name: 'CSS3', type: 'INTERFACE', mark: '#{}', cls: '' },
+      { name: 'JavaScript', type: 'INTERACTION', mark: 'JS', cls: 'small-mark' },
+      { name: 'PHP', type: 'BACKEND', mark: 'PHP', cls: 'small-mark' },
+      { name: 'MySQL', type: 'DATABASE', mark: 'SQL', cls: 'small-mark' },
+      { name: 'Git', type: 'VERSION CONTROL', mark: '<span>G</span>', cls: 'git-mark' },
+      { name: 'GitHub', type: 'COLLABORATION', mark: 'GH', cls: 'small-mark' },
+      { name: 'React', type: 'COMPONENTS', mark: '⚛', cls: 'react-mark' },
+      { name: 'Node.js', type: 'RUNTIME', mark: 'NODE', cls: 'small-mark' }
+    ];
+
+    const toolCard = document.getElementById('toolCard');
+    const toolMark = document.getElementById('toolMark');
+    const toolName = document.getElementById('toolName');
+    const toolType = document.getElementById('toolType');
+    const toolCounter = document.getElementById('toolCounter');
+    const toolProgress = document.getElementById('toolProgress');
+
+    let toolIndex = 0;
+    const toolDuration = 3100;
+
+    function setTool(index) {
+      const tool = tools[index];
+
+      toolMark.className = 'tool-mark ' + (tool.cls || '');
+      toolMark.innerHTML = tool.mark;
+      toolName.textContent = tool.name;
+      toolType.textContent = tool.type;
+      toolCounter.textContent =
+        String(index + 1).padStart(2, '0') + ' / ' + String(tools.length).padStart(2, '0');
+
+      toolProgress.style.animation = 'none';
+      void toolProgress.offsetWidth;
+      toolProgress.style.animation = 'progressLine ' + toolDuration + 'ms linear infinite';
+    }
+
+    function nextTool() {
+      toolCard.classList.add('flip-out');
+
+      setTimeout(() => {
+        toolIndex = (toolIndex + 1) % tools.length;
+        setTool(toolIndex);
+
+        toolCard.classList.remove('flip-out');
+        toolCard.classList.remove('flip-in');
+
+        void toolCard.offsetWidth;
+        toolCard.classList.add('flip-in');
+      }, 480);
+    }
+
+    setTool(0);
+    setInterval(nextTool, toolDuration);
   </script>
 </body>
 
