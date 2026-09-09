@@ -1,156 +1,984 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Contact AliCodeLab for software and web development projects."><meta name="theme-color" content="#050505"><title>Contact | AliCodeLab</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='bg' cx='50%25' cy='35%25'%3E%3Cstop offset='0' stop-color='%23201b0f'/%3E%3Cstop offset='0.65' stop-color='%230d0d0d'/%3E%3Cstop offset='1' stop-color='%23030303'/%3E%3C/radialGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2.2' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect x='3' y='3' width='58' height='58' rx='14' fill='url(%23bg)' stroke='%23d6b35a' stroke-width='2'/%3E%3Crect x='7' y='7' width='50' height='50' rx='11' fill='none' stroke='%23d6b35a' stroke-opacity='.18'/%3E%3Cpath d='M25 20 L14 32 L25 44' fill='none' stroke='%23d6b35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' filter='url(%23glow)'/%3E%3Cpath d='M39 20 L50 32 L39 44' fill='none' stroke='%23d6b35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' filter='url(%23glow)'/%3E%3Cpath d='M36 17 L28 47' fill='none' stroke='%23fff1c4' stroke-width='3.5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='10' r='1.5' fill='%23ffe6a0'/%3E%3C/svg%3E">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-:root{--bg:#050505;--panel:#0d0d0d;--panel2:#111;--gold:#d6b35a;--gold2:#ffe6a0;--text:#f6f3eb;--muted:#92908a;--line:rgba(255,255,255,.10);--max:1240px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:5px 5px;z-index:10}.cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(214,179,90,.12),transparent 65%);pointer-events:none;transform:translate(-50%,-50%);z-index:0}
-.site-header{height:82px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(5,5,5,.82);backdrop-filter:blur(18px);z-index:20}
-.logo{display:flex;align-items:center;gap:11px;font:700 18px "Space Grotesk",sans-serif;letter-spacing:2px;color:#fff;text-decoration:none;white-space:nowrap}
-.logo-text b{color:var(--gold)}
-.dev-icon{width:34px;height:34px;display:flex;align-items:center;justify-content:center;gap:1px;border:1px solid rgba(214,179,90,.55);background:radial-gradient(circle at 50% 40%,rgba(214,179,90,.18),rgba(214,179,90,.03) 65%,transparent 100%);color:var(--gold);border-radius:8px;font:700 17px "Space Grotesk",sans-serif;position:relative;box-shadow:0 0 18px rgba(214,179,90,.08),inset 0 0 15px rgba(214,179,90,.05);transition:.35s ease}
-.dev-icon:before{content:"";position:absolute;inset:3px;border-radius:6px;border:1px solid rgba(255,255,255,.035);pointer-events:none}
-.dev-icon span:first-child{transform:translateX(1px)}
-.dev-icon span:last-child{transform:translateX(-1px)}
-.dev-icon i{font-style:normal;color:#fff;font-size:15px;opacity:.9}
-.logo:hover .dev-icon{border-color:var(--gold);transform:translateY(-2px) rotate(-2deg);box-shadow:0 0 25px rgba(214,179,90,.20),inset 0 0 18px rgba(214,179,90,.08)}
-.nav{display:flex;gap:34px}.nav a,.footer-links a{color:var(--muted);text-decoration:none;font-size:14px;transition:.3s}.nav a:hover,.nav a.active,.footer-links a:hover{color:#fff}.nav a.active:after{content:"";display:block;height:1px;background:var(--gold);margin-top:7px}.menu-toggle{display:none;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
-.section{width:min(var(--max),90vw);margin:auto;padding:120px 0;position:relative;z-index:1}.eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:700}.eyebrow span{display:inline-block;width:8px;height:8px;background:var(--gold);border-radius:50%;margin-right:10px;box-shadow:0 0 18px var(--gold)}h1,h2,h3{font-family:"Space Grotesk",sans-serif;margin:0}h1{font-size:clamp(55px,7vw,105px);line-height:.94;letter-spacing:-5px;margin:25px 0}h1 em,h2 span{color:var(--gold);font-style:normal}.hero-text,.page-hero p{max-width:660px;color:var(--muted);font-size:17px;line-height:1.8}.btn{display:inline-flex;align-items:center;gap:18px;padding:15px 22px;border:1px solid var(--line);border-radius:2px;text-decoration:none;font-weight:700;font-size:13px;transition:.3s}.btn-gold{background:var(--gold);color:#090909;border-color:var(--gold)}.btn-gold:hover{background:var(--gold2);transform:translateY(-3px);box-shadow:0 12px 35px rgba(214,179,90,.18)}
-.page-hero{padding-top:150px;padding-bottom:90px}.page-hero h1{max-width:900px}
-.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;max-width:1120px;align-items:start}
-.contact-copy h2{font-size:clamp(45px,5vw,68px);letter-spacing:-3px;margin:22px 0}.contact-copy>p{color:var(--muted);line-height:1.8;max-width:500px}
-.contact-cards{margin-top:44px;display:grid;gap:16px;max-width:480px}
-.contact-card{display:flex;align-items:center;gap:18px;border:1px solid var(--line);background:#0b0b0b;padding:22px;text-decoration:none;color:#fff;transition:.3s;position:relative;overflow:hidden}
-.contact-card:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(214,179,90,0) 40%,rgba(214,179,90,.06) 50%,rgba(214,179,90,0) 60%);transform:translateX(-100%);transition:transform .6s}
-.contact-card:hover:before{transform:translateX(100%)}
-.contact-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,.35)}
-.contact-card .c-icon{width:48px;height:48px;flex:0 0 48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;background:radial-gradient(circle at 40% 35%,rgba(214,179,90,.22),rgba(214,179,90,.04) 70%);border:1px solid rgba(214,179,90,.4);color:var(--gold)}
-.contact-card .wa-icon{background:radial-gradient(circle at 40% 35%,rgba(37,211,102,.22),rgba(37,211,102,.04) 70%);border-color:rgba(37,211,102,.45);color:#25D366}
-.contact-card small{display:block;color:var(--gold);font-size:9px;letter-spacing:2px;margin-bottom:6px}
-.contact-card strong{font-size:17px;display:block}
-.contact-card .arrow{margin-left:auto;color:var(--muted);font-size:18px;transition:.3s}
-.contact-card:hover .arrow{color:var(--gold);transform:translateX(4px)}
+<html lang="en">
 
-.contact-form{background:#0b0b0b;border:1px solid var(--line);padding:38px;position:relative}
-.contact-form:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.contact-form h3{font-size:22px;margin-bottom:6px}
-.contact-form .sub{color:var(--muted);font-size:13.5px;margin-bottom:28px}
-.contact-form label{display:block;color:#aaa;font-size:12px;margin-bottom:22px;letter-spacing:.3px}
-.contact-form input,.contact-form textarea{display:block;width:100%;margin-top:9px;background:#050505;border:1px solid var(--line);color:#fff;padding:14px;font:inherit;font-size:14.5px;outline:0;border-radius:2px;transition:border-color .25s,box-shadow .25s}
-.contact-form input:focus,.contact-form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(214,179,90,.12)}
-.contact-form textarea{resize:vertical;min-height:110px;line-height:1.6}
-.form-note{font-size:10.5px;color:#666;line-height:1.5;margin-top:4px}
-.send-row{display:flex;align-items:center;gap:18px;margin-top:6px;flex-wrap:wrap}
-.send-btn{border:none;cursor:pointer;font-family:inherit}
-.send-status{font-size:12.5px;color:var(--muted);min-height:1.3em}
-.send-status.ok{color:var(--gold)}
-.send-status.err{color:#e08a7a}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact AliCodeLab for software and web development projects.">
+  <meta name="theme-color" content="#050505">
+  <title>Contact | AliCodeLab</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='bg' cx='50%25' cy='35%25'%3E%3Cstop offset='0' stop-color='%23201b0f'/%3E%3Cstop offset='0.65' stop-color='%230d0d0d'/%3E%3Cstop offset='1' stop-color='%23030303'/%3E%3C/radialGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2.2' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect x='3' y='3' width='58' height='58' rx='14' fill='url(%23bg)' stroke='%23d6b35a' stroke-width='2'/%3E%3Crect x='7' y='7' width='50' height='50' rx='11' fill='none' stroke='%23d6b35a' stroke-opacity='.18'/%3E%3Cpath d='M25 20 L14 32 L25 44' fill='none' stroke='%23d6b35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' filter='url(%23glow)'/%3E%3Cpath d='M39 20 L50 32 L39 44' fill='none' stroke='%23d6b35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' filter='url(%23glow)'/%3E%3Cpath d='M36 17 L28 47' fill='none' stroke='%23fff1c4' stroke-width='3.5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='10' r='1.5' fill='%23ffe6a0'/%3E%3C/svg%3E">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-.dark-panel{width:100%;padding-left:10%;padding-right:10%;background:linear-gradient(120deg,#101010,#070707);border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:70px}.dark-panel h2{font-size:clamp(40px,5vw,75px);line-height:.98;margin-top:20px;letter-spacing:-3px}.dark-panel p{max-width:420px;color:var(--muted);line-height:1.8}
-footer{border-top:1px solid var(--line);padding:30px 5vw;display:flex;justify-content:space-between;align-items:center;gap:20px;color:#666;font-size:12px}.footer-links{display:flex;gap:22px}
-.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s,transform .8s}.reveal.show{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:40px}}
-@media(max-width:800px){.site-header{height:70px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:70px;left:0;right:0;background:#080808;border-bottom:1px solid var(--line);padding:20px 5vw;flex-direction:column;gap:18px}.nav.open{display:flex}.nav a.active:after{display:none}.section{padding:80px 0}.dark-panel{display:block;padding-left:5vw;padding-right:5vw}.dark-panel p{margin-top:30px}footer{flex-direction:column;align-items:flex-start}.page-hero h1{font-size:58px;letter-spacing:-3px}.logo{gap:9px;font-size:16px}.dev-icon{width:31px;height:31px;font-size:15px}.contact-form{padding:26px}}
-</style></head>
-<body>
-<div class="cursor-glow"></div>
-<header class="site-header">
-  <a class="logo" href="index.html">
-    <span class="dev-icon" aria-hidden="true"><span>&lt;</span><i>/</i><span>&gt;</span></span>
-    <span class="logo-text"><b>ALI</b>CODELAB</span>
-  </a>
-  <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-  <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="projects.html">Projects</a>
-    <a class="active" href="contact.html">Contact</a>
-  </nav>
-</header>
+    :root {
+      --bg: #050505;
+      --panel: #0d0d0d;
+      --panel2: #111;
+      --gold: #d6b35a;
+      --gold2: #ffe6a0;
+      --text: #f6f3eb;
+      --muted: #92908a;
+      --line: rgba(255, 255, 255, .10);
+      --max: 1240px
+    }
 
-<main>
-<section class="page-hero section">
-  <div class="eyebrow reveal"><span></span>05 / CONTACT</div>
-  <h1 class="reveal">Let's build<br>something <em>great.</em></h1>
-  <p class="reveal">Tell me what you want to build, improve or automate. I'll help turn the idea into a practical plan.</p>
-</section>
+    * {
+      box-sizing: border-box
+    }
 
-<section class="section contact-grid">
-  <div class="contact-copy reveal">
-    <div class="eyebrow"><span></span>GET IN TOUCH</div>
-    <h2>Start with a<br><span>simple message.</span></h2>
-    <p>For software, POS, inventory, business dashboards or web development, send the details and we'll take it from there.</p>
+    html {
+      scroll-behavior: smooth
+    }
 
-    <div class="contact-cards">
-      <a class="contact-card" href="tel:+923227424734">
-        <span class="c-icon">📞</span>
-        <span><small>PHONE</small><strong>Call Now</strong></span>
-        <span class="arrow">→</span>
-      </a>
-      <a class="contact-card" href="https://wa.me/923227424734" target="_blank" rel="noopener">
-        <span class="c-icon wa-icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.24.616 4.335 1.687 6.13L4 29l8.05-1.657A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.75c-1.94 0-3.75-.55-5.29-1.503l-.38-.226-4.775.983.99-4.66-.248-.393A9.72 9.72 0 0 1 4.25 15c0-5.376 4.377-9.75 9.754-9.75 5.377 0 9.746 4.374 9.746 9.75s-4.369 9.75-9.746 9.75zm5.4-7.312c-.296-.148-1.75-.864-2.022-.963-.271-.099-.469-.148-.667.148-.198.297-.767.963-.94 1.16-.173.199-.346.223-.642.075-.297-.148-1.253-.462-2.386-1.472-.882-.786-1.478-1.756-1.65-2.053-.173-.297-.019-.457.13-.605.133-.132.297-.346.445-.52.148-.173.198-.297.297-.495.099-.198.05-.372-.025-.52-.075-.148-.667-1.607-.914-2.202-.24-.578-.485-.5-.667-.51l-.568-.01c-.198 0-.52.075-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.148.198 2.096 3.2 5.078 4.487.71.306 1.263.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.75-.716 1.997-1.408.247-.692.247-1.284.173-1.408-.074-.124-.271-.198-.568-.346z"/></svg></span>
-        <span><small>WHATSAPP</small><strong>Chat on WhatsApp</strong></span>
-        <span class="arrow">→</span>
-      </a>
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .04;
+      background-image: radial-gradient(#fff 1px, transparent 1px);
+      background-size: 5px 5px;
+      z-index: 10
+    }
+
+    .cursor-glow {
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(214, 179, 90, .12), transparent 65%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 0
+    }
+
+    .site-header {
+      height: 82px;
+      padding: 0 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: rgba(5, 5, 5, .82);
+      backdrop-filter: blur(18px);
+      z-index: 20
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font: 700 18px "Space Grotesk", sans-serif;
+      letter-spacing: 2px;
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap
+    }
+
+    .logo-text b {
+      color: var(--gold)
+    }
+
+    .dev-icon {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      border: 1px solid rgba(214, 179, 90, .55);
+      background: radial-gradient(circle at 50% 40%, rgba(214, 179, 90, .18), rgba(214, 179, 90, .03) 65%, transparent 100%);
+      color: var(--gold);
+      border-radius: 8px;
+      font: 700 17px "Space Grotesk", sans-serif;
+      position: relative;
+      box-shadow: 0 0 18px rgba(214, 179, 90, .08), inset 0 0 15px rgba(214, 179, 90, .05);
+      transition: .35s ease
+    }
+
+    .dev-icon:before {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, .035);
+      pointer-events: none
+    }
+
+    .dev-icon span:first-child {
+      transform: translateX(1px)
+    }
+
+    .dev-icon span:last-child {
+      transform: translateX(-1px)
+    }
+
+    .dev-icon i {
+      font-style: normal;
+      color: #fff;
+      font-size: 15px;
+      opacity: .9
+    }
+
+    .logo:hover .dev-icon {
+      border-color: var(--gold);
+      transform: translateY(-2px) rotate(-2deg);
+      box-shadow: 0 0 25px rgba(214, 179, 90, .20), inset 0 0 18px rgba(214, 179, 90, .08)
+    }
+
+    .nav {
+      display: flex;
+      gap: 34px
+    }
+
+    .nav a,
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: .3s
+    }
+
+    .nav a:hover,
+    .nav a.active,
+    .footer-links a:hover {
+      color: #fff
+    }
+
+    .nav a.active:after {
+      content: "";
+      display: block;
+      height: 1px;
+      background: var(--gold);
+      margin-top: 7px
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      color: #fff;
+      font-size: 25px;
+      cursor: pointer
+    }
+
+    .section {
+      width: min(var(--max), 90vw);
+      margin: auto;
+      padding: 120px 0;
+      position: relative;
+      z-index: 1
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 700
+    }
+
+    .eyebrow span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-right: 10px;
+      box-shadow: 0 0 18px var(--gold)
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Space Grotesk", sans-serif;
+      margin: 0
+    }
+
+    h1 {
+      font-size: clamp(55px, 7vw, 105px);
+      line-height: .94;
+      letter-spacing: -5px;
+      margin: 25px 0
+    }
+
+    h1 em,
+    h2 span {
+      color: var(--gold);
+      font-style: normal
+    }
+
+    .hero-text,
+    .page-hero p {
+      max-width: 660px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      padding: 15px 22px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      transition: .3s
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #090909;
+      border-color: var(--gold)
+    }
+
+    .btn-gold:hover {
+      background: var(--gold2);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(214, 179, 90, .18)
+    }
+
+    .page-hero {
+      padding-top: 150px;
+      padding-bottom: 90px
+    }
+
+    .page-hero h1 {
+      max-width: 900px
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 70px;
+      max-width: 1120px;
+      align-items: start
+    }
+
+    .contact-copy h2 {
+      font-size: clamp(45px, 5vw, 68px);
+      letter-spacing: -3px;
+      margin: 22px 0
+    }
+
+    .contact-copy>p {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 500px
+    }
+
+    .contact-cards {
+      margin-top: 44px;
+      display: grid;
+      gap: 16px;
+      max-width: 480px
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      border: 1px solid var(--line);
+      background: #0b0b0b;
+      padding: 22px;
+      text-decoration: none;
+      color: #fff;
+      transition: .3s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .contact-card:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(214, 179, 90, 0) 40%, rgba(214, 179, 90, .06) 50%, rgba(214, 179, 90, 0) 60%);
+      transform: translateX(-100%);
+      transition: transform .6s
+    }
+
+    .contact-card:hover:before {
+      transform: translateX(100%)
+    }
+
+    .contact-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .35)
+    }
+
+    .contact-card .c-icon {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      background: radial-gradient(circle at 40% 35%, rgba(214, 179, 90, .22), rgba(214, 179, 90, .04) 70%);
+      border: 1px solid rgba(214, 179, 90, .4);
+      color: var(--gold)
+    }
+
+    .contact-card .wa-icon {
+      background: radial-gradient(circle at 40% 35%, rgba(37, 211, 102, .22), rgba(37, 211, 102, .04) 70%);
+      border-color: rgba(37, 211, 102, .45);
+      color: #25D366
+    }
+
+    .contact-card small {
+      display: block;
+      color: var(--gold);
+      font-size: 9px;
+      letter-spacing: 2px;
+      margin-bottom: 6px
+    }
+
+    .contact-card strong {
+      font-size: 17px;
+      display: block
+    }
+
+    .contact-card .arrow {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 18px;
+      transition: .3s
+    }
+
+    .contact-card:hover .arrow {
+      color: var(--gold);
+      transform: translateX(4px)
+    }
+
+    .contact-form {
+      background: #0b0b0b;
+      border: 1px solid var(--line);
+      padding: 38px;
+      position: relative
+    }
+
+    .contact-form:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent)
+    }
+
+    .contact-form h3 {
+      font-size: 22px;
+      margin-bottom: 6px
+    }
+
+    .contact-form .sub {
+      color: var(--muted);
+      font-size: 13.5px;
+      margin-bottom: 28px
+    }
+
+    .contact-form label {
+      display: block;
+      color: #aaa;
+      font-size: 12px;
+      margin-bottom: 22px;
+      letter-spacing: .3px
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      margin-top: 9px;
+      background: #050505;
+      border: 1px solid var(--line);
+      color: #fff;
+      padding: 14px;
+      font: inherit;
+      font-size: 14.5px;
+      outline: 0;
+      border-radius: 2px;
+      transition: border-color .25s, box-shadow .25s
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(214, 179, 90, .12)
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6
+    }
+
+    .form-note {
+      font-size: 10.5px;
+      color: #666;
+      line-height: 1.5;
+      margin-top: 4px
+    }
+
+    .send-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 6px;
+      flex-wrap: wrap
+    }
+
+    .send-btn {
+      border: none;
+      cursor: pointer;
+      font-family: inherit
+    }
+
+    .send-status {
+      font-size: 12.5px;
+      color: var(--muted);
+      min-height: 1.3em
+    }
+
+    .send-status.ok {
+      color: var(--gold)
+    }
+
+    .send-status.err {
+      color: #e08a7a
+    }
+
+    .dark-panel {
+      width: 100%;
+      padding-left: 10%;
+      padding-right: 10%;
+      background: linear-gradient(120deg, #101010, #070707);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 70px
+    }
+
+    .dark-panel h2 {
+      font-size: clamp(40px, 5vw, 75px);
+      line-height: .98;
+      margin-top: 20px;
+      letter-spacing: -3px
+    }
+
+    .dark-panel p {
+      max-width: 420px;
+      color: var(--muted);
+      line-height: 1.8
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: #666;
+      font-size: 12px
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 22px
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .8s, transform .8s
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: none
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none
+      }
+    }
+
+    @media(max-width:900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
+    }
+
+    @media(max-width:800px) {
+      .site-header {
+        height: 70px
+      }
+
+      .menu-toggle {
+        display: block
+      }
+
+      .nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #080808;
+        border-bottom: 1px solid var(--line);
+        padding: 20px 5vw;
+        flex-direction: column;
+        gap: 18px
+      }
+
+      .nav.open {
+        display: flex
+      }
+
+      .nav a.active:after {
+        display: none
+      }
+
+      .section {
+        padding: 80px 0
+      }
+
+      .dark-panel {
+        display: block;
+        padding-left: 5vw;
+        padding-right: 5vw
+      }
+
+      .dark-panel p {
+        margin-top: 30px
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start
+      }
+
+      .page-hero h1 {
+        font-size: 58px;
+        letter-spacing: -3px
+      }
+
+      .logo {
+        gap: 9px;
+        font-size: 16px
+      }
+
+      .dev-icon {
+        width: 31px;
+        height: 31px;
+        font-size: 15px
+      }
+
+      .contact-form {
+        padding: 26px
+      }
+    }
+
+    body.locked {
+      overflow: hidden;
+      height: 100vh
+    }
+
+    #preloader {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity .6s ease, visibility .6s ease
+    }
+
+    #preloader.loaded {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none
+    }
+
+    .pre-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 130px;
+      height: 130px;
+      overflow: visible
+    }
+
+    .pre-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(214, 179, 90, .22);
+      border-top-color: var(--gold);
+      animation: preSpin 1.1s linear infinite
+    }
+
+    .pre-icon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      border: 1px solid rgba(214, 179, 90, .55);
+      background: radial-gradient(circle at 50% 40%, rgba(214, 179, 90, .18), rgba(214, 179, 90, .03) 65%, transparent 100%);
+      color: var(--gold);
+      border-radius: 14px;
+      font: 700 30px "Space Grotesk", sans-serif;
+      position: absolute;
+      box-shadow: 0 0 25px rgba(214, 179, 90, .12), inset 0 0 20px rgba(214, 179, 90, .06);
+      animation: preFloat 1.6s ease-in-out infinite;
+      z-index: 1;
+      transition: opacity .4s ease, transform .4s ease
+    }
+
+    .pre-icon.fade-out {
+      opacity: 0;
+      transform: scale(.7)
+    }
+
+    .pre-icon:before {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, .04);
+      pointer-events: none
+    }
+
+    .pre-icon span:first-child {
+      transform: translateX(2px)
+    }
+
+    .pre-icon span:last-child {
+      transform: translateX(-2px)
+    }
+
+    .pre-icon i {
+      font-style: normal;
+      color: #fff;
+      font-size: 27px;
+      opacity: .9
+    }
+
+    .pre-label {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(.8);
+      font: 700 20px "Space Grotesk", sans-serif;
+      letter-spacing: 3px;
+      color: var(--text);
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity .4s ease, transform .4s ease;
+      z-index: 1000
+    }
+
+    .pre-label.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1)
+    }
+
+    .pre-label b {
+      color: var(--gold)
+    }
+
+    @keyframes preSpin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes preFloat {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-4px)
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      .pre-ring,
+      .pre-icon {
+        animation: none !important
+      }
+    }
+
+    .custom-cursor {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #d6b35a;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px rgba(214, 179, 90, 0.3);
+      opacity: 0;
+      visibility: hidden
+    }
+
+    .cursor-dot {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: #d6b35a;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 12px #d6b35a;
+      opacity: 0;
+      visibility: hidden
+    }
+
+    body.cursor-active .custom-cursor,
+    body.cursor-active .cursor-dot {
+      opacity: 1;
+      visibility: visible
+    }
+
+    @media (hover:none) {
+
+      .custom-cursor,
+      .cursor-dot {
+        display: none
+      }
+    }
+
+    .custom-cursor {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #d6b35a;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px rgba(214, 179, 90, 0.3);
+      opacity: 0;
+      visibility: hidden
+    }
+
+    .cursor-dot {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: #d6b35a;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 12px #d6b35a;
+      opacity: 0;
+      visibility: hidden
+    }
+
+    body.cursor-active .custom-cursor,
+    body.cursor-active .cursor-dot {
+      opacity: 1;
+      visibility: visible
+    }
+
+    @media (hover: none) {
+
+      .custom-cursor,
+      .cursor-dot {
+        display: none
+      }
+    }
+  </style>
+</head>
+
+<body class="locked">
+
+  <div class="custom-cursor"></div>
+  <div class="cursor-dot"></div>
+
+  <div id="preloader">
+    <div class="pre-wrap">
+      <div class="pre-ring"></div>
+      <div class="pre-icon" aria-hidden="true">
+        <span>&lt;</span><i>/</i><span>&gt;</span>
+      </div>
+      <div class="pre-label" id="preLabel"><b>ALI</b>CODELAB</div>
     </div>
   </div>
 
-  <div class="contact-form reveal">
-    <h3>Send a message</h3>
-    <p class="sub">Fill this in and it opens WhatsApp with your message ready to send.</p>
-    <label>Your Name
-      <input id="f-name" type="text" placeholder="e.g. Ahmed Raza">
-    </label>
-    <label>Email or Phone
-      <input id="f-contact" type="text" placeholder="e.g. ahmed@business.com">
-    </label>
-    <label>Project Details
-      <textarea id="f-msg" placeholder="A POS system for a retail shop, with inventory tracking and daily sales reports..."></textarea>
-    </label>
-    <div class="send-row">
-      <a href="#" class="btn btn-gold send-btn" id="sendBtn">Send Message →</a>
-      <span class="send-status" id="sendStatus"></span>
-    </div>
-    <p class="form-note">Sending opens WhatsApp on your device with the message pre-filled — nothing is stored on this site.</p>
-  </div>
-</section>
+  <div class="cursor-glow"></div>
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span class="dev-icon" aria-hidden="true"><span>&lt;</span><i>/</i><span>&gt;</span></span>
+      <span class="logo-text"><b>ALI</b>CODELAB</span>
+    </a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a class="active" href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<section class="section dark-panel contact-panel reveal">
-  <div><div class="eyebrow"><span></span>SERVICES</div><h2>POS · INVENTORY<br><span>WEB · SOFTWARE</span></h2></div>
-  <p>Available for custom builds and improvements to existing business systems.</p>
-</section>
-</main>
+  <main>
+    <section class="page-hero section">
+      <div class="eyebrow reveal"><span></span>05 / CONTACT</div>
+      <h1 class="reveal">Let's build<br>something <em>great.</em></h1>
+      <p class="reveal">Tell me what you want to build, improve or automate. I'll help turn the idea into a practical
+        plan.</p>
+    </section>
 
-<footer>
-  <a class="logo" href="index.html">
-    <span class="dev-icon" aria-hidden="true"><span>&lt;</span><i>/</i><span>&gt;</span></span>
-    <span class="logo-text"><b>ALI</b>CODELAB</span>
-  </a>
-  <p>© 2026 AliCodeLab. Built with purpose.</p>
-  <div class="footer-links"><a href="index.html">Home</a><a href="projects.html">Projects</a></div>
-</footer>
+    <section class="section contact-grid">
+      <div class="contact-copy reveal">
+        <div class="eyebrow"><span></span>GET IN TOUCH</div>
+        <h2>Start with a<br><span>simple message.</span></h2>
+        <p>For software, POS, inventory, business dashboards or web development, send the details and we'll take it from
+          there.</p>
 
-<script>
-const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('.nav');
-if(menu){menu.addEventListener('click',()=>{nav.classList.toggle('open');menu.setAttribute('aria-expanded',nav.classList.contains('open')?'true':'false')});}
-document.querySelectorAll('.nav a').forEach(link=>{link.addEventListener('click',()=>{if(nav.classList.contains('open')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}})});
-const glow=document.querySelector('.cursor-glow');window.addEventListener('pointermove',e=>{if(glow){glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'}});
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-document.querySelectorAll('a[href]').forEach(a=>{if(a.hostname===location.hostname&&a.pathname===location.pathname&&a.hash){a.addEventListener('click',e=>{const t=document.querySelector(a.hash);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})}});
+        <div class="contact-cards">
+          <a class="contact-card" href="tel:+923227424734">
+            <span class="c-icon">📞</span>
+            <span><small>PHONE</small><strong>Call Now</strong></span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="contact-card" href="https://wa.me/923227424734" target="_blank" rel="noopener">
+            <span class="c-icon wa-icon"><svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16.004 3C9.376 3 4 8.373 4 15c0 2.24.616 4.335 1.687 6.13L4 29l8.05-1.657A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.75c-1.94 0-3.75-.55-5.29-1.503l-.38-.226-4.775.983.99-4.66-.248-.393A9.72 9.72 0 0 1 4.25 15c0-5.376 4.377-9.75 9.754-9.75 5.377 0 9.746 4.374 9.746 9.75s-4.369 9.75-9.746 9.75zm5.4-7.312c-.296-.148-1.75-.864-2.022-.963-.271-.099-.469-.148-.667.148-.198.297-.767.963-.94 1.16-.173.199-.346.223-.642.075-.297-.148-1.253-.462-2.386-1.472-.882-.786-1.478-1.756-1.65-2.053-.173-.297-.019-.457.13-.605.133-.132.297-.346.445-.52.148-.173.198-.297.297-.495.099-.198.05-.372-.025-.52-.075-.148-.667-1.607-.914-2.202-.24-.578-.485-.5-.667-.51l-.568-.01c-.198 0-.52.075-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.148.198 2.096 3.2 5.078 4.487.71.306 1.263.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.75-.716 1.997-1.408.247-.692.247-1.284.173-1.408-.074-.124-.271-.198-.568-.346z" />
+              </svg></span>
+            <span><small>WHATSAPP</small><strong>Chat on WhatsApp</strong></span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
 
-const sendBtn=document.getElementById('sendBtn'),sendStatus=document.getElementById('sendStatus');
-sendBtn.addEventListener('click',e=>{
-  e.preventDefault();
-  const name=document.getElementById('f-name').value.trim();
-  const contact=document.getElementById('f-contact').value.trim();
-  const msg=document.getElementById('f-msg').value.trim();
-  if(!name||!msg){sendStatus.textContent='Please add your name and project details.';sendStatus.className='send-status err';return;}
-  sendStatus.textContent='Opening WhatsApp...';sendStatus.className='send-status ok';
-  const text=`Hi, I'm ${name}.${contact?` Reply to: ${contact}.`:''}\n\n${msg}`;
-  window.open(`https://wa.me/923227424734?text=${encodeURIComponent(text)}`,'_blank','noopener');
-});
-</script>
-</body></html>
+      <div class="contact-form reveal">
+        <h3>Send a message</h3>
+        <p class="sub">Fill this in and it opens WhatsApp with your message ready to send.</p>
+        <label>Your Name
+          <input id="f-name" type="text" placeholder="e.g. Ahmed Raza">
+        </label>
+        <label>Email or Phone
+          <input id="f-contact" type="text" placeholder="e.g. ahmed@business.com">
+        </label>
+        <label>Project Details
+          <textarea id="f-msg"
+            placeholder="A POS system for a retail shop, with inventory tracking and daily sales reports..."></textarea>
+        </label>
+        <div class="send-row">
+          <a href="#" class="btn btn-gold send-btn" id="sendBtn">Send Message →</a>
+          <span class="send-status" id="sendStatus"></span>
+        </div>
+        <p class="form-note">Sending opens WhatsApp on your device with the message pre-filled — nothing is stored on
+          this site.</p>
+      </div>
+    </section>
+
+    <section class="section dark-panel contact-panel reveal">
+      <div>
+        <div class="eyebrow"><span></span>SERVICES</div>
+        <h2>POS · INVENTORY<br><span>WEB · SOFTWARE</span></h2>
+      </div>
+      <p>Available for custom builds and improvements to existing business systems.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="index.html">
+      <span class="dev-icon" aria-hidden="true"><span>&lt;</span><i>/</i><span>&gt;</span></span>
+      <span class="logo-text"><b>ALI</b>CODELAB</span>
+    </a>
+    <p>© 2026 AliCodeLab. Built with purpose.</p>
+    <div class="footer-links"><a href="index.html">Home</a><a href="projects.html">Projects</a></div>
+  </footer>
+
+  <script>
+    const menu = document.querySelector('.menu-toggle'), nav = document.querySelector('.nav');
+    if (menu) { menu.addEventListener('click', () => { nav.classList.toggle('open'); menu.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false') }); }
+    document.querySelectorAll('.nav a').forEach(link => { link.addEventListener('click', () => { if (nav.classList.contains('open')) { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false') } }) });
+    const glow = document.querySelector('.cursor-glow');
+    const customCursor = document.querySelector('.custom-cursor');
+    const cursorDot = document.querySelector('.cursor-dot');
+    let cursorStarted = false;
+    window.addEventListener('pointermove', e => {
+      if (glow) { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; }
+      if (customCursor) { customCursor.style.left = e.clientX + 'px'; customCursor.style.top = e.clientY + 'px'; }
+      if (cursorDot) { cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px'; }
+      if (!cursorStarted) { cursorStarted = true; document.body.classList.add('cursor-active'); }
+    });
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show') }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    document.querySelectorAll('a[href]').forEach(a => { if (a.hostname === location.hostname && a.pathname === location.pathname && a.hash) { a.addEventListener('click', e => { const t = document.querySelector(a.hash); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }) } }) } });
+
+    const sendBtn = document.getElementById('sendBtn'), sendStatus = document.getElementById('sendStatus');
+    sendBtn.addEventListener('click', e => {
+      e.preventDefault();
+      const name = document.getElementById('f-name').value.trim();
+      const contact = document.getElementById('f-contact').value.trim();
+      const msg = document.getElementById('f-msg').value.trim();
+      if (!name || !msg) { sendStatus.textContent = 'Please add your name and project details.'; sendStatus.className = 'send-status err'; return; }
+      sendStatus.textContent = 'Opening WhatsApp...'; sendStatus.className = 'send-status ok';
+      const text = `Hi, I'm ${name}.${contact ? ` Reply to: ${contact}.` : ''}\n\n${msg}`;
+      window.open(`https://wa.me/923227424734?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    });
+    window.addEventListener('load', () => {
+      const pre = document.getElementById('preloader');
+      const icon = document.querySelector('.pre-icon');
+      const label = document.getElementById('preLabel');
+      const body = document.body;
+      setTimeout(() => {
+        icon.classList.add('fade-out');
+        label.classList.add('show');
+        setTimeout(() => {
+          pre.classList.add('loaded');
+          body.classList.remove('locked');
+          pre.addEventListener('transitionend', () => { pre.remove(); }, { once: true });
+        }, 700);
+      }, 900);
+    });
+  </script>
+</body>
+
+</html>
